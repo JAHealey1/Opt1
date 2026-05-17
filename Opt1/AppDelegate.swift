@@ -46,13 +46,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     /// window and the "Permissions…" menu re-open.
     private let permissionsState = PermissionsState()
 
-    private lazy var updaterController: SPUStandardUpdaterController = {
-        SPUStandardUpdaterController(
-            startingUpdater: true,
-            updaterDelegate: nil,
-            userDriverDelegate: nil
-        )
-    }()
+    private let updaterController = SPUStandardUpdaterController(
+        startingUpdater: true,
+        updaterDelegate: nil,
+        userDriverDelegate: nil
+    )
     /// Shared navigation state
     private let settingsNavigation = SettingsNavigationModel()
 
@@ -66,6 +64,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // MARK: - Lifecycle
 
     func applicationDidFinishLaunching(_ notification: Notification) {
+        UserDefaults.standard.register(defaults: [AppSettings.Keys.debugMode: true])
         NSApp.setActivationPolicy(.accessory)
         setupStatusItem()
         showOnboardingIfNeeded()

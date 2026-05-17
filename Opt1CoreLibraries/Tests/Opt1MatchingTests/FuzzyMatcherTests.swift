@@ -185,4 +185,135 @@ struct FuzzyMatcherTests {
         let match = try #require(result)
         #expect(match.clue.id == "c1")
     }
+
+    // MARK: - Corpus regression (long skill / emote OCR splits)
+
+    /// Exact `clue` strings from `clues.json` — regression anchors for multi-line Vision output.
+    private enum CorpusClueText {
+        static let skill1575 =
+            "Those things I once held dear continue to fade. I look upon her face and barely know who she is. But her eyes... They are still so radiant."
+        static let skill1575Solution =
+            "Harvest a radiant memory on Dragontooth Island. A Dungeoneering cape can be used to teleport directly to the Dragontooth Island resource dungeon."
+        static let emote0398 =
+            "Salute in the Max Guild Garden. Beware of double agents! Have no items equipped when you do."
+        static let emote0374 =
+            "Cheer by the sulphur pit in the TzHaar City. Beware of double agents! Equip a fire cape, a Toktz-ket-xil and a spork."
+        /// Different enough from `skill1575` that it should not steal the match.
+        static let distractorSkill =
+            "Being open to Chaos can raise your defences. It may also bring you closer to death. Take a moment to bottle this feeling."
+    }
+
+    private func skillClue(id: String, clue: String, solution: String = CorpusClueText.skill1575Solution) -> ClueSolution {
+        ClueSolution(
+            id: id, type: "skill", difficulty: "master", clue: clue, solution: solution,
+            location: nil, coordinates: nil, mapId: nil, imageRef: nil, travel: nil, confidence: nil
+        )
+    }
+
+    private func emoteClue(id: String, clue: String, solution: String, location: String?) -> ClueSolution {
+        ClueSolution(
+            id: id, type: "emote", difficulty: "master", clue: clue, solution: solution,
+            location: location, coordinates: nil, mapId: 28, imageRef: nil, travel: nil, confidence: nil
+        )
+    }
+
+    @Test("bestMatch: skill_1575 master riddle with garbled title + four body lines")
+    func corpusSkill1575TitlePlusFourLines() throws {
+        var m = FuzzyMatcher()
+        m.confidenceThreshold = 0.72
+        let db: [ClueSolution] = [
+            skillClue(id: "skill_1575", clue: CorpusClueText.skill1575),
+            skillClue(id: "skill_distractor", clue: CorpusClueText.distractorSkill,
+                      solution: "dummy solution long enough"),
+        ]
+        let obs = [
+            "MÜSTERRMIS CLME SRANI",
+            "Those things I once held dear continue to fade.",
+            "I look upon her face and barely know who she is.",
+            "But her eyes...",
+            "They are still so radiant.",
+        ]
+        let result = m.bestMatch(forAny: obs, in: ClueCorpus(clues: db))
+        let match = try #require(result)
+        #expect(match.clue.id == "skill_1575")
+        #expect(match.confidence >= 0.72)
+    }
+
+    @Test("bestMatch: skill_1575 split into five body fragments (needs wide window / full join)")
+    func corpusSkill1575FiveBodyFragments() throws {
+        var m = FuzzyMatcher()
+        m.confidenceThreshold = 0.72
+        let db: [ClueSolution] = [
+            skillClue(id: "skill_1575", clue: CorpusClueText.skill1575),
+            skillClue(id: "skill_distractor", clue: CorpusClueText.distractorSkill,
+                      solution: "other"),
+        ]
+        // Split first sentence across two observations (simulates Vision line wraps).
+        let obs = [
+            "MVSADOS LINE",
+            "Those things I once held dear",
+            "continue to fade.",
+            "I look upon her face and barely know who she is.",
+            "But her eyes...",
+            "They are still so radiant.",
+        ]
+        let result = m.bestMatch(forAny: obs, in: ClueCorpus(clues: db))
+        let match = try #require(result)
+        #expect(match.clue.id == "skill_1575")
+    }
+
+    @Test("bestMatch: emote_0398 Max Guild Garden across three OCR lines")
+    func corpusEmote0398ThreeLines() throws {
+        var m = FuzzyMatcher()
+        m.confidenceThreshold = 0.72
+        let db: [ClueSolution] = [
+            emoteClue(
+                id: "emote_0398",
+                clue: CorpusClueText.emote0398,
+                solution: "Max Guild Garden",
+                location: "Max Guild Garden"
+            ),
+            emoteClue(
+                id: "other_emote",
+                clue: "Wave in front of the entrance to the Grand Library of Menaphos. Beware of double agents!",
+                solution: "Menaphos",
+                location: "Menaphos"
+            ),
+        ]
+        let obs = [
+            "MUSTERRMIS TITLE",
+            "Salute in the Max Guild Garden.",
+            "Beware of double agents! Have no items equipped when you do.",
+        ]
+        let result = m.bestMatch(forAny: obs, in: ClueCorpus(clues: db))
+        let match = try #require(result)
+        #expect(match.clue.id == "emote_0398")
+    }
+
+    @Test("bestMatch: emote_0374 TzHaar sulphur pit in two lines (OCR-style split)")
+    func corpusEmote0374TwoLines() throws {
+        var m = FuzzyMatcher()
+        m.confidenceThreshold = 0.72
+        let db: [ClueSolution] = [
+            emoteClue(
+                id: "emote_0374",
+                clue: CorpusClueText.emote0374,
+                solution: "TzHaar City",
+                location: "TzHaar City"
+            ),
+            emoteClue(
+                id: "other_emote",
+                clue: "Salute in the banana plantation. Beware of double agents! Equip a diamond ring.",
+                solution: "Karamja",
+                location: "Karamja"
+            ),
+        ]
+        let obs = [
+            "Cheer by the sulphur pit in the TzHaar City.",
+            "Beware of double agents! Equip a fire cape, a Toktz-ket-xil and a spork.",
+        ]
+        let result = m.bestMatch(forAny: obs, in: ClueCorpus(clues: db))
+        let match = try #require(result)
+        #expect(match.clue.id == "emote_0374")
+    }
 }

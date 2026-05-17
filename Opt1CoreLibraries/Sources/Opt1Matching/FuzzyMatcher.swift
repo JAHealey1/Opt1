@@ -265,9 +265,13 @@ public struct FuzzyMatcher {
             }
         }
 
-        // Sliding windows of 2-4 consecutive prose observations.
+        // Sliding windows of 2–6 consecutive prose observations.
+        // Cap raised from 4 to 6: skill-riddle clues preceded by a standalone
+        // "Complete the action…" line can produce 5+ body observations, so a
+        // window of 4 wouldn't cover the full clue text even after the prefix
+        // observation is dropped by stripActionPrefix.
         var windowBest: (clue: ClueSolution, confidence: Double)?
-        let maxWindow = min(4, proseObs.count)
+        let maxWindow = min(6, proseObs.count)
         if maxWindow >= 2 {
             outer: for windowSize in 2...maxWindow {
                 for start in 0...(proseObs.count - windowSize) {

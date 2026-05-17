@@ -63,7 +63,6 @@
 		A300000000000000000000F9 /* TeleportIcons in Resources */ = {isa = PBXBuildFile; fileRef = A200000000000000000000F9 /* TeleportIcons */; };
 		A300000000000000000000FA /* CompassDigSpots.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200000000000000000000FA /* CompassDigSpots.swift */; };
 		A300000000000000000000FB /* CalibrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200000000000000000000FB /* CalibrationView.swift */; };
-		A30000000000000000000114 /* PolygonGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000114 /* PolygonGeometry.swift */; };
 		A30000000000000000000100 /* PermissionsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000100 /* PermissionsState.swift */; };
 		A30000000000000000000101 /* OnboardingPermissionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000101 /* OnboardingPermissionsView.swift */; };
 		A30000000000000000000102 /* SliderAnchors in Resources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000102 /* SliderAnchors */; };
@@ -76,6 +75,7 @@
 		A30000000000000000000111 /* WalkabilityCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000111 /* WalkabilityCache.swift */; };
 		A30000000000000000000112 /* BFSPathfinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000112 /* BFSPathfinder.swift */; };
 		A30000000000000000000113 /* walkability.json in Resources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000113 /* walkability.json */; };
+		A30000000000000000000114 /* PolygonGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000114 /* PolygonGeometry.swift */; };
 		B300000000000000000000A4 /* CelticKnotSolverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000A4 /* CelticKnotSolverTests.swift */; };
 		B300000000000000000000A8 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000A8 /* Mocks.swift */; };
 		B300000000000000000000A9 /* ClueOrchestratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000A9 /* ClueOrchestratorTests.swift */; };
@@ -88,7 +88,6 @@
 		B300000000000000000000B0 /* CelticKnotCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000B0 /* CelticKnotCoordinator.swift */; };
 		B300000000000000000000B1 /* AppSessionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000B1 /* AppSessionState.swift */; };
 		B300000000000000000000B2 /* ScanOptimiserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000B2 /* ScanOptimiserTests.swift */; };
-		B300000000000000000000BE /* PolygonGeometryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000BE /* PolygonGeometryTests.swift */; };
 		B300000000000000000000B3 /* CelticKnotRuneClassification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000B3 /* CelticKnotRuneClassification.swift */; };
 		B300000000000000000000B4 /* CelticKnotDebugRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000B4 /* CelticKnotDebugRenderer.swift */; };
 		B300000000000000000000B5 /* OverlayTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000B5 /* OverlayTheme.swift */; };
@@ -100,6 +99,8 @@
 		B300000000000000000000BB /* SolutionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000BB /* SolutionCardView.swift */; };
 		B300000000000000000000BC /* PuzzleSolutionViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000BC /* PuzzleSolutionViews.swift */; };
 		B300000000000000000000BD /* DetectionHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000BD /* DetectionHelpers.swift */; };
+		B300000000000000000000BE /* PolygonGeometryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000BE /* PolygonGeometryTests.swift */; };
+		B300000000000000000000BF /* ClueScrollPipelineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000BF /* ClueScrollPipelineTests.swift */; };
 		F21F8EAE2F944160005662AA /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = F21F8EAD2F944160005662AA /* AppIcon.icon */; };
 		F21F993F2F993BAB005662AA /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = F21F993E2F993BAB005662AA /* Sparkle */; };
 		P300000000000000000000A0 /* DetectionConfiguration+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = P200000000000000000000A0 /* DetectionConfiguration+App.swift */; };
@@ -189,7 +190,6 @@
 		A200000000000000000000FD /* ScanPulseFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanPulseFilter.swift; sourceTree = "<group>"; };
 		A200000000000000000000FE /* ScanFilterState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanFilterState.swift; sourceTree = "<group>"; };
 		A200000000000000000000FF /* ScanOptimiser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanOptimiser.swift; sourceTree = "<group>"; };
-		A20000000000000000000114 /* PolygonGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolygonGeometry.swift; sourceTree = "<group>"; };
 		A20000000000000000000100 /* PermissionsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsState.swift; sourceTree = "<group>"; };
 		A20000000000000000000101 /* OnboardingPermissionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPermissionsView.swift; sourceTree = "<group>"; };
 		A20000000000000000000102 /* SliderAnchors */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SliderAnchors; sourceTree = "<group>"; };
@@ -202,6 +202,7 @@
 		A20000000000000000000111 /* WalkabilityCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkabilityCache.swift; sourceTree = "<group>"; };
 		A20000000000000000000112 /* BFSPathfinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BFSPathfinder.swift; sourceTree = "<group>"; };
 		A20000000000000000000113 /* walkability.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = walkability.json; sourceTree = "<group>"; };
+		A20000000000000000000114 /* PolygonGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolygonGeometry.swift; sourceTree = "<group>"; };
 		B200000000000000000000A0 /* Opt1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Opt1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B200000000000000000000A4 /* CelticKnotSolverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelticKnotSolverTests.swift; sourceTree = "<group>"; };
 		B200000000000000000000A8 /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
@@ -215,7 +216,6 @@
 		B200000000000000000000B0 /* CelticKnotCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelticKnotCoordinator.swift; sourceTree = "<group>"; };
 		B200000000000000000000B1 /* AppSessionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSessionState.swift; sourceTree = "<group>"; };
 		B200000000000000000000B2 /* ScanOptimiserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanOptimiserTests.swift; sourceTree = "<group>"; };
-		B200000000000000000000BE /* PolygonGeometryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolygonGeometryTests.swift; sourceTree = "<group>"; };
 		B200000000000000000000B3 /* CelticKnotRuneClassification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelticKnotRuneClassification.swift; sourceTree = "<group>"; };
 		B200000000000000000000B4 /* CelticKnotDebugRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelticKnotDebugRenderer.swift; sourceTree = "<group>"; };
 		B200000000000000000000B5 /* OverlayTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayTheme.swift; sourceTree = "<group>"; };
@@ -227,6 +227,8 @@
 		B200000000000000000000BB /* SolutionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolutionCardView.swift; sourceTree = "<group>"; };
 		B200000000000000000000BC /* PuzzleSolutionViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleSolutionViews.swift; sourceTree = "<group>"; };
 		B200000000000000000000BD /* DetectionHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionHelpers.swift; sourceTree = "<group>"; };
+		B200000000000000000000BE /* PolygonGeometryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolygonGeometryTests.swift; sourceTree = "<group>"; };
+		B200000000000000000000BF /* ClueScrollPipelineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClueScrollPipelineTests.swift; sourceTree = "<group>"; };
 		F21F8C412F92B7B2005662AA /* Opt1.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Opt1.xctestplan; sourceTree = "<group>"; };
 		F21F8EAD2F944160005662AA /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
 		F300000000000000000000A0 /* Opt1.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Opt1.entitlements; sourceTree = "<group>"; };
@@ -538,6 +540,7 @@
 			children = (
 				B200000000000000000000A8 /* Mocks.swift */,
 				B200000000000000000000A9 /* ClueOrchestratorTests.swift */,
+				B200000000000000000000BF /* ClueScrollPipelineTests.swift */,
 			);
 			path = Orchestration;
 			sourceTree = "<group>";
@@ -744,6 +747,7 @@
 				B300000000000000000000A9 /* ClueOrchestratorTests.swift in Sources */,
 				B300000000000000000000B2 /* ScanOptimiserTests.swift in Sources */,
 				B300000000000000000000BE /* PolygonGeometryTests.swift in Sources */,
+				B300000000000000000000BF /* ClueScrollPipelineTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -834,7 +838,7 @@
 				CODE_SIGN_ENTITLEMENTS = Opt1/Opt1.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 2KFN672Z9S;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
@@ -849,7 +853,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jacobhealey.opt1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUNTIME_EXCEPTION_ALLOW_DYLD_ENVIRONMENT_VARIABLES = NO;
@@ -872,7 +876,7 @@
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 2KFN672Z9S;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
@@ -887,7 +891,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jacobhealey.opt1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUNTIME_EXCEPTION_ALLOW_DYLD_ENVIRONMENT_VARIABLES = NO;
