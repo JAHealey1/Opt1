@@ -827,7 +827,16 @@ struct TowersDetector: PuzzleDetector {
                 detail.append("V run: n=\(vRun.count) pitch=\(String(format: "%.2f", vPitch)) CV=\(String(format: "%.3f", spacingCoefficientOfVariation(vRun))) leftOff=\(Int(leftOffset)) sp=\(sp)")
             }
         } else {
-            detail.append("V calibration rejected - naive cellW")
+            // Cells are always square in Towers, so if H calibrated successfully
+            // use its pitch for cellW rather than the naive (wider) fallback.
+            // This prevents the right-edge hint cells from being placed too far
+            // right when one vertical bright line goes undetected.
+            if let hp = hPitchUsed {
+                cellW = hp
+                detail.append("V calibration rejected - using H pitch (\(String(format: "%.2f", hp))) for cellW")
+            } else {
+                detail.append("V calibration rejected - naive cellW")
+            }
         }
 
         var modeParts = [String]()

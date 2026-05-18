@@ -276,9 +276,9 @@ struct ClueScrollPipeline {
         return joined.contains("orb scan range") || joined.contains("scan range")
     }
 
-    // MARK: - Private
-
-    private static func stripActionPrefix(from observations: [String]) -> [String] {
+    /// Strips leading RS3 skill-clue boilerplate (`Complete the action…:`) per
+    /// observation, then applies `clean`. Exposed for `@testable` unit tests.
+    static func stripActionPrefix(from observations: [String]) -> [String] {
         let stripped: [String] = observations.map { obs in
             guard let re = actionPrefixRegex else { return obs }
             let range = NSRange(obs.startIndex..., in: obs)
@@ -286,10 +286,17 @@ struct ClueScrollPipeline {
                   let tailRange = Range(match.range, in: obs).map({ $0.upperBound..<obs.endIndex })
             else { return obs }
             let tail = String(obs[tailRange]).trimmingCharacters(in: .whitespacesAndNewlines)
-            return tail.isEmpty ? obs : tail
+            // When the whole observation was just the prefix (e.g. a standalone
+            // "Complete the action to solve the clue:" line with no body text after
+            // the colon), return "" so `clean` discards it entirely rather than
+            // keeping the useless boilerplate in proseObs where it inflates the
+            // full-join query length and depresses Levenshtein similarity scores.
+            return tail
         }
         return clean(stripped)
     }
+
+    // MARK: - Private
 
     private func matchScan(
         observations: [String],
