@@ -46,11 +46,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     /// window and the "Permissions…" menu re-open.
     private let permissionsState = PermissionsState()
 
-    private let updaterController = SPUStandardUpdaterController(
-        startingUpdater: true,
-        updaterDelegate: nil,
-        userDriverDelegate: nil
-    )
+    private lazy var updaterController: SPUStandardUpdaterController = {
+        SPUStandardUpdaterController(
+            startingUpdater: true,
+            updaterDelegate: nil,
+            userDriverDelegate: nil
+        )
+    }()
     /// Shared navigation state
     private let settingsNavigation = SettingsNavigationModel()
 
@@ -72,6 +74,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         clueDatabase.load()
         TeleportCatalogue.shared.load()
         WalkabilityCache.shared.load()
+
+        // Force Sparkle to start its automatic update cycle. The lazy property
+        // won't initialize until first access; touching it here ensures Sparkle
+        // starts on every launch. Setting automaticallyChecksForUpdates = true
+        // also bypasses the first-launch permission dialog so checks run silently.
+        updaterController.updater.automaticallyChecksForUpdates = true
 
         captureErrorPresenter.onOpenPermissions = { [weak self] in self?.openPermissions() }
         NotificationCenter.default.addObserver(
