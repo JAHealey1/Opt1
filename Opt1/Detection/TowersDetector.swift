@@ -515,25 +515,75 @@ struct TowersDetector: PuzzleDetector {
 
             if let art = artifact {
                 let result = classifyDigitByTemplate(cell: cellCrop, artifact: art)
-                if let (digit, confidence) = result {
+                if let (digit, confidence, secondConf, blobCount) = result {
                     if confidence > 0.20 {
-                        assignHint(&hints, edge: slot.edge, index: slot.index, digit: digit)
-                        print("[TowersDetector]   \(slot.edge)[\(slot.index)] = \(digit)  (template, conf=\(String(format:"%.2f",confidence)))")
+                        // The stored "3" template is left-heavy (captured at a different
+                        // scale) but the game renders "3" with right-facing arcs whose
+                        // gold blobs are right-heavy — the same bias as "1". ZNCC therefore
+                        // scores "1" higher than "3" for valid "3" cells. Fix: when the
+                        // template says "1" in the moderate-confidence band (0.20-0.45),
+                        // check whether the gold blob has a mid-height gap (two arcs) which
+                        // is the structural signature of "3". A true "1" is a single
+                        // continuous stroke with no gap.
+                        let effectiveDigit: Int
+                        if digit == 1, confidence < 0.45,
+                           let (goldPixels, sw, sh) = goldPixelSet(from: cellCrop),
+                           let primaryBlob = allDigitBlobs(pixels: goldPixels, width: sw, height: sh).first,
+                           blobHasVerticalGap(primaryBlob, width: sw) {
+                            effectiveDigit = 3
+                            print("[TowersDetector]   \(slot.edge)[\(slot.index)] = 3  (gap-corrected from 1, conf=\(String(format:"%.2f",confidence)))")
+                        } else {
+                            effectiveDigit = digit
+                            print("[TowersDetector]   \(slot.edge)[\(slot.index)] = \(digit)  (template, conf=\(String(format:"%.2f",confidence)))")
+                        }
+                        assignHint(&hints, edge: slot.edge, index: slot.index, digit: effectiveDigit)
+                        saveAllCellDebug(cellCrop, edge: "\(slot.edge)", index: slot.index, digit: effectiveDigit, conf: confidence)
                         continue
                     } else {
-                        print("[TowersDetector]   \(slot.edge)[\(slot.index)]: template low conf \(String(format:"%.2f",confidence)) best=\(digit)")
+                        print("[TowersDetector]   \(slot.edge)[\(slot.index)]: template low conf \(String(format:"%.2f",confidence)) best=\(digit) 2nd=\(String(format:"%.2f",secondConf)) blobs=\(blobCount)")
+                        // When ZNCC is low but the best match is "1", the blob may be a
+                        // thin rendering that doesn't correlate well with any template.
+                        // Digit "1" is uniquely tall and narrow (bh/bw ≥ 2.0); if the
+                        // primary blob's aspect ratio confirms this, accept the read.
+                        if digit == 1, confidence > 0.08,
+                           let aspect = primaryBlobAspectRatio(cell: cellCrop, filter: art.goldFilter),
+                           aspect >= 2.0 {
+                            // Also guard: a "3" blob with a gap should not be taken as "1"
+                            // even at low confidence — check gap before accepting "1".
+                            let isActuallyThree: Bool
+                            if let (goldPixels, sw, sh) = goldPixelSet(from: cellCrop),
+                               let primaryBlob = allDigitBlobs(pixels: goldPixels, width: sw, height: sh).first {
+                                isActuallyThree = blobHasVerticalGap(primaryBlob, width: sw)
+                            } else {
+                                isActuallyThree = false
+                            }
+                            if isActuallyThree {
+                                assignHint(&hints, edge: slot.edge, index: slot.index, digit: 3)
+                                print("[TowersDetector]   \(slot.edge)[\(slot.index)] = 3  (gap-corrected from low-conf 1, aspect=\(String(format:"%.2f",aspect)))")
+                            } else {
+                                assignHint(&hints, edge: slot.edge, index: slot.index, digit: 1)
+                                print("[TowersDetector]   \(slot.edge)[\(slot.index)] = 1  (aspect ratio, bh/bw=\(String(format:"%.2f",aspect)))")
+                            }
+                            continue
+                        }
+                        saveFailCellDebug(cellCrop, edge: "\(slot.edge)", index: slot.index)
                     }
                 } else {
                     print("[TowersDetector]   \(slot.edge)[\(slot.index)]: no gold pixels in cell")
+                    saveFailCellDebug(cellCrop, edge: "\(slot.edge)", index: slot.index)
                 }
             }
 
             if let digit = await ocrSingleCell(cellCrop) {
                 assignHint(&hints, edge: slot.edge, index: slot.index, digit: digit)
                 print("[TowersDetector]   \(slot.edge)[\(slot.index)] = \(digit)  (OCR fallback)")
-            } else if slot.gx == 0, let digit = await ocrSingleCellColor(cellCrop) {
+            } else if let digit = await ocrSingleCellColor(cellCrop) {
+                // Color OCR reads the original (non-gold-isolated) crop with Vision;
+                // this succeeds when gold isolation fails due to contrast or hue
+                // variation, and is now tried for all edges (not just gx=0).
                 assignHint(&hints, edge: slot.edge, index: slot.index, digit: digit)
-                print("[TowersDetector]   \(slot.edge)[\(slot.index)] = \(digit)  (OCR color fallback - left gutter)")
+                let tag = slot.gx == 0 ? "left gutter" : "color fallback"
+                print("[TowersDetector]   \(slot.edge)[\(slot.index)] = \(digit)  (OCR color \(tag))")
             } else {
                 print("[TowersDetector]   \(slot.edge)[\(slot.index)]: OCR fallback also failed")
             }
@@ -778,6 +828,19 @@ struct TowersDetector: PuzzleDetector {
             "V clusters (x): \(vClusters) (n=\(vClusters.count))",
         ]
 
+        // High raw bright-row count indicates background noise or RS UI effects
+        // (e.g. patterned backgrounds, low brightness, heavy antialiasing). The
+        // cluster step usually handles it, but log a warning so it's visible in
+        // debug output when diagnosing unreliable calibration.
+        let expectedMaxBrightRows = 20
+        if hLineYs.count > expectedMaxBrightRows {
+            detail.append("⚠ high raw bright-row count (\(hLineYs.count)) — noisy capture; calibration may be less stable")
+        }
+        let expectedMaxBrightCols = 20
+        if vLineXs.count > expectedMaxBrightCols {
+            detail.append("⚠ high raw bright-col count (\(vLineXs.count)) — noisy capture; V calibration may lose lines")
+        }
+
         var cellH = naiveCellH
         var cellW = naiveCellW
         var topOffset: CGFloat = 0
@@ -833,7 +896,20 @@ struct TowersDetector: PuzzleDetector {
             // right when one vertical bright line goes undetected.
             if let hp = hPitchUsed {
                 cellW = hp
-                detail.append("V calibration rejected - using H pitch (\(String(format: "%.2f", hp))) for cellW")
+                // Try to recover horizontal phase from the partial V clusters.
+                // The common failure mode is that one interior grid line simply
+                // wasn't detected (leftOffset stays 0); but if the entire grid
+                // is shifted we can infer a non-zero leftOffset from the cluster
+                // positions. `inferLeftOffsetFromPartialV` checks lattice fit at
+                // 0 first and only returns a non-zero value when the clusters are
+                // genuinely inconsistent with a zero origin.
+                let inferredLeft = inferLeftOffsetFromPartialV(vClusters, pitch: cellW)
+                if inferredLeft > 0.5 {
+                    leftOffset = inferredLeft
+                    detail.append("V calibration rejected - using H pitch (\(String(format: "%.2f", hp))) for cellW; lattice phase inferred leftOff=\(String(format: "%.2f", inferredLeft))")
+                } else {
+                    detail.append("V calibration rejected - using H pitch (\(String(format: "%.2f", hp))) for cellW (leftOff confirmed ≈0)")
+                }
             } else {
                 detail.append("V calibration rejected - naive cellW")
             }
@@ -945,6 +1021,47 @@ struct TowersDetector: PuzzleDetector {
         return (br, bp)
     }
 
+    /// When V calibration is fully rejected, validates whether the partial V clusters
+    /// are already consistent with `leftOffset=0` using the H-calibrated pitch. If so,
+    /// returns 0 — the most common case is that the leftmost interior grid line simply
+    /// wasn't detected, but the lattice origin is still correct. If the clusters are
+    /// systematically offset (the whole grid is genuinely shifted), searches for the
+    /// best-fitting leftOffset in [0, cellW) and returns it when the RMS residual is
+    /// tight (≤3 px). Returns 0 whenever no confident non-zero offset can be found.
+    private func inferLeftOffsetFromPartialV(_ clusters: [Int], pitch: CGFloat) -> CGFloat {
+        guard clusters.count >= 3, pitch > 2 else { return 0 }
+        let sorted = clusters.sorted()
+
+        // Check consistency with leftOffset=0: every cluster should land within
+        // 5 px of some lattice line (gx * pitch for integer gx ≥ 0).
+        let fitsAtZero = sorted.allSatisfy { c in
+            let gx = (CGFloat(c) / pitch).rounded()
+            return abs(CGFloat(c) - gx * pitch) <= 5
+        }
+        if fitsAtZero { return 0 }
+
+        // Clusters aren't consistent with leftOffset=0 — search for the best
+        // phase by assigning the first detected cluster to each plausible gx.
+        var bestOff: CGFloat = 0
+        var bestRMS: CGFloat = .greatestFiniteMagnitude
+        for gxFirst in 1...5 {
+            let candidate = CGFloat(sorted[0]) - CGFloat(gxFirst) * pitch
+            guard candidate > -pitch * 0.15 else { continue }
+            let off = max(0, candidate)
+            let residuals = sorted.map { c -> CGFloat in
+                let nearestGx = max(0, ((CGFloat(c) - off) / pitch).rounded())
+                return abs(CGFloat(c) - off - nearestGx * pitch)
+            }
+            let rms = sqrt(residuals.map { $0 * $0 }.reduce(0, +) / CGFloat(residuals.count))
+            if rms < bestRMS {
+                bestRMS = rms
+                bestOff = off
+            }
+        }
+        // Only apply when the fit is tight; fall back to 0 if uncertain.
+        return bestRMS < 3 ? bestOff : 0
+    }
+
     private func spacingCoefficientOfVariation(_ run: [Int]) -> CGFloat {
         let sp = zip(run, run.dropFirst()).map { $1 - $0 }
         guard !sp.isEmpty else { return .greatestFiniteMagnitude }
@@ -1005,15 +1122,40 @@ struct TowersDetector: PuzzleDetector {
 
     /// Extracts gold/yellow pixels from a cell crop and returns a binary float
     /// vector (1.0 = gold, 0.0 = background) resized to the given dimensions.
+    /// Uses the single largest qualifying blob — kept for the OCR-image path.
     private func goldIsolatedVector(
         from image: CGImage,
         targetW: Int,
         targetH: Int,
         filter: TowersDigitTemplateArtifact.GoldFilter
     ) -> [Float]? {
+        guard let (goldPixels, sw, sh) = goldPixelSet(from: image) else { return nil }
+        let bestBlob = allDigitBlobs(pixels: goldPixels, width: sw, height: sh).first
+        guard let blob = bestBlob else { return nil }
+        return vectorFromBlob(blob, sw: sw, sh: sh, targetW: targetW, targetH: targetH)
+    }
+
+    /// Returns one normalised float vector per qualifying gold blob in the cell,
+    /// sorted largest-blob-first. Used by `classifyDigitByTemplate` to try every
+    /// blob candidate so that a spurious large glint can't permanently hide a
+    /// smaller but correctly-shaped digit.
+    private func goldIsolatedVectorsAllBlobs(
+        from image: CGImage,
+        targetW: Int,
+        targetH: Int,
+        filter: TowersDigitTemplateArtifact.GoldFilter
+    ) -> [[Float]]? {
+        guard let (goldPixels, sw, sh) = goldPixelSet(from: image) else { return nil }
+        let blobs = allDigitBlobs(pixels: goldPixels, width: sw, height: sh)
+        guard !blobs.isEmpty else { return nil }
+        return blobs.compactMap { vectorFromBlob($0, sw: sw, sh: sh, targetW: targetW, targetH: targetH) }
+    }
+
+    /// Renders the image at 4× scale, extracts gold pixels, and returns them
+    /// together with the scaled dimensions. Shared setup for all blob paths.
+    private func goldPixelSet(from image: CGImage) -> (pixels: Set<Int>, sw: Int, sh: Int)? {
         let w = image.width, h = image.height
         guard w > 0, h > 0 else { return nil }
-
         let scale = 4
         let sw = w * scale, sh = h * scale
         guard let ctx = CGContext(
@@ -1026,36 +1168,34 @@ struct TowersDetector: PuzzleDetector {
         ctx.draw(image, in: CGRect(x: 0, y: 0, width: sw, height: sh))
         guard let data = ctx.data else { return nil }
         let raw = data.assumingMemoryBound(to: UInt8.self)
-
         var goldPixels = Set<Int>()
         for y in 0..<sh {
             for x in 0..<sw {
                 let off = (y * sw + x) * 4
                 let r = Int(raw[off]), g = Int(raw[off+1]), b = Int(raw[off+2])
-                if isGoldPixel(r: r, g: g, b: b) {
-                    goldPixels.insert(y * sw + x)
-                }
+                if isGoldPixel(r: r, g: g, b: b) { goldPixels.insert(y * sw + x) }
             }
         }
         guard !goldPixels.isEmpty else { return nil }
+        return (goldPixels, sw, sh)
+    }
 
-        let bestBlob = bestDigitBlob(pixels: goldPixels, width: sw, height: sh)
-        guard !bestBlob.isEmpty else { return nil }
-
+    /// Converts a single blob to a normalised ZNCC-ready float vector.
+    private func vectorFromBlob(_ blob: Set<Int>, sw: Int, sh: Int,
+                                targetW: Int, targetH: Int) -> [Float]? {
+        guard !blob.isEmpty else { return nil }
         var mask = [Float](repeating: 0, count: sw * sh)
         var minX = sw, maxX = 0, minY = sh, maxY = 0
-        for idx in bestBlob {
+        for idx in blob {
             mask[idx] = 1.0
             let x = idx % sw, y = idx / sw
             minX = min(minX, x); maxX = max(maxX, x)
             minY = min(minY, y); maxY = max(maxY, y)
         }
-
         let pad = 2
         minX = max(0, minX - pad); maxX = min(sw - 1, maxX + pad)
         minY = max(0, minY - pad); maxY = min(sh - 1, maxY + pad)
         let bw = maxX - minX + 1, bh = maxY - minY + 1
-
         var result = [Float](repeating: 0, count: targetW * targetH)
         for ty in 0..<targetH {
             for tx in 0..<targetW {
@@ -1067,12 +1207,12 @@ struct TowersDetector: PuzzleDetector {
         return result
     }
 
-    /// Finds connected components in the gold pixel set and returns the one
-    /// most likely to be a digit glyph (rejects horizontal lines, picks tallest).
-    private func bestDigitBlob(pixels: Set<Int>, width: Int, height: Int) -> Set<Int> {
+    /// Finds all connected components in the gold pixel set that pass the
+    /// digit-shape filter (tall enough, not too wide). Returns them sorted
+    /// largest-first so the historically-used single-blob path is unaffected.
+    private func allDigitBlobs(pixels: Set<Int>, width: Int, height: Int) -> [Set<Int>] {
         var visited = Set<Int>()
-        var best = Set<Int>()
-        var bestScore = 0
+        var blobs = [Set<Int>]()
 
         for start in pixels {
             guard !visited.contains(start) else { continue }
@@ -1095,21 +1235,21 @@ struct TowersDetector: PuzzleDetector {
                     }
                 }
             }
-
             guard blob.count >= 5 else { continue }
             let xs = blob.map { $0 % width }
             let ys = blob.map { $0 / width }
             let bw = (xs.max()! - xs.min()!) + 1
             let bh = (ys.max()! - ys.min()!) + 1
-
             guard bh >= 4, bw < bh * 3 else { continue }
-
-            if blob.count > bestScore {
-                bestScore = blob.count
-                best = blob
-            }
+            blobs.append(blob)
         }
-        return best
+        return blobs.sorted { $0.count > $1.count }
+    }
+
+    /// Kept for backward-compatibility with call sites that expect the single
+    /// largest-blob result (e.g. the OCR gold-isolation image path).
+    private func bestDigitBlob(pixels: Set<Int>, width: Int, height: Int) -> Set<Int> {
+        allDigitBlobs(pixels: pixels, width: width, height: height).first ?? Set()
     }
 
     /// Returns a gold-isolated CGImage (white digits on black) for OCR fallback.
@@ -1143,11 +1283,14 @@ struct TowersDetector: PuzzleDetector {
 
     /// Classifies a hint-cell crop by gold-isolating it and comparing against
     /// reference digit templates via normalized cross-correlation.
+    /// Tries every qualifying gold blob in the cell (not just the largest) so
+    /// that a spurious large glint can't block a correctly-shaped digit blob.
+    /// Returns (digit, bestConf, secondConf, blobCount).
     private func classifyDigitByTemplate(
         cell: CGImage,
         artifact: TowersDigitTemplateArtifact
-    ) -> (digit: Int, confidence: Float)? {
-        guard let vec = goldIsolatedVector(
+    ) -> (digit: Int, confidence: Float, secondConfidence: Float, blobCount: Int)? {
+        guard let vecs = goldIsolatedVectorsAllBlobs(
             from: cell,
             targetW: artifact.templateWidth,
             targetH: artifact.templateHeight,
@@ -1158,20 +1301,22 @@ struct TowersDetector: PuzzleDetector {
         var bestScore: Float = -1
         var secondScore: Float = -1
 
-        for (key, template) in artifact.templates {
-            guard let digit = Int(key), (1...5).contains(digit) else { continue }
-            let score = zncc(vec, template)
-            if score > bestScore {
-                secondScore = bestScore
-                bestScore = score
-                bestDigit = digit
-            } else if score > secondScore {
-                secondScore = score
+        for vec in vecs {
+            for (key, template) in artifact.templates {
+                guard let digit = Int(key), (1...5).contains(digit) else { continue }
+                let score = zncc(vec, template)
+                if score > bestScore {
+                    secondScore = bestScore
+                    bestScore = score
+                    bestDigit = digit
+                } else if score > secondScore {
+                    secondScore = score
+                }
             }
         }
 
         guard bestDigit > 0, bestScore > 0 else { return nil }
-        return (bestDigit, bestScore)
+        return (bestDigit, bestScore, secondScore, vecs.count)
     }
 
     /// Zero-mean normalized cross-correlation.
@@ -1414,6 +1559,82 @@ struct TowersDetector: PuzzleDetector {
         guard let dest = CGImageDestinationCreateWithURL(url as CFURL, "public.png" as CFString, 1, nil) else { return }
         CGImageDestinationAddImage(dest, image, nil)
         CGImageDestinationFinalize(dest)
+    }
+
+    /// Returns true when the gold blob has a clear mid-height valley in its
+    /// Y-axis pixel projection — the structural signature of digit "3" (two arcs
+    /// separated by a gap). Digit "1" is a single continuous stroke and has no
+    /// such valley. This corrects ZNCC mis-scoring when the "3" template was
+    /// captured at a different scale and its gold blobs appear right-heavy like "1".
+    private func blobHasVerticalGap(_ blob: Set<Int>, width: Int) -> Bool {
+        let ys = blob.map { $0 / width }
+        guard let minY = ys.min(), let maxY = ys.max() else { return false }
+        let bh = maxY - minY + 1
+        guard bh >= 12 else { return false }   // too short to have a meaningful gap
+
+        var rowCounts = [Int](repeating: 0, count: bh)
+        for idx in blob { rowCounts[idx / width - minY] += 1 }
+
+        let maxCount = rowCounts.max() ?? 0
+        guard maxCount > 0 else { return false }
+
+        // Check top 20-40% and bottom 20-40% of blob height against middle 30-70%.
+        let topEnd    = bh * 4 / 10
+        let botStart  = bh * 6 / 10
+        let midStart  = bh * 3 / 10
+        let midEnd    = bh * 7 / 10
+
+        let topPeak   = rowCounts[0..<topEnd].max().map { Double($0) / Double(maxCount) } ?? 0
+        let botPeak   = rowCounts[botStart..<bh].max().map { Double($0) / Double(maxCount) } ?? 0
+        let midMin    = rowCounts[midStart..<midEnd].min().map { Double($0) / Double(maxCount) } ?? 1
+
+        // Both arcs present AND valley is at least 40 % below the smaller peak.
+        return topPeak > 0.55 && botPeak > 0.55 && midMin < min(topPeak, botPeak) * 0.60
+    }
+
+    /// Returns the height-to-width aspect ratio (bh/bw) of the largest qualifying
+    /// gold blob in the cell. Used to confirm digit "1" when ZNCC is low — "1" is
+    /// always significantly taller than wide (≥ 2.0), while digits 2–5 are not.
+    private func primaryBlobAspectRatio(
+        cell: CGImage,
+        filter: TowersDigitTemplateArtifact.GoldFilter
+    ) -> CGFloat? {
+        guard let (goldPixels, sw, sh) = goldPixelSet(from: cell) else { return nil }
+        guard let blob = allDigitBlobs(pixels: goldPixels, width: sw, height: sh).first else { return nil }
+        let xs = blob.map { $0 % sw }
+        let ys = blob.map { $0 / sw }
+        let bw = (xs.max()! - xs.min()!) + 1
+        let bh = (ys.max()! - ys.min()!) + 1
+        guard bw > 0 else { return nil }
+        return CGFloat(bh) / CGFloat(bw)
+    }
+
+    /// Saves the raw cell crop and gold-isolation image for every successfully
+    /// classified cell in debug mode. Files are named:
+    ///   `cell_<edge>_<index>_d<digit>_c<conf>.png` (raw)
+    ///   `cell_<edge>_<index>_d<digit>_c<conf>_gold.png`
+    /// This lets us compare gold blobs across correct and incorrect reads.
+    private func saveAllCellDebug(_ cellCrop: CGImage, edge: String, index: Int,
+                                  digit: Int, conf: Float) {
+        guard AppSettings.isDebugEnabled else { return }
+        let cStr = String(format: "%.2f", conf).replacingOccurrences(of: ".", with: "p")
+        let prefix = "cell_\(edge)_\(index)_d\(digit)_c\(cStr)"
+        saveDebugImage(cellCrop, name: "\(prefix).png")
+        if let goldImg = goldIsolatedImage(from: cellCrop) {
+            saveDebugImage(goldImg, name: "\(prefix)_gold.png")
+        }
+    }
+
+    /// Saves the raw cell crop and its gold-pixel visualization when template
+    /// matching fails or is low-confidence. Files land in TowersDebug/ as
+    /// `fail_<edge>_<index>_raw.png` and `fail_<edge>_<index>_gold.png`.
+    private func saveFailCellDebug(_ cellCrop: CGImage, edge: String, index: Int) {
+        guard AppSettings.isDebugEnabled else { return }
+        let prefix = "fail_\(edge)_\(index)"
+        saveDebugImage(cellCrop, name: "\(prefix)_raw.png")
+        if let goldImg = goldIsolatedImage(from: cellCrop) {
+            saveDebugImage(goldImg, name: "\(prefix)_gold.png")
+        }
     }
 
     private func saveDebugImage(_ image: CGImage, name: String) {
