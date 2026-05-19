@@ -6,16 +6,16 @@
     <description>Most recent updates to Opt1.</description>
     <language>en</language>
     <item>
-      <title>Version 1.0.6</title>
-      <pubDate>Mon, 18 May 2026 13:04:31 +0000</pubDate>
-      <sparkle:version>7</sparkle:version>
-      <sparkle:shortVersionString>1.0.6</sparkle:shortVersionString>
+      <title>Version 1.0.7</title>
+      <pubDate>Tue, 19 May 2026 14:45:55 +0000</pubDate>
+      <sparkle:version>8</sparkle:version>
+      <sparkle:shortVersionString>1.0.7</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
       <description><![CDATA[<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Opt1 1.0.6 release notes</title>
+  <title>Opt1 1.0.7 release notes</title>
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, sans-serif;
            font-size: 13px; line-height: 1.5; padding: 12px; }
@@ -30,20 +30,56 @@
   </style>
 </head>
 <body>
-<h1>Opt1 1.0.6</h1>
-<h2>Fixes</h2>
+<h1>Opt1 1.0.7</h1>
+<h2>What's new</h2>
 <ul>
-<li>Improved naive cell width calculations for Towers puzzles improving detection on higher resolution screens.</li>
-<li>Debug mode is now correctly on by default.</li>
-<li>'Cheer by the sulphur pit in the TzHaar City' should now match correctly.</li>
-<li>Added missing max guild garden clue.</li>
-<li>Fixed location information for Green Ghost Inn master emote clue.</li>
-<li>Auto-update should now work as expected.</li>
-<li>Radiant memeory master clue should now match correctly.</li>
+<li>Improved robustness of towers detection at various resolutions</li>
 </ul>
 </body>
 </html>
 ]]></description>
+      <sparkle:fullReleaseNotesLink>https://github.com/JAHealey1/Opt1-Releases/releases</sparkle:fullReleaseNotesLink>
+      <enclosure url="https://github.com/JAHealey1/Opt1-Releases/releases/download/v1.0.7/Opt1-1.0.7.dmg" sparkle:edSignature="zNdvFt/bAy9WEqcht9/WVRC5EQKfH7ECwCQ4pABcgdcc5vqI4I1AFvPPcH332Ix9WjL5jKmcBRvrXT12FkxdDg==" length="86926636" type="application/octet-stream" />
+    </item>
+    <item>
+      <title>Version 1.0.6</title>
+      <pubDate>Mon, 18 May 2026 13:04:31 +0000</pubDate>
+      <sparkle:version>7</sparkle:version>
+      <sparkle:shortVersionString>1.0.6</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Opt1 1.0.6 release notes&lt;/title&gt;
+  &lt;style&gt;
+    body { font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+           font-size: 13px; line-height: 1.5; padding: 12px; }
+    h1, h2, h3 { margin-top: 1em; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+           background: rgba(127,127,127,0.15); padding: 1px 4px;
+           border-radius: 3px; }
+    pre code { display: block; padding: 8px; }
+    ul, ol { padding-left: 1.5em; }
+    a { color: #0a84ff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Opt1 1.0.6&lt;/h1&gt;
+&lt;h2&gt;Fixes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Improved naive cell width calculations for Towers puzzles improving detection on higher resolution screens.&lt;/li&gt;
+&lt;li&gt;Debug mode is now correctly on by default.&lt;/li&gt;
+&lt;li&gt;'Cheer by the sulphur pit in the TzHaar City' should now match correctly.&lt;/li&gt;
+&lt;li&gt;Added missing max guild garden clue.&lt;/li&gt;
+&lt;li&gt;Fixed location information for Green Ghost Inn master emote clue.&lt;/li&gt;
+&lt;li&gt;Auto-update should now work as expected.&lt;/li&gt;
+&lt;li&gt;Radiant memeory master clue should now match correctly.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</description>
       <sparkle:fullReleaseNotesLink>https://github.com/JAHealey1/Opt1-Releases/releases</sparkle:fullReleaseNotesLink>
       <enclosure url="https://github.com/JAHealey1/Opt1-Releases/releases/download/v1.0.6/Opt1-1.0.6.dmg" sparkle:edSignature="8D6n6oLJ/b7BtU14AhFuKAwL1tsDUUSOsvJiJxt7pcMyh19S+ms3QEboiH7YZXLlCtqKVMlQH9eA8o4G1rR/CA==" length="86897111" type="application/octet-stream" />
     </item>
