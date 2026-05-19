@@ -21,6 +21,19 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Clocktower Teleport scroll • Kandarin monastery Teleport • Fairy ring DJP to the Tower of Life and then run north-west • Ardougne Teleport (requires Plague City) or Ardougne lodestone and then run south-west",
+    "emoteItems": [
+      "Studded body",
+      "Bronze platelegs",
+      "Mud pie"
+    ],
+    "emoteSteps": [
+      [
+        "Raspberry"
+      ]
+    ],
+    "hideyHoleName": "Rock (hidey-hole) (Ardougne Zoo)",
+    "hideyHoleCoords": "2599,3280",
+    "hasFight": false,
     "id": "emote_0001"
   },
   {
@@ -33,6 +46,19 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Fairy ring code BLR or cape of legends teleport and then run north-east • Camelot Teleport and then run south-east",
+    "emoteItems": [
+      "Studded leather coif",
+      "Iron platebody",
+      "Leather gloves"
+    ],
+    "emoteSteps": [
+      [
+        "Raspberry"
+      ]
+    ],
+    "hideyHoleName": "Rock (hidey-hole) (Keep Le Faye)",
+    "hideyHoleCoords": "2756,3404",
+    "hasFight": false,
     "id": "emote_0002"
   },
   {
@@ -45,6 +71,20 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "The quickest teleports are the ring of duelling or the Al Kharid lodestone. Alternative means of getting to the arena include: • Amulet of glory • Gnome glider • Broomstick (requires completion of Swept Away)",
+    "emoteItems": [
+      "Iron chainbody",
+      "Leather chaps",
+      "Studded leather coif"
+    ],
+    "emoteSteps": [
+      [
+        "Bow",
+        "Curtsy"
+      ]
+    ],
+    "hideyHoleName": "Sack (hidey-hole)",
+    "hideyHoleCoords": "3323,3236",
+    "hasFight": false,
     "id": "emote_0003"
   },
   {
@@ -57,6 +97,20 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Cape of legends or a fairy ring (code BLR). Alternatively, teleport to the Ardougne lodestone and head east to the guild.",
+    "emoteItems": [
+      "Iron platelegs",
+      "Emerald amulet",
+      "Oak shieldbow"
+    ],
+    "emoteSteps": [
+      [
+        "Bow",
+        "Curtsy"
+      ]
+    ],
+    "hideyHoleName": "Rock (hidey-hole) (Legends' Guild)",
+    "hideyHoleCoords": "2732,3352",
+    "hasFight": false,
     "id": "emote_0004"
   },
   {
@@ -81,6 +135,19 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "The druids' circle is north of Taverley. Teleport here using the Burthorpe lodestone and head south.",
+    "emoteItems": [
+      "Air tiara",
+      "Bronze 2h sword",
+      "Gold amulet"
+    ],
+    "emoteSteps": [
+      [
+        "Cheer"
+      ]
+    ],
+    "hideyHoleName": "Rock (hidey-hole) (Taverley)",
+    "hideyHoleCoords": "2922,3476",
+    "hasFight": false,
     "id": "emote_0006"
   },
   {
@@ -93,6 +160,19 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "The easiest ways to reach Port Sarim are using the Captain's Log teleport or the Arc journal teleport to Port Sarim. Alternatively, use the Port Sarim lodestone.",
+    "emoteItems": [
+      "Studded leather coif",
+      "Steel plateskirt",
+      "Sapphire necklace"
+    ],
+    "emoteSteps": [
+      [
+        "Cheer"
+      ]
+    ],
+    "hideyHoleName": "Crate (hidey-hole) (Port Sarim)",
+    "hideyHoleCoords": "3042,3234",
+    "hasFight": false,
     "id": "emote_0007"
   },
   {
@@ -105,6 +185,15 @@
     "mapId": 137,
     "imageRef": null,
     "travel": "A world-specific or global games room may be used. To get here, travel to Burthorpe Castle then enter its basement: • Games necklace • Burthorpe lodestone and then run north",
+    "emoteItems": [
+      "Nothing equipped"
+    ],
+    "emoteSteps": [
+      [
+        "Cheer"
+      ]
+    ],
+    "hasFight": false,
     "id": "emote_0008"
   },
   {
@@ -117,6 +206,19 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "The Exam Centre is south of the Varrock Dig Site. The fastest ways to get to the clue area are: • Varrock lodestone and then run east and north-east • Dig Site pendant, using the Senntisten Temple option • Archaeology journal",
+    "emoteItems": [
+      "Ruby amulet",
+      "Blue flowers",
+      "Leather gloves"
+    ],
+    "emoteSteps": [
+      [
+        "Clap"
+      ]
+    ],
+    "hideyHoleName": "Crate (hidey-hole) (Exam Centre)",
+    "hideyHoleCoords": "3351,3348",
+    "hasFight": false,
     "id": "emote_0009"
   },
   {
@@ -129,6 +231,19 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "To get here, use: • Traveller's necklace teleport to Wizards' tower • Wicked hood teleport or Infinity ethereal outfit teleport • Fairy ring code DIS • Amulet of glory teleport to Draynor Village • Draynor lodestone",
+    "emoteItems": [
+      "Iron med helm",
+      "Emerald ring",
+      "Leather gloves"
+    ],
+    "emoteSteps": [
+      [
+        "Clap"
+      ]
+    ],
+    "hideyHoleName": "Rock (hidey-hole) (Wizards' Tower)",
+    "hideyHoleCoords": "3099,3188",
+    "hasFight": false,
     "id": "emote_0010"
   },
   {
@@ -141,6 +256,19 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "To get here, use: • Ardougne lodestone and run north • Skills necklace to teleport to the Fishing Guild and walk east",
+    "emoteItems": [
+      "Emerald ring",
+      "Wood camo top",
+      "Tiara"
+    ],
+    "emoteSteps": [
+      [
+        "Clap"
+      ]
+    ],
+    "hideyHoleName": "Crate (hidey-hole) (Mill Road Mill)",
+    "hideyHoleCoords": "2635,3383",
+    "hasFight": false,
     "id": "emote_0011"
   },
   {
@@ -153,6 +281,19 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Fort Forinthry is north-east of Varrock and may be reached using • Fort Forinthry Teleport • Fort Forinthry lodestone",
+    "emoteItems": [
+      "Hard leather body",
+      "Leather chaps",
+      "Bronze hatchet"
+    ],
+    "emoteSteps": [
+      [
+        "Cry"
+      ]
+    ],
+    "hideyHoleName": "Tree stump (hidey-hole) (Fort Forinthry)",
+    "hideyHoleCoords": "3299,3521",
+    "hasFight": false,
     "id": "emote_0012"
   },
   {
@@ -165,6 +306,19 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Skills necklace or Fishing Guild Teleport",
+    "emoteItems": [
+      "Emerald ring",
+      "Sapphire amulet",
+      "Bronze chainbody"
+    ],
+    "emoteSteps": [
+      [
+        "Jig"
+      ]
+    ],
+    "hideyHoleName": "Rock (hidey-hole) (Fishing Guild)",
+    "hideyHoleCoords": "2619,3388",
+    "hasFight": false,
     "id": "emote_0013"
   },
   {
@@ -177,6 +331,19 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Draynor lodestone",
+    "emoteItems": [
+      "Iron chainbody",
+      "Sapphire ring",
+      "Shieldbow"
+    ],
+    "emoteSteps": [
+      [
+        "Dance"
+      ]
+    ],
+    "hideyHoleName": "Rock (hidey-hole) (Draynor Village)",
+    "hideyHoleCoords": "3112,3292",
+    "hasFight": false,
     "id": "emote_0014"
   },
   {
@@ -189,6 +356,19 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Modified blacksmith's helmet teleport to the Artisans' Workshop (3 teleports per day) and then run north • Dungeoneering cape teleport to the Dwarven mines resource dungeon and then climb up the stairs (the party room will be next door) • Skills necklace teleport to the Mining Guild and run north-east • Cabbage-port using an explorer's ring 3 or explorer's ring 4 and run north and then north-east • Falador lodestone and then run south and east",
+    "emoteItems": [
+      "Steel full helm",
+      "Steel platebody",
+      "Iron plateskirt"
+    ],
+    "emoteSteps": [
+      [
+        "Dance"
+      ]
+    ],
+    "hideyHoleName": "Potted plant (hidey-hole) (Falador)",
+    "hideyHoleCoords": "3041,3372",
+    "hasFight": false,
     "id": "emote_0015"
   },
   {
@@ -201,6 +381,19 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Enlightened amulet to Lumbridge Swamp • Wicked hood teleport or Wicked hood teleport token to the water altar and then run south-east • Lumbridge lodestone • Fairy ring to Zanaris fairy ring hub, run northeast to the ring at the Chicken Shrine, then use the ring to teleport to the shack",
+    "emoteItems": [
+      "Bronze dagger",
+      "Iron full helm",
+      "Gold ring"
+    ],
+    "emoteSteps": [
+      [
+        "Dance"
+      ]
+    ],
+    "hideyHoleName": "Barrel (hidey-hole) (Lumbridge Swamp)",
+    "hideyHoleCoords": "3204,3169",
+    "hasFight": false,
     "id": "emote_0016"
   },
   {
@@ -249,6 +442,19 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Dungeoneering cape to teleport to the Al Kharid resource dungeon • Wicked hood teleport to the fire altar and run north • Al Kharid lodestone and run north",
+    "emoteItems": [
+      "Polar camo top",
+      "Leather gloves",
+      "Leather boots"
+    ],
+    "emoteSteps": [
+      [
+        "Headbang"
+      ]
+    ],
+    "hideyHoleName": "Rocks (hidey-hole)",
+    "hideyHoleCoords": "3295,3282",
+    "hasFight": false,
     "id": "emote_0020"
   },
   {
@@ -261,6 +467,19 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "The beehives are just west of the Catherby bank in the fenced-in area. To get here, use: • Camelot Teleport • Catherby lodestone",
+    "emoteItems": [
+      "Iron armoured boots",
+      "Unholy symbol",
+      "Steel hatchet"
+    ],
+    "emoteSteps": [
+      [
+        "Jump For Joy"
+      ]
+    ],
+    "hideyHoleName": "Beehive (hidey-hole)",
+    "hideyHoleCoords": "2762,3447",
+    "hasFight": false,
     "id": "emote_0021"
   },
   {
@@ -273,6 +492,19 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Seers' Village lodestone and then run north-east • Camelot Teleport and then run north-west • Fairy ring code CJR and then run south-east",
+    "emoteItems": [
+      "Leather cowl",
+      "Amulet of strength",
+      "Iron scimitar"
+    ],
+    "emoteSteps": [
+      [
+        "Laugh"
+      ]
+    ],
+    "hideyHoleName": "Rock (hidey-hole) (Sinclair Mansion)",
+    "hideyHoleCoords": "2731,3534",
+    "hasFight": false,
     "id": "emote_0022"
   },
   {
@@ -309,6 +541,19 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "The limestone mine is in the valley east of Fort Forinthry near the Odd Old Man. To get here, use: • Skeletal horror Teleport (Requires Fur 'n Seek Wish list) • Fort Forinthry Teleport and then run east • Dig Site pendant and then run north",
+    "emoteItems": [
+      "Bronze platelegs",
+      "Steel pickaxe",
+      "Steel med helm"
+    ],
+    "emoteSteps": [
+      [
+        "Panic"
+      ]
+    ],
+    "hideyHoleName": "Crate (hidey-hole) (Silvarea quarry)",
+    "hideyHoleCoords": "3376,3500",
+    "hasFight": false,
     "id": "emote_0025"
   },
   {
@@ -321,6 +566,15 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Khazard Teleport, then run east. • Kandarin monastery Teleport, then run south-east. • Fairy ring code DJP, then run south-east.",
+    "emoteItems": [
+      "Nothing equipped."
+    ],
+    "emoteSteps": [
+      [
+        "Panic"
+      ]
+    ],
+    "hasFight": false,
     "id": "emote_0026"
   },
   {
@@ -933,6 +1187,19 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "To get here, use: • Cabbage-port (explorer's ring 3 or explorer's ring 4) • Captain's Log teleport • Arc journal teleport to Port Sarim • Port Sarim lodestone",
+    "emoteItems": [
+      "Gold necklace",
+      "Gold ring",
+      "Bronze spear"
+    ],
+    "emoteSteps": [
+      [
+        "Shrug"
+      ]
+    ],
+    "hideyHoleName": "Cart (hidey-hole)",
+    "hideyHoleCoords": "2972,3235",
+    "hasFight": false,
     "id": "emote_0077"
   },
   {
@@ -1125,6 +1392,19 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Draynor lodestone and run east • Lumbridge Teleport or Lumbridge lodestone teleport and run north-west",
+    "emoteItems": [
+      "Sapphire necklace",
+      "Polar camo legs",
+      "Oak shortbow"
+    ],
+    "emoteSteps": [
+      [
+        "Think"
+      ]
+    ],
+    "hideyHoleName": "Sack of items (hidey-hole)",
+    "hideyHoleCoords": "3165,3302",
+    "hasFight": false,
     "id": "emote_0093"
   },
   {
@@ -1137,6 +1417,19 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Take the Port Sarim lodestone and then run west.",
+    "emoteItems": [
+      "Sapphire ring",
+      "Yellow flowers",
+      "Leather chaps"
+    ],
+    "emoteSteps": [
+      [
+        "Twirl"
+      ]
+    ],
+    "hideyHoleName": "Rock (hidey-hole) (Rimmington)",
+    "hideyHoleCoords": "2959,3240",
+    "hasFight": false,
     "id": "emote_0094"
   },
   {
@@ -1149,6 +1442,19 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "War's Retreat Teleport and exit the portal • Draynor lodestone teleport • Amulet of glory teleport to Draynor Village",
+    "emoteItems": [
+      "Iron platebody",
+      "Studded chaps",
+      "Bronze full helm"
+    ],
+    "emoteSteps": [
+      [
+        "Twirl"
+      ]
+    ],
+    "hideyHoleName": "Dead tree (hidey-hole) (Draynor Manor)",
+    "hideyHoleCoords": "3090,3340",
+    "hasFight": false,
     "id": "emote_0095"
   },
   {
@@ -1161,6 +1467,19 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Mudskipper Point is south-east of Rimmington, south of the house with the anvil in it. To get here, use: • Fairy ring code AIQ • Port Sarim lodestone teleport and then run south",
+    "emoteItems": [
+      "Gold ring",
+      "Leather chaps",
+      "Steel mace"
+    ],
+    "emoteSteps": [
+      [
+        "Wave"
+      ]
+    ],
+    "hideyHoleName": "Rock (hidey-hole) (Mudskipper Point)",
+    "hideyHoleCoords": "3004,3123",
+    "hasFight": false,
     "id": "emote_0096"
   },
   {
@@ -1197,6 +1516,19 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Amulet of glory teleport to Draynor Village • Draynor lodestone and then run south",
+    "emoteItems": [
+      "Iron kiteshield",
+      "Steel longsword",
+      "Studded chaps"
+    ],
+    "emoteSteps": [
+      [
+        "Yawn"
+      ]
+    ],
+    "hideyHoleName": "Barrel (hidey-hole) (Draynor Village)",
+    "hideyHoleCoords": "3078,3246",
+    "hasFight": false,
     "id": "emote_0099"
   },
   {
@@ -1209,6 +1541,19 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "The Varrock library is inside Varrock Palace on the north side. To get here, use: • Spirit tree teleport to the one in the north-east corner of the Grand Exchange. • A ring of Wealth, ring of Fortune, luck of the Dwarves, or a Hazelmere's signet ring • Varrock Teleport if it has been set to the Grand Exchange (requires easy Varrock achievements • Grand Exchange Teleport scroll",
+    "emoteItems": [
+      "Holy symbol",
+      "Leather vambraces",
+      "Iron warhammer"
+    ],
+    "emoteSteps": [
+      [
+        "Yawn"
+      ]
+    ],
+    "hideyHoleName": "Crate (hidey-hole) (Varrock Palace)",
+    "hideyHoleCoords": "3217,3494",
+    "hasFight": false,
     "id": "emote_0100"
   },
   {
@@ -1557,6 +1902,7 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Al Kharid lodestone",
+    "npc": "Jaraah",
     "id": "anagram_0129"
   },
   {
@@ -1569,6 +1915,9 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Ardougne Teleport, then run east to Witchaven. • Cape of legends, then run south to Witchaven.",
+    "npc": "Caroline",
+    "challengeQuestion": "How many fishermen are there on the Fishing Platform?",
+    "challengeAnswer": "11",
     "id": "anagram_0130"
   },
   {
@@ -1581,6 +1930,9 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Lassar Teleport • Combat bracelet to Edgeville Monastery, then run south-west.",
+    "npc": "Oracle",
+    "challengeQuestion": "If x is 15 and y is 3 What is 3x + y?",
+    "challengeAnswer": "48",
     "id": "anagram_0131"
   },
   {
@@ -1629,6 +1981,7 @@
     "mapId": 498,
     "imageRef": null,
     "travel": "Hazelmere's signet ring to Tree Gnome Stronghold, then run north-west. • Spirit tree to Tree Gnome Stronghold, then run south-west. • Eagles' Peak lodestone, then climb over the northern stile (recommend but requires ) or the southern stile (requires to open the gate to walk along the path), and run south-east.",
+    "npc": "Brimstail",
     "id": "anagram_0135"
   },
   {
@@ -1641,6 +1994,7 @@
     "mapId": 145,
     "imageRef": null,
     "travel": "Games necklace to Troll Invasion, then run north to the cave.",
+    "npc": "Sabbot",
     "id": "anagram_0136"
   },
   {
@@ -1653,6 +2007,23 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "This clue will only work with the pointed version of the snelm, the blood'n'tar snelm (pointed), made from a blamish red shell (pointed). • Varrock lodestone and then run east and north-east • Dig Site pendant, using the Senntisten Temple option • Archaeology journal • Fort Forinthry Teleport scroll or Fort Forinthry lodestone and run south-east • Go to the north-easternmost winch, next to Elissa and just north of the incomplete barge.",
+    "emoteItems": [
+      "Blood'n'tar snelm (pointed)",
+      "Snakeskin boots",
+      "Iron pickaxe"
+    ],
+    "emoteSteps": [
+      [
+        "Beckon"
+      ],
+      [
+        "Bow",
+        "Curtsy"
+      ]
+    ],
+    "hideyHoleName": "Barrel (hidey-hole) (Varrock Dig Site)",
+    "hideyHoleCoords": "3379,3445",
+    "hasFight": false,
     "id": "emote_0137"
   },
   {
@@ -1665,6 +2036,22 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Tai Bwo Wannai Teleport scroll • Fairy ring code CKR and then run north • Karamja lodestone and then run south-east",
+    "emoteItems": [
+      "Green dragonhide chaps",
+      "Ring of duelling",
+      "Mithril med helm"
+    ],
+    "emoteSteps": [
+      [
+        "Beckon"
+      ],
+      [
+        "Clap"
+      ]
+    ],
+    "hideyHoleName": "Crate (hidey-hole) (Tai Bwo Wannai)",
+    "hideyHoleCoords": "2793,3073",
+    "hasFight": false,
     "id": "emote_0138"
   },
   {
@@ -1725,6 +2112,22 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Games necklace to the Barbarian Outpost • Barbarian Teleport (from the Lunar spells) • Dwarven Outpost teleport with Dark Facet of Luck, then run north. • Dungeoneering cape to Waterfall Dungeon (6), run south and exit. Get in the barrel, then run north to the Barbarian Outpost. • Ardougne lodestone and run far north-west.",
+    "emoteItems": [
+      "Steel platebody",
+      "Maple shortbow",
+      "Bronze armoured boots"
+    ],
+    "emoteSteps": [
+      [
+        "Cheer"
+      ],
+      [
+        "Headbang"
+      ]
+    ],
+    "hideyHoleName": "Barrel (hidey-hole) (Barbarian Outpost)",
+    "hideyHoleCoords": "2545,3556",
+    "hasFight": false,
     "id": "emote_0143"
   },
   {
@@ -1737,6 +2140,22 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Right-click Quick open on the gate and then squeeze through the gap in the railing on the left side of the ogre pen. Players can teleport here using: • Traveller's necklace to the Outpost and run east. • Ardougne lodestone or Ardougne Teleport and then running west either using the shortcut (requires level 33 Agility) or the bridge • Spirit tree teleport to the Tree Gnome Stronghold and then run south and then east",
+    "emoteItems": [
+      "Green dragonhide body",
+      "Green dragonhide chaps",
+      "Steel square shield"
+    ],
+    "emoteSteps": [
+      [
+        "Cheer"
+      ],
+      [
+        "Angry"
+      ]
+    ],
+    "hideyHoleName": "Crate (hidey-hole) (Combat Training Camp)",
+    "hideyHoleCoords": "2521,3377",
+    "hasFight": false,
     "id": "emote_0144"
   },
   {
@@ -1773,6 +2192,23 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "The archery shop is two buildings east of the Catherby bank near the fishing spots. • Catherby lodestone, then go north-east • Camelot Teleport, then so south-east.",
+    "emoteItems": [
+      "Blood'n'tar snelm (round)",
+      "Hard leather body",
+      "Silver sickle"
+    ],
+    "emoteSteps": [
+      [
+        "Cry"
+      ],
+      [
+        "Bow",
+        "Curtsy"
+      ]
+    ],
+    "hideyHoleName": "Crates (hidey-hole) (Catherby)",
+    "hideyHoleCoords": "2829,3455",
+    "hasFight": false,
     "id": "emote_0147"
   },
   {
@@ -1785,6 +2221,22 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Grand seed pod teleport (obtained from the Gnome Restaurant minigame) to the Grand Tree • Spirit tree teleport to the Tree Gnome Village and then to the Tree Gnome Stronghold. Alternatively • Eagles' Peak lodestone and then traverse the stile over the western fence into the terrorbird pen (requires level 61 Agility) • Ardougne lodestone and then run far north-west",
+    "emoteItems": [
+      "Steel kiteshield",
+      "Ring of forging",
+      "Green dragonhide chaps"
+    ],
+    "emoteSteps": [
+      [
+        "Cry"
+      ],
+      [
+        "No"
+      ]
+    ],
+    "hideyHoleName": "Tree stump (hidey-hole) (Gnome Stronghold)",
+    "hideyHoleCoords": "2473,3418",
+    "hasFight": false,
     "id": "emote_0148"
   },
   {
@@ -1797,6 +2249,9 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Fremennik sea boots 4 to Rellekka marketplace, then run south-east. • House Teleport (if player-owned house is in Rellekka) • Rellekka tablet • Enchanted lyre to Rellekka, then run north.",
+    "npc": "Brundt the Chieftain",
+    "challengeQuestion": "How many people are waiting for the next bard to perform?",
+    "challengeAnswer": "4",
     "id": "anagram_0149"
   },
   {
@@ -1809,6 +2264,22 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "The awning is just north of Shantay. Depending on a player's settings, only the posts (not the awning itself) may be visible. To get here, use: • Amulet of glory teleport to Al Kharid • Broomstick (requires Swept Away) • Al Kharid lodestone",
+    "emoteItems": [
+      "Bruise blue snelm (pointed)",
+      "Staff of air"
+    ],
+    "emoteSteps": [
+      [
+        "Jig"
+      ],
+      [
+        "Bow",
+        "Curtsy"
+      ]
+    ],
+    "hideyHoleName": "Crate (hidey-hole) (Shantay Pass)",
+    "hideyHoleCoords": "3302,3130",
+    "hasFight": false,
     "id": "emote_0150"
   },
   {
@@ -1821,6 +2292,23 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Canifis lodestone",
+    "emoteItems": [
+      "Spiny helmet",
+      "Mithril platelegs",
+      "Iron 2h sword"
+    ],
+    "emoteSteps": [
+      [
+        "Dance"
+      ],
+      [
+        "Bow",
+        "Curtsy"
+      ]
+    ],
+    "hideyHoleName": "Barrel (hidey-hole) (Canifis)",
+    "hideyHoleCoords": "3491,3480",
+    "hasFight": false,
     "id": "emote_0151"
   },
   {
@@ -1869,6 +2357,9 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Kandarin monastery Teleport, then run north. • Fairy ring code (Tower of Life), then run north-west. • Spirit tree to the Battlefield, then run across the bridge and north-east. • Ardougne Teleport, then run south-west.",
+    "npc": "Zookeeper",
+    "challengeQuestion": "How many animals are in the Ardougne Zoo?",
+    "challengeAnswer": "40",
     "id": "anagram_0155"
   },
   {
@@ -1881,6 +2372,7 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Varrock Teleport, then run east.",
+    "npc": "Lowe",
     "id": "anagram_0156"
   },
   {
@@ -1893,6 +2385,9 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "'Chipped' Ardougne teleport (or Dave's spellbook) • Lever • Ardougne lodestone",
+    "npc": "Recruiter",
+    "challengeQuestion": "How many houses have a cross on the door?",
+    "challengeAnswer": "20",
     "id": "anagram_0157"
   },
   {
@@ -1941,6 +2436,7 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Spirit tree to Tree Gnome Village.",
+    "npc": "King Bolren",
     "id": "anagram_0161"
   },
   {
@@ -1953,6 +2449,9 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Tai Bwo Wannai Teleport • Karamja lodestone, then run south.",
+    "npc": "Gabooty",
+    "challengeQuestion": "How many buildings are in the village?",
+    "challengeAnswer": "11",
     "id": "anagram_0162"
   },
   {
@@ -1989,6 +2488,7 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Amulet of glory to Karamja.",
+    "npc": "Luthas",
     "id": "anagram_0165"
   },
   {
@@ -2001,6 +2501,9 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Enlightened amulet to the swamp.",
+    "npc": "Father Urhney",
+    "challengeQuestion": "How many mineable rocks are there in the mine to the south?",
+    "challengeAnswer": "8",
     "id": "anagram_0166"
   },
   {
@@ -2037,6 +2540,7 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Fairy ring code AKS • Gnome glider to Lemantolly Undri (requires partial completion of One Small Favour up to when you repair the landing strip) • Gu'Tanoth Teleport scroll • Oo'glog lodestone • Yanille lodestone",
+    "npc": "Fycie",
     "id": "anagram_0169"
   },
   {
@@ -2049,6 +2553,9 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "House Teleport (if player-owned house is in Rimmington) or Rimmington tablet, then run south.",
+    "npc": "Rommik",
+    "challengeQuestion": "How many rocks in the Rimmington mine cannot be used to make bronze?",
+    "challengeAnswer": "7",
     "id": "anagram_0170"
   },
   {
@@ -2061,6 +2568,9 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Wilderness sword 1 to Edgeville, then run north-east. • Amulet of glory to Edgeville, then run north-east. • Edgeville lodestone, then run east.",
+    "npc": "Moldark, Emissary of Zamorak",
+    "challengeQuestion": "How many bottles are there on the stall to the east of Mr Ex?",
+    "challengeAnswer": "5 before Ritual of the Mahjarrat",
     "id": "anagram_0171"
   },
   {
@@ -2133,6 +2643,20 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "An upgraded adamant med helm (+1 or +2) will not work. • Watchtower Teleport • Yanille lodestone",
+    "emoteItems": [
+      "Iron crossbow",
+      "Adamant med helm",
+      "Snakeskin chaps"
+    ],
+    "emoteSteps": [
+      [
+        "Jump For Joy",
+        "Jig"
+      ]
+    ],
+    "hideyHoleName": "Crate (hidey-hole) (Yanille)",
+    "hideyHoleCoords": "2613,3088",
+    "hasFight": false,
     "id": "emote_0177"
   },
   {
@@ -2145,6 +2669,9 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Varrock Teleport to Varrock square, then run north. • Varrock Teleport, Grand Exchange Teleport, or Ring of Wealth to Grand Exchange, then run east.",
+    "npc": "King Roald",
+    "challengeQuestion": "How many bookcases are there in the Varrock Palace library?",
+    "challengeAnswer": "24",
     "id": "anagram_0178"
   },
   {
@@ -2169,6 +2696,7 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Traveller's necklace to the Outpost, then run north-east. • Spirit tree to Tree Gnome Stronghold, then run south.",
+    "npc": "Femi",
     "id": "anagram_0180"
   },
   {
@@ -2181,6 +2709,7 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Wendlewick Teleport • Wendlewick lodestone, then run south-east to Burnt Lobster Tavern.",
+    "npc": "Miriam",
     "id": "anagram_0181"
   },
   {
@@ -2229,6 +2758,9 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Ardougne lodestone, then run south-west, across the river, and west. • Lever • 'Chipped' Ardougne teleport (or Dave's spellbook)",
+    "npc": "Edmond",
+    "challengeQuestion": "How many pigeon cages are there around the back of Jerico's house?",
+    "challengeAnswer": "3",
     "id": "anagram_0185"
   },
   {
@@ -2253,6 +2785,9 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Mask of the Yellow Wyrm/Helm of the Parched Wyrm to desert strykewyrms, then run west. • Dig sites map or master archaeologist's outfit to the Kharid-et Dig Site, then run south-west. • Al Kharid lodestone, then run east.",
+    "npc": "Valerio",
+    "challengeQuestion": "How many windows look out into the Citharede Abbey courtyard?",
+    "challengeAnswer": "17",
     "id": "anagram_0187"
   },
   {
@@ -2289,6 +2824,7 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Modified blacksmith's helmet to Artisans' Workshop, then run north. • Skills necklace to Mining Guild, then run north.",
+    "npc": "Party Pete",
     "id": "anagram_0190"
   },
   {
@@ -2301,6 +2837,21 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Go to the graveyard south-east of the Fenkenstrain's Castle and push the easternmost memorial to pass through Fenkenstrain's Dungeon. Go north-west following the tunnel to the end and up the ladder. • Modified farmer's hat • Canifis lodestone • Kharyrll Teleport • Fairy ring code ALQ • Ectophial",
+    "emoteItems": [
+      "Mithril plateskirt",
+      "Maple shieldbow"
+    ],
+    "emoteSteps": [
+      [
+        "Panic"
+      ],
+      [
+        "Wave"
+      ]
+    ],
+    "hideyHoleName": "Crate (hidey-hole) (Mausoleum)",
+    "hideyHoleCoords": "3506,3574",
+    "hasFight": false,
     "id": "emote_0191"
   },
   {
@@ -2325,6 +2876,9 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Al Kharid lodestone, then run west.",
+    "npc": "Karim",
+    "challengeQuestion": "I have 16 kebabs, I eat one myself and share the rest equally between 3 friends. How many do they have each?",
+    "challengeAnswer": "5",
     "id": "anagram_0193"
   },
   {
@@ -2337,6 +2891,7 @@
     "mapId": 28,
     "imageRef": null,
     "travel": null,
+    "npc": "Ysondria",
     "id": "anagram_0194"
   },
   {
@@ -2541,6 +3096,22 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Ring of duelling to Castle Wars, then run north to the three small buildings around a campfire. Climb down the stairs in the western building to enter the Observatory Dungeon. Locate the second set of stairs on the minimap and click it; players should be pathed there automatically. If not, use the Observatory Dungeon map to get there. Once there, head upstairs. • Use a 'Chipped' Watchtower teleport, then climb the rope beneath the broken stone bridge. The option to add a rope to the end of the broken stone bridge is available after completion of the Observatory Quest.",
+    "emoteItems": [
+      "Mithril chainbody",
+      "Green dragonhide chaps",
+      "Ruby amulet"
+    ],
+    "emoteSteps": [
+      [
+        "Think"
+      ],
+      [
+        "Twirl"
+      ]
+    ],
+    "hideyHoleName": "Crate (hidey-hole) (Observatory)",
+    "hideyHoleCoords": "2445,3161",
+    "hasFight": false,
     "id": "emote_0211"
   },
   {
@@ -2637,6 +3208,22 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Skull sceptre teleport and then run east • Amulet of glory teleport to Edgeville and then run south-east • Edgeville lodestone and then run south-east",
+    "emoteItems": [
+      "Iron hatchet",
+      "Steel kiteshield",
+      "Mithril full helm"
+    ],
+    "emoteSteps": [
+      [
+        "Twirl"
+      ],
+      [
+        "Salute"
+      ]
+    ],
+    "hideyHoleName": "Rock (hidey-hole) (Barbarian Village)",
+    "hideyHoleCoords": "3114,3417",
+    "hasFight": false,
     "id": "emote_0219"
   },
   {
@@ -2649,6 +3236,9 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Taverley lodestone",
+    "npc": "Nails Newton",
+    "challengeQuestion": "How many tables are there in the Pick and Lute Inn?",
+    "challengeAnswer": "10",
     "id": "anagram_0220"
   },
   {
@@ -2673,6 +3263,22 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "The fastest and recommended way is to teleport using a ring of duelling. Alternatively, get here using: • Balloon transport system to just north-east of the entrance. • Fairy ring code BKP teleports players south of the building. • Spirit tree teleport to the Tree Gnome Village, squeeze through loose railing, follow Elkoy out of the maze, and run south-west • Yanille lodestone and run west",
+    "emoteItems": [
+      "Ruby amulet",
+      "Mithril scimitar",
+      "Iron square shield"
+    ],
+    "emoteSteps": [
+      [
+        "Yawn"
+      ],
+      [
+        "Shrug"
+      ]
+    ],
+    "hideyHoleName": "Stone blocks (hidey-hole)",
+    "hideyHoleCoords": "2448,3087",
+    "hasFight": false,
     "id": "emote_0222"
   },
   {
@@ -3225,6 +3831,7 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Ring of duelling to Het's Oasis, then run west. • Al Kharid lodestone, then run north.",
+    "npc": "Cam the Camel",
     "id": "anagram_0268"
   },
   {
@@ -3237,6 +3844,7 @@
     "mapId": 8,
     "imageRef": null,
     "travel": "Shortcut tunnel entrance available north of Taverley lodestone, next to the flax field • North of the Catherby lodestone.",
+    "npc": "Captain Ninto",
     "id": "anagram_0269"
   },
   {
@@ -3249,6 +3857,7 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "North from the fairy ring code akq. • Teleport to Memorial to Guthix site with Memory strand. • Teleport to Eagles' Peak lodestone and travel with the boat to Piscatoris.",
+    "npc": "Ramara du Croissant",
     "id": "anagram_0270"
   },
   {
@@ -3261,6 +3870,7 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Ardougne Teleport, then run south.",
+    "npc": "Zenesha",
     "id": "anagram_0271"
   },
   {
@@ -3345,6 +3955,9 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Spirit tree to Tree Gnome Village, then run south-west and up the ladder to the general store.",
+    "npc": "Bolkoy",
+    "challengeQuestion": "How many flowers are there in the clearing below this platform?",
+    "challengeAnswer": "13",
     "id": "anagram_0278"
   },
   {
@@ -3357,6 +3970,19 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Karamja gloves 3 • Slayer cape teleport to Duradel/Lapalok • Shilo Village cart system by speaking to Hajedy in Brimhaven (requires 10 coins and completion of Shilo Village quest). • The easiest way of reaching Hajedy is to use a Spirit tree and then walk north-west. • Alternatively, use the Karamja lodestone and walk north into Brimhaven from the lodestone and then east. • Fairy ring code CKR",
+    "emoteItems": [
+      "Splitbark helm",
+      "Mud pie",
+      "Rune platebody"
+    ],
+    "emoteSteps": [
+      [
+        "Blow Kiss"
+      ]
+    ],
+    "hideyHoleName": "Potted plant (hidey-hole) (Shilo Village)",
+    "hideyHoleCoords": "2856,2953",
+    "hasFight": true,
     "id": "emote_0279"
   },
   {
@@ -3369,6 +3995,19 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "A charged skills necklace • Fishing Guild Teleport from the Lunar spells • The Ardougne lodestone and then walk north",
+    "emoteItems": [
+      "Elemental shield",
+      "Blue dragonhide chaps",
+      "Rune warhammer"
+    ],
+    "emoteSteps": [
+      [
+        "Raspberry"
+      ]
+    ],
+    "hideyHoleName": "Crate (hidey-hole) (Fishing Guild)",
+    "hideyHoleCoords": "2585,3424",
+    "hasFight": true,
     "id": "emote_0280"
   },
   {
@@ -3381,6 +4020,19 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "A Lighthouse Teleport scroll will teleport the player directly to the Lighthouse • Games necklace teleport to the Barbarian Outpost, then crossing the basalt rocks to the north • Enchanted lyre teleport to Rellekka or Relleka market, then running south then south-west • Fremennik Province lodestone teleport, then running south then west • Blue spiky vambraces do not work.",
+    "emoteItems": [
+      "Blue dragonhide body",
+      "Blue dragonhide vambraces"
+    ],
+    "emoteSteps": [
+      [
+        "Bow",
+        "Curtsy"
+      ]
+    ],
+    "hideyHoleName": "Crate (hidey-hole) (Lighthouse)",
+    "hideyHoleCoords": "2512,3639",
+    "hasFight": true,
     "id": "emote_0281"
   },
   {
@@ -3393,6 +4045,9 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Spirit tree to Tree Gnome Stronghold, then run north-west.",
+    "npc": "Gnome Coach",
+    "challengeQuestion": "How many gnomes on the gnome ball field have red patches on their uniforms?",
+    "challengeAnswer": "6",
     "id": "anagram_0282"
   },
   {
@@ -3441,6 +4096,19 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "The cat-doored pyramid is located directly south of the pyramid that houses Pyramid Plunder. To get here, use: • Sceptre of the gods or pharaoh's sceptre teleport to Jalsavrah • The master camouflage outfit teleport to Pyramid Plunder, then run to the pyramid directly south • Menaphos lodestone teleport, then crossing the bridge to Sophanem (requires Contact!) • Taking a magic carpet to the gates of Sophanem, then entering the city",
+    "emoteItems": [
+      "Ring of life",
+      "Amulet of glory",
+      "Adamant 2h sword"
+    ],
+    "emoteSteps": [
+      [
+        "Dance"
+      ]
+    ],
+    "hideyHoleName": "Crate (hidey-hole) (Sophanem)",
+    "hideyHoleCoords": "3310,2784",
+    "hasFight": true,
     "id": "emote_0286"
   },
   {
@@ -3489,6 +4157,7 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Ring of duelling to Castle Wars, then run south.",
+    "npc": "Uglug Nar",
     "id": "anagram_0290"
   },
   {
@@ -3513,6 +4182,7 @@
     "mapId": 21,
     "imageRef": null,
     "travel": "Master camouflage outfit teleport to the Consortium, then climb down the stairs to the bottom floor and run east. • Keldagrim trapdoor from the Grand Exchange, then run north.",
+    "npc": "Riki the sculptor's model",
     "id": "anagram_0292"
   },
   {
@@ -3549,6 +4219,7 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Run south from the fairy ring with code DLQ • Teleport to Nardah with Desert amulet 2 or higher",
+    "npc": "Shiratti the Custodian",
     "id": "anagram_0295"
   },
   {
@@ -3561,6 +4232,7 @@
     "mapId": 1,
     "imageRef": null,
     "travel": "Zanaris house • Any fairy ring to Zanaris, then run north-west. • Fairy Resistance Hideout • Fairy ring code AIR, DLR, DJQ, AJS.",
+    "npc": "Fairy Nuff",
     "id": "anagram_0296"
   },
   {
@@ -3669,6 +4341,7 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "After completing the Fur 'n Seek Wish list, the skeletal horror Teleport can be used. • The invitation box can be also used after completing Missing, Presumed Death to get a quick teleport. • A teleport to the Archaeology Campus and then running north can also be done with the Archaeology journal, Dig Site pendant, or Senntisten Teleport. • A teleport to the entrance to the earth altar can be done with the wicked hood or earth altar teleport and then running east. • Fort Forinthry Teleport and run south east.",
+    "npc": "Odd Old Man",
     "id": "anagram_0305"
   },
   {
@@ -3681,6 +4354,19 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "If Mountain Daughter has not been completed, take a rope to get into the camp. Upgraded variants of the helmet (+1, +2, or +3) will not work. To get here, use: • Fairy ring code AJR and then run north • Fremennik Province lodestone and then run south-east • Ring of slaying to the Fremennik Slayer Dungeon and then run north-east",
+    "emoteItems": [
+      "Rune full helm",
+      "Blue dragonhide chaps",
+      "Fire battlestaff"
+    ],
+    "emoteSteps": [
+      [
+        "Laugh"
+      ]
+    ],
+    "hideyHoleName": "Rock (hidey-hole) (Mountain Camp)",
+    "hideyHoleCoords": "2790,3667",
+    "hasFight": true,
     "id": "emote_0306"
   },
   {
@@ -3789,6 +4475,7 @@
     "mapId": 3,
     "imageRef": null,
     "travel": "Watchtower Teleport to Yanille, then run east into the Wizard's Guild and down to the basement.",
+    "npc": "Wizard Frumscone",
     "id": "anagram_0315"
   },
   {
@@ -3801,6 +4488,7 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Planted spirit tree to Brimhaven, then run south. • House Teleport (if player-owned house is in Brimhaven) or Brimhaven tablet, then run east. • Karamja lodestone, then run north-east.",
+    "npc": "Cap'n Izzy No-Beard",
     "id": "anagram_0316"
   },
   {
@@ -3837,6 +4525,7 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Wicked hood or traveller's necklace • Fairy ring code DIS, then run to entrance",
+    "npc": "Professor Onglewip",
     "id": "anagram_0319"
   },
   {
@@ -3849,6 +4538,19 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Gnome glider to Sindarpos • Taverley lodestone • Catherby lodestone and mithril crossbow and mithril grapple • The nearby level 20 Big Wolf is aggressive; players with a combat level less than 40 may have their emote performance interrupted.",
+    "emoteItems": [
+      "Mithril platelegs",
+      "Ring of life",
+      "Rune hatchet"
+    ],
+    "emoteSteps": [
+      [
+        "Panic"
+      ]
+    ],
+    "hideyHoleName": "Rock (hidey-hole) (White Wolf Mountain)",
+    "hideyHoleCoords": "2845,3496",
+    "hasFight": true,
     "id": "emote_0320"
   },
   {
@@ -3861,6 +4563,12 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Fairy ring code alq and head east • Canifis lodestone and head east • Ectophial and head west",
+    "emoteSteps": [
+      [
+        "Panic"
+      ]
+    ],
+    "hasFight": true,
     "id": "emote_0321"
   },
   {
@@ -3885,6 +4593,7 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Port Sarim lodestone, then run south-east.",
+    "npc": "Trader Stan",
     "id": "anagram_0323"
   },
   {
@@ -3909,6 +4618,7 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Planted spirit tree to Etceteria, then run north-east to the castle and up the ladder. • Fairy ring code CIP to Etceteria, then run around the castle wall to the south into the castle and up the ladder.",
+    "npc": "Queen Sigrid",
     "id": "anagram_0325"
   },
   {
@@ -3921,6 +4631,18 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Amulet of glory Karamja teleport • Port Sarim ship to Musa Point • Fairy ring code BLP to teleport to the TzHaar City, exit the volcano, and run east • Karamja lodestone",
+    "emoteItems": [
+      "Diamond ring",
+      "Amulet of power"
+    ],
+    "emoteSteps": [
+      [
+        "Salute"
+      ]
+    ],
+    "hideyHoleName": "Log (hidey-hole)",
+    "hideyHoleCoords": "2914,3154",
+    "hasFight": true,
     "id": "emote_0326"
   },
   {
@@ -3933,6 +4655,19 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "The Wilderness obelisk in level 18 Wilderness is just north of the temple. • An obelisk shard or portable obelisk can be used to teleport directly to any obelisk • Alternatively, the Wilderness sword 3 allows players to teleport to a chosen obelisk from any other obelisk • The Carrallangar Teleport from the Ancient Magicks spellbook takes the player to the Graveyard of Shadows, then run south to reach the temple • Wilderness Crater lodestone, then run east",
+    "emoteItems": [
+      "Bronze platelegs",
+      "Iron platebody",
+      "Blue dragonhide vambraces"
+    ],
+    "emoteSteps": [
+      [
+        "Shrug"
+      ]
+    ],
+    "hideyHoleName": "Rock (hidey-hole) (Wilderness)",
+    "hideyHoleCoords": "3245,3610",
+    "hasFight": true,
     "id": "emote_0327"
   },
   {
@@ -4125,6 +4860,19 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Wilderness obelisk (level 27 Wilderness)",
+    "emoteItems": [
+      "Iron square shield",
+      "Blue dragonhide vambraces",
+      "Iron pickaxe"
+    ],
+    "emoteSteps": [
+      [
+        "Yawn"
+      ]
+    ],
+    "hideyHoleName": "Dead tree (hidey-hole) (Wilderness)",
+    "hideyHoleCoords": "3031,3722",
+    "hasFight": true,
     "id": "emote_0343"
   },
   {
@@ -4449,6 +5197,7 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Crystal teleport seed or • Tirannwn quiver 1 to Lletya.",
+    "npc": "Amaethwr",
     "id": "anagram_0370"
   },
   {
@@ -4461,6 +5210,7 @@
     "mapId": -1,
     "imageRef": null,
     "travel": "Gower farm • Nature's sentinel outfit to elder tree south of Varrock, then run south. • Varrock Lodestone, then run south-east.",
+    "npc": "Paul Gower",
     "id": "anagram_0371"
   },
   {
@@ -4473,6 +5223,19 @@
     "mapId": -1,
     "imageRef": null,
     "travel": "Dungeoneering cape perk to Celestial dragon dungeon • Max Guild portal tuned to the Radiant wisp colony • Big Book o' Piracy teleport to Dragontooth Island (requires completion of Pieces of Hate) • Use the boat in Port Phasmatys (Ghostspeak amulet or completion of hard Morytania achievements is required)",
+    "emoteItems": [
+      "Dragon mask",
+      "Dragon Rider amulet",
+      "Dragon defender"
+    ],
+    "emoteSteps": [
+      [
+        "Raspberry"
+      ]
+    ],
+    "hideyHoleName": "Rock (hidey-hole) (Celestial dragons)",
+    "hideyHoleCoords": "2277,5965",
+    "hasFight": true,
     "id": "emote_0372"
   },
   {
@@ -4485,6 +5248,20 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Traveller's necklace teleport to the Outpost (2) and then run north-west • Sixth-Age circuit teleport to the World Gate and then run north-east (requires completion of The World Wakes, Ritual of the Mahjarrat, The Chosen Commander, The Void Stares Back, The Branches of Darkmeyer, The Firemaker's Curse. and Fate of the Gods) • Eagles' Peak lodestone and then walk south-east",
+    "emoteItems": [
+      "Enhanced yaktwee stick",
+      "Dagon'hai hat",
+      "Amulet of ranging"
+    ],
+    "emoteSteps": [
+      [
+        "Bow",
+        "Curtsy"
+      ]
+    ],
+    "hideyHoleName": "Rock (hidey-hole) (Charm sprites)",
+    "hideyHoleCoords": "2397,3367",
+    "hasFight": true,
     "id": "emote_0373"
   },
   {
@@ -4497,6 +5274,19 @@
     "mapId": 228,
     "imageRef": null,
     "travel": "TokKul-Zo • Fairy ring blp located near the Fight Cave. • Alternatively, players can use: • Karamja lodestone and run east • Amulet of glory teleport and run west",
+    "emoteItems": [
+      "Fire cape",
+      "Toktz-ket-xil",
+      "Spork"
+    ],
+    "emoteSteps": [
+      [
+        "Cheer"
+      ]
+    ],
+    "hideyHoleName": "Table (hidey-hole)",
+    "hideyHoleCoords": "4638,5106",
+    "hasFight": true,
     "id": "emote_0374"
   },
   {
@@ -4509,6 +5299,19 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Recoloured and augmented versions of the dark bow count, but only uncoloured infinity boots count. It is recommended to use a claimed island; otherwise, short junkets require the least amount of supplies. Leave the island after receiving the scroll box/casket, as it cannot be opened there. • Alternatively, players can use: • Karamja lodestone and run east • Amulet of glory teleport and run west",
+    "emoteItems": [
+      "Dark bow",
+      "Infinity boots",
+      "Culinaromancer's gloves 10"
+    ],
+    "emoteSteps": [
+      [
+        "Dance"
+      ]
+    ],
+    "hideyHoleName": "Water barrel (hidey-hole)",
+    "hideyHoleCoords": "3802,1989",
+    "hasFight": true,
     "id": "emote_0375"
   },
   {
@@ -4521,6 +5324,19 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "The quickest way to get here is by using the Ectophial. Alternatively, players can teleport to the Canifis lodestone and run east to Port Phasmatys.",
+    "emoteItems": [
+      "Iban's staff",
+      "Ghostly cloak",
+      "Cavalier"
+    ],
+    "emoteSteps": [
+      [
+        "Laugh"
+      ]
+    ],
+    "hideyHoleName": "Barrel (hidey-hole) (Port Phasmatys)",
+    "hideyHoleCoords": "3676,3494",
+    "hasFight": true,
     "id": "emote_0376"
   },
   {
@@ -4545,6 +5361,7 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Senntisten teleport • Quest Cape to The Empty Throne room • Archaeology journal teleport and run north-east (look for the dungeon icon just northeast of the archaeologist's workbench).",
+    "npc": "Celia Diggory",
     "id": "anagram_0378"
   },
   {
@@ -4557,6 +5374,7 @@
     "mapId": -1,
     "imageRef": null,
     "travel": "War's Retreat Teleport and right-click 'Exit to Death's office' • Draynor Village Lodestone, then run north-west to Death's Hourglass.",
+    "npc": "Death",
     "id": "anagram_0379"
   },
   {
@@ -4569,6 +5387,7 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Crystal teleport seed to the Trahaearn Clan District.",
+    "npc": "Lady Trahaearn",
     "id": "anagram_0380"
   },
   {
@@ -4581,6 +5400,19 @@
     "mapId": -1,
     "imageRef": null,
     "travel": "Recoloured and augmented versions of the staff can be used. Use a skills necklace to teleport directly outside the guild door, or teleport to the Falador lodestone to get here.",
+    "emoteItems": [
+      "Lab coat top",
+      "Lab coat legs",
+      "Staff of light"
+    ],
+    "emoteSteps": [
+      [
+        "Idea"
+      ]
+    ],
+    "hideyHoleName": "Barrel (hidey-hole) (Invention Guild)",
+    "hideyHoleCoords": "6176,1050",
+    "hasFight": true,
     "id": "emote_0381"
   },
   {
@@ -4593,6 +5425,19 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "The fastest way to get to the Slayer Tower is to use the ring of slaying, the Mask of Broken Fingers, the Mask of the Abyss, the Mask of Stench, or the Mask of Mourning. Alternatively: • Dungeoneering cape to the Morytania Slayer Tower dungeon • Teleport to the Canifis lodestone and then run west • Fairy ring code CKS to a spot just south of the Slayer Tower.",
+    "emoteItems": [
+      "Imphide hood",
+      "Prifddinian musician's robe top",
+      "Amulet of magic"
+    ],
+    "emoteSteps": [
+      [
+        "Headbang"
+      ]
+    ],
+    "hideyHoleName": "Crates (hidey-hole) (Slayer Tower)",
+    "hideyHoleCoords": "3427,3541",
+    "hasFight": true,
     "id": "emote_0382"
   },
   {
@@ -4617,6 +5462,7 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Desert amulet 2 to Nardah, then run north. • The Heart teleport to the Heart of Gielinor, then run north-east.",
+    "npc": "Ali the Wise",
     "id": "anagram_0384"
   },
   {
@@ -4629,6 +5475,19 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Edgeville lodestone teleport • Wilderness sword Edgeville teleport",
+    "emoteItems": [
+      "Holy Cithara",
+      "Saradomin's murmur",
+      "Ring of devotion"
+    ],
+    "emoteSteps": [
+      [
+        "Jig"
+      ]
+    ],
+    "hideyHoleName": "Barrel (hidey-hole) (Edgeville Monastery)",
+    "hideyHoleCoords": "3056,3499",
+    "hasFight": true,
     "id": "emote_0385"
   },
   {
@@ -4641,6 +5500,7 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Tuai Leit teleport",
+    "npc": "Sensei Seaworth",
     "id": "anagram_0386"
   },
   {
@@ -4653,6 +5513,7 @@
     "mapId": -1,
     "imageRef": null,
     "travel": "Spirit tree to the Battlefield, then run north.",
+    "npc": "Philipe Carnillean",
     "id": "anagram_0387"
   },
   {
@@ -4677,6 +5538,7 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Big Book o' Piracy to Mos Le'Harmless",
+    "npc": "Brother Tranquillity",
     "id": "anagram_0389"
   },
   {
@@ -4689,6 +5551,7 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Skills necklace to Crafting Guild, then run south-west. • Master archaeologist's outfit or Archaeology teleport to Lowse, then run east. • Port Sarim lodestone, then run north-west.",
+    "npc": "Malignius Mortifer",
     "id": "anagram_0390"
   },
   {
@@ -4701,6 +5564,19 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Any colour of boater will work. • Lumbridge lodestone teleport",
+    "emoteItems": [
+      "Demon slayer gloves",
+      "Boater",
+      "Cape of legends"
+    ],
+    "emoteSteps": [
+      [
+        "Shrug"
+      ]
+    ],
+    "hideyHoleName": "Barrel (hidey-hole) (Lumbridge)",
+    "hideyHoleCoords": "3198,3258",
+    "hasFight": true,
     "id": "emote_0391"
   },
   {
@@ -4713,6 +5589,7 @@
     "mapId": 693,
     "imageRef": null,
     "travel": "The Heart teleport, then down into Heart of Gielinor.",
+    "npc": "Soothsayer Sybil",
     "id": "anagram_0392"
   },
   {
@@ -4737,6 +5614,19 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "The enhanced ancient staff works, as do the recoloured variants. • Attuned crystal teleport seed to the Hefin district • Prifddinas lodestone and run north-west",
+    "emoteItems": [
+      "Ancient staff",
+      "Prifddinian worker's trousers",
+      "Berserker ring"
+    ],
+    "emoteSteps": [
+      [
+        "Think"
+      ]
+    ],
+    "hideyHoleName": "Potted plant (hidey-hole) (Prifddinas)",
+    "hideyHoleCoords": "2181,3402",
+    "hasFight": true,
     "id": "emote_0394"
   },
   {
@@ -4749,6 +5639,7 @@
     "mapId": 266,
     "imageRef": null,
     "travel": "Mask of the Ganodermic or Helm of the Ganodermic teleport, then run south • Delver's anklet to Polypore dungeon, then run south and climb down • Fairy ring code BIP to Polypore Dungeon, then navigate to the bottom floor",
+    "npc": "Ramokee Skinweaver",
     "id": "anagram_0395"
   },
   {
@@ -4761,6 +5652,7 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Master archaeologist's outfit or Archaeology teleport • Amulet of glory to Draynor Village, then run north-east.",
+    "npc": "Wise Old Man",
     "id": "anagram_0396"
   },
   {
@@ -4773,6 +5665,18 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Asylum surgeon's ring (i) works. • Teleport to the Golden Palace using the Sceptre of the gods and take a few steps south. • Use an Imperial district teleport • Alternatively, teleport to the Menaphos lodestone and run west.",
+    "emoteItems": [
+      "Asylum surgeon's ring",
+      "Scabaras mask"
+    ],
+    "emoteSteps": [
+      [
+        "Wave"
+      ]
+    ],
+    "hideyHoleName": "Plant (hidey-hole)",
+    "hideyHoleCoords": "3172,2711",
+    "hasFight": true,
     "id": "emote_0397"
   },
   {
@@ -17189,6 +18093,18 @@
   {
     "type": "scan",
     "difficulty": "master",
+    "clue": "This scroll will work in the Lost Grove. Orb scan range: 14 paces.",
+    "location": "The Lost Grove",
+    "solution": "West of the bulbous crawlers.",
+    "coordinates": "1925, 3220",
+    "mapId": 28,
+    "scanRange": "14",
+    "imageRef": null,
+    "id": "scan_1513"
+  },
+  {
+    "type": "scan",
+    "difficulty": "master",
     "clue": "This scroll will work in Prifddinas. Orb scan range: 30 paces.",
     "location": "Prifddinas",
     "solution": "Crwys Clan district, on the outcrop leading to the Prifddinas Waterfall, just south of the Prifddinas Waterfall Fishing Shop.",
@@ -17196,7 +18112,7 @@
     "mapId": 28,
     "scanRange": "30",
     "imageRef": null,
-    "id": "scan_1513"
+    "id": "scan_1514"
   },
   {
     "type": "scan",
@@ -17208,7 +18124,7 @@
     "mapId": 28,
     "scanRange": "30",
     "imageRef": null,
-    "id": "scan_1514"
+    "id": "scan_1515"
   },
   {
     "type": "scan",
@@ -17220,7 +18136,7 @@
     "mapId": 28,
     "scanRange": "30",
     "imageRef": null,
-    "id": "scan_1515"
+    "id": "scan_1516"
   },
   {
     "type": "scan",
@@ -17232,7 +18148,7 @@
     "mapId": 28,
     "scanRange": "30",
     "imageRef": null,
-    "id": "scan_1516"
+    "id": "scan_1517"
   },
   {
     "type": "scan",
@@ -17244,7 +18160,7 @@
     "mapId": 28,
     "scanRange": "30",
     "imageRef": null,
-    "id": "scan_1517"
+    "id": "scan_1518"
   },
   {
     "type": "scan",
@@ -17256,7 +18172,7 @@
     "mapId": 28,
     "scanRange": "30",
     "imageRef": null,
-    "id": "scan_1518"
+    "id": "scan_1519"
   },
   {
     "type": "scan",
@@ -17268,7 +18184,7 @@
     "mapId": 28,
     "scanRange": "30",
     "imageRef": null,
-    "id": "scan_1519"
+    "id": "scan_1520"
   },
   {
     "type": "scan",
@@ -17280,7 +18196,7 @@
     "mapId": 28,
     "scanRange": "30",
     "imageRef": null,
-    "id": "scan_1520"
+    "id": "scan_1521"
   },
   {
     "type": "scan",
@@ -17292,7 +18208,7 @@
     "mapId": 28,
     "scanRange": "30",
     "imageRef": null,
-    "id": "scan_1521"
+    "id": "scan_1522"
   },
   {
     "type": "scan",
@@ -17304,7 +18220,7 @@
     "mapId": 28,
     "scanRange": "30",
     "imageRef": null,
-    "id": "scan_1522"
+    "id": "scan_1523"
   },
   {
     "type": "scan",
@@ -17316,7 +18232,7 @@
     "mapId": 28,
     "scanRange": "30",
     "imageRef": null,
-    "id": "scan_1523"
+    "id": "scan_1524"
   },
   {
     "type": "scan",
@@ -17328,7 +18244,7 @@
     "mapId": 28,
     "scanRange": "30",
     "imageRef": null,
-    "id": "scan_1524"
+    "id": "scan_1525"
   },
   {
     "type": "scan",
@@ -17340,7 +18256,7 @@
     "mapId": 28,
     "scanRange": "30",
     "imageRef": null,
-    "id": "scan_1525"
+    "id": "scan_1526"
   },
   {
     "type": "scan",
@@ -17352,7 +18268,7 @@
     "mapId": 28,
     "scanRange": "30",
     "imageRef": null,
-    "id": "scan_1526"
+    "id": "scan_1527"
   },
   {
     "type": "scan",
@@ -17364,7 +18280,7 @@
     "mapId": 28,
     "scanRange": "30",
     "imageRef": null,
-    "id": "scan_1527"
+    "id": "scan_1528"
   },
   {
     "type": "scan",
@@ -17376,7 +18292,7 @@
     "mapId": 28,
     "scanRange": "30",
     "imageRef": null,
-    "id": "scan_1528"
+    "id": "scan_1529"
   },
   {
     "type": "scan",
@@ -17388,7 +18304,7 @@
     "mapId": 28,
     "scanRange": "30",
     "imageRef": null,
-    "id": "scan_1529"
+    "id": "scan_1530"
   },
   {
     "type": "scan",
@@ -17400,7 +18316,7 @@
     "mapId": 28,
     "scanRange": "30",
     "imageRef": null,
-    "id": "scan_1530"
+    "id": "scan_1531"
   },
   {
     "type": "challenge",
@@ -17411,7 +18327,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "Zookeeper",
-    "id": "challenge_1531"
+    "id": "challenge_1532"
   },
   {
     "type": "challenge",
@@ -17422,7 +18338,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "King Roald",
-    "id": "challenge_1532"
+    "id": "challenge_1533"
   },
   {
     "type": "challenge",
@@ -17433,7 +18349,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "Gabooty",
-    "id": "challenge_1533"
+    "id": "challenge_1534"
   },
   {
     "type": "challenge",
@@ -17444,7 +18360,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "Cook",
-    "id": "challenge_1534"
+    "id": "challenge_1535"
   },
   {
     "type": "challenge",
@@ -17455,7 +18371,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "Caroline",
-    "id": "challenge_1535"
+    "id": "challenge_1536"
   },
   {
     "type": "challenge",
@@ -17466,7 +18382,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "Recruiter",
-    "id": "challenge_1536"
+    "id": "challenge_1537"
   },
   {
     "type": "challenge",
@@ -17477,7 +18393,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "Brundt the Chieftain",
-    "id": "challenge_1537"
+    "id": "challenge_1538"
   },
   {
     "type": "challenge",
@@ -17488,7 +18404,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "Edmond",
-    "id": "challenge_1538"
+    "id": "challenge_1539"
   },
   {
     "type": "challenge",
@@ -17499,7 +18415,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "Oracle",
-    "id": "challenge_1539"
+    "id": "challenge_1540"
   },
   {
     "type": "challenge",
@@ -17510,7 +18426,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "Karim",
-    "id": "challenge_1540"
+    "id": "challenge_1541"
   },
   {
     "type": "challenge",
@@ -17521,7 +18437,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "Hazelmere / Brimstail",
-    "id": "challenge_1541"
+    "id": "challenge_1542"
   },
   {
     "type": "challenge",
@@ -17532,7 +18448,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "Gnome ball referee",
-    "id": "challenge_1542"
+    "id": "challenge_1543"
   },
   {
     "type": "challenge",
@@ -17543,7 +18459,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "Valerio",
-    "id": "challenge_1543"
+    "id": "challenge_1544"
   },
   {
     "type": "challenge",
@@ -17554,7 +18470,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "Moldark, Emissary of Zamorak",
-    "id": "challenge_1544"
+    "id": "challenge_1545"
   },
   {
     "type": "challenge",
@@ -17565,7 +18481,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "Father Urhney",
-    "id": "challenge_1545"
+    "id": "challenge_1546"
   },
   {
     "type": "challenge",
@@ -17576,7 +18492,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "Rommik",
-    "id": "challenge_1546"
+    "id": "challenge_1547"
   },
   {
     "type": "challenge",
@@ -17587,7 +18503,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "Nails Newton",
-    "id": "challenge_1547"
+    "id": "challenge_1548"
   },
   {
     "type": "challenge",
@@ -17598,7 +18514,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "Cap'n Izzy No-Beard's parrot",
-    "id": "challenge_1548"
+    "id": "challenge_1549"
   },
   {
     "type": "challenge",
@@ -17609,7 +18525,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "Bolkoy",
-    "id": "challenge_1549"
+    "id": "challenge_1550"
   },
   {
     "type": "challenge",
@@ -17620,7 +18536,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "Gnome Coach",
-    "id": "challenge_1550"
+    "id": "challenge_1551"
   },
   {
     "type": "skill",
@@ -17630,7 +18546,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1551"
+    "id": "skill_1552"
   },
   {
     "type": "skill",
@@ -17640,7 +18556,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1552"
+    "id": "skill_1553"
   },
   {
     "type": "skill",
@@ -17650,7 +18566,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1553"
+    "id": "skill_1554"
   },
   {
     "type": "skill",
@@ -17660,7 +18576,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1554"
+    "id": "skill_1555"
   },
   {
     "type": "skill",
@@ -17670,7 +18586,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1555"
+    "id": "skill_1556"
   },
   {
     "type": "skill",
@@ -17680,7 +18596,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1556"
+    "id": "skill_1557"
   },
   {
     "type": "skill",
@@ -17690,7 +18606,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1557"
+    "id": "skill_1558"
   },
   {
     "type": "skill",
@@ -17700,7 +18616,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1558"
+    "id": "skill_1559"
   },
   {
     "type": "skill",
@@ -17710,7 +18626,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1559"
+    "id": "skill_1560"
   },
   {
     "type": "skill",
@@ -17720,7 +18636,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1560"
+    "id": "skill_1561"
   },
   {
     "type": "skill",
@@ -17730,7 +18646,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1561"
+    "id": "skill_1562"
   },
   {
     "type": "skill",
@@ -17740,7 +18656,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1562"
+    "id": "skill_1563"
   },
   {
     "type": "skill",
@@ -17750,7 +18666,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1563"
+    "id": "skill_1564"
   },
   {
     "type": "skill",
@@ -17760,7 +18676,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1564"
+    "id": "skill_1565"
   },
   {
     "type": "skill",
@@ -17770,7 +18686,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1565"
+    "id": "skill_1566"
   },
   {
     "type": "skill",
@@ -17780,7 +18696,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1566"
+    "id": "skill_1567"
   },
   {
     "type": "skill",
@@ -17790,7 +18706,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1567"
+    "id": "skill_1568"
   },
   {
     "type": "skill",
@@ -17800,7 +18716,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1568"
+    "id": "skill_1569"
   },
   {
     "type": "skill",
@@ -17810,7 +18726,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1569"
+    "id": "skill_1570"
   },
   {
     "type": "skill",
@@ -17820,7 +18736,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1570"
+    "id": "skill_1571"
   },
   {
     "type": "skill",
@@ -17830,7 +18746,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1571"
+    "id": "skill_1572"
   },
   {
     "type": "skill",
@@ -17840,7 +18756,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1572"
+    "id": "skill_1573"
   },
   {
     "type": "skill",
@@ -17850,7 +18766,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1573"
+    "id": "skill_1574"
   },
   {
     "type": "skill",
@@ -17860,7 +18776,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1574"
+    "id": "skill_1575"
   },
   {
     "type": "skill",
@@ -17870,7 +18786,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1575"
+    "id": "skill_1576"
   },
   {
     "type": "skill",
@@ -17880,7 +18796,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1576"
+    "id": "skill_1577"
   },
   {
     "type": "skill",
@@ -17890,7 +18806,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1577"
+    "id": "skill_1578"
   },
   {
     "type": "emote",
@@ -17901,7 +18817,13 @@
     "coordinates": null,
     "mapId": 28,
     "imageRef": null,
-    "travel": "Max Guild Teleport and exit into the garden \u2022 Attuned crystal teleport seed to the Cadarn district",
-    "id": "emote_0398"
+    "travel": "Max Guild Teleport and exit into the garden • Attuned crystal teleport seed to the Cadarn district",
+    "id": "emote_1579",
+    "emoteSteps": [
+      [
+        "Salute"
+      ]
+    ],
+    "hasFight": true
   }
 ]
