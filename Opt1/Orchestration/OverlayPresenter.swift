@@ -197,10 +197,11 @@ final class OverlayPresenter {
     func showTowersOverlay(solution: TowersSolution, hints: TowersHints, windowFrame: CGRect) {
         dismissTriangulationIfNeeded()
         let mode = OverlayMode.towers(solution: solution, hints: hints)
-        let view = SolutionView(mode: mode, message: "", detail: "")
+        let controller = OverlayWindowController()
+        let view = SolutionView(mode: mode, message: "", detail: "",
+                                onClose: { [weak controller] in controller?.close() })
         // 7 columns × 32 pt + gaps + header ~= 280 × 320
         let size = CGSize(width: 280, height: 320)
-        let controller = OverlayWindowController()
         controller.showSolutionView(AnyView(view), size: size, windowFrame: windowFrame)
         overlayWindowController = controller
         scheduleDismiss(controller: controller, after: 60)
@@ -287,9 +288,10 @@ final class OverlayPresenter {
         }
 
         let mode = OverlayMode.celticKnot(solution: solution)
-        let view = SolutionView(mode: mode, message: "", detail: "")
-        let size = mode.preferredSize
         let controller = OverlayWindowController()
+        let view = SolutionView(mode: mode, message: "", detail: "",
+                                onClose: { [weak controller] in controller?.close() })
+        let size = mode.preferredSize
         controller.showSolutionView(AnyView(view), size: size, windowFrame: windowFrame)
         overlayWindowController = controller
         scheduleDismiss(controller: controller, after: 30)

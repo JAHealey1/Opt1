@@ -98,6 +98,13 @@
 		B300000000000000000000BA /* ScanListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000BA /* ScanListView.swift */; };
 		B300000000000000000000BB /* SolutionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000BB /* SolutionCardView.swift */; };
 		B300000000000000000000BC /* PuzzleSolutionViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000BC /* PuzzleSolutionViews.swift */; };
+		B300000000000000000000C1 /* BadgeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000C1 /* BadgeSpec.swift */; };
+		B300000000000000000000C2 /* OverlayHeaderBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000C2 /* OverlayHeaderBar.swift */; };
+		B300000000000000000000C3 /* WorldMapSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000C3 /* WorldMapSection.swift */; };
+		B300000000000000000000C4 /* ClosestTeleportBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000C4 /* ClosestTeleportBanner.swift */; };
+		B300000000000000000000C5 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000C5 /* CloseButton.swift */; };
+		B300000000000000000000C6 /* ItemChipRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000C6 /* ItemChipRow.swift */; };
+		B300000000000000000000C7 /* EmoteStepList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000C7 /* EmoteStepList.swift */; };
 		B300000000000000000000BD /* DetectionHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000BD /* DetectionHelpers.swift */; };
 		B300000000000000000000BE /* PolygonGeometryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000BE /* PolygonGeometryTests.swift */; };
 		B300000000000000000000BF /* ClueScrollPipelineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000BF /* ClueScrollPipelineTests.swift */; };
@@ -226,6 +233,13 @@
 		B200000000000000000000BA /* ScanListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanListView.swift; sourceTree = "<group>"; };
 		B200000000000000000000BB /* SolutionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolutionCardView.swift; sourceTree = "<group>"; };
 		B200000000000000000000BC /* PuzzleSolutionViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleSolutionViews.swift; sourceTree = "<group>"; };
+		B200000000000000000000C1 /* BadgeSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeSpec.swift; sourceTree = "<group>"; };
+		B200000000000000000000C2 /* OverlayHeaderBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayHeaderBar.swift; sourceTree = "<group>"; };
+		B200000000000000000000C3 /* WorldMapSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldMapSection.swift; sourceTree = "<group>"; };
+		B200000000000000000000C4 /* ClosestTeleportBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosestTeleportBanner.swift; sourceTree = "<group>"; };
+		B200000000000000000000C5 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
+		B200000000000000000000C6 /* ItemChipRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemChipRow.swift; sourceTree = "<group>"; };
+		B200000000000000000000C7 /* EmoteStepList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoteStepList.swift; sourceTree = "<group>"; };
 		B200000000000000000000BD /* DetectionHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionHelpers.swift; sourceTree = "<group>"; };
 		B200000000000000000000BE /* PolygonGeometryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolygonGeometryTests.swift; sourceTree = "<group>"; };
 		B200000000000000000000BF /* ClueScrollPipelineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClueScrollPipelineTests.swift; sourceTree = "<group>"; };
@@ -389,12 +403,27 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		A50000000000000000000024 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B200000000000000000000C1 /* BadgeSpec.swift */,
+				B200000000000000000000C2 /* OverlayHeaderBar.swift */,
+				B200000000000000000000C3 /* WorldMapSection.swift */,
+				B200000000000000000000C4 /* ClosestTeleportBanner.swift */,
+				B200000000000000000000C5 /* CloseButton.swift */,
+				B200000000000000000000C6 /* ItemChipRow.swift */,
+				B200000000000000000000C7 /* EmoteStepList.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		A5000000000000000000001C /* Overlay */ = {
 			isa = PBXGroup;
 			children = (
 				A200000000000000000000A6 /* OverlayWindowController.swift */,
 				A200000000000000000000A7 /* SolutionView.swift */,
 				B200000000000000000000B5 /* OverlayTheme.swift */,
+				A50000000000000000000024 /* Components */,
 				B200000000000000000000BB /* SolutionCardView.swift */,
 				B200000000000000000000BC /* PuzzleSolutionViews.swift */,
 				B200000000000000000000BA /* ScanListView.swift */,
@@ -733,6 +762,13 @@
 				B300000000000000000000BA /* ScanListView.swift in Sources */,
 				B300000000000000000000BB /* SolutionCardView.swift in Sources */,
 				B300000000000000000000BC /* PuzzleSolutionViews.swift in Sources */,
+				B300000000000000000000C1 /* BadgeSpec.swift in Sources */,
+				B300000000000000000000C2 /* OverlayHeaderBar.swift in Sources */,
+				B300000000000000000000C3 /* WorldMapSection.swift in Sources */,
+				B300000000000000000000C4 /* ClosestTeleportBanner.swift in Sources */,
+				B300000000000000000000C5 /* CloseButton.swift in Sources */,
+				B300000000000000000000C6 /* ItemChipRow.swift in Sources */,
+				B300000000000000000000C7 /* EmoteStepList.swift in Sources */,
 				B300000000000000000000BD /* DetectionHelpers.swift in Sources */,
 				P300000000000000000000A0 /* DetectionConfiguration+App.swift in Sources */,
 			);

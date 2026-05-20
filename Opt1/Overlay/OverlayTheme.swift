@@ -30,6 +30,19 @@ enum OverlayTheme {
     // Standard radii / widths
     static let cornerRadius: CGFloat = 12
     static let borderWidth:  CGFloat = 1.0
+
+    /// Background and text colour for the difficulty capsule badge.
+    /// Matched to in-game scroll colours as agreed in Phase 3.
+    static func badgeColor(for difficulty: String) -> (bg: Color, text: Color) {
+        switch difficulty.lowercased() {
+        case "easy":   return (Color(red: 0.53, green: 0.53, blue: 0.53), .black.opacity(0.7))
+        case "medium": return (Color(red: 0.75, green: 0.47, blue: 0.19), .black.opacity(0.7))
+        case "hard":   return (Color(red: 0.82, green: 0.80, blue: 0.75), .black.opacity(0.7))
+        case "elite":  return (Color(red: 0.90, green: 0.70, blue: 0.22), .black.opacity(0.7))
+        case "master": return (Color(red: 0.53, green: 0.73, blue: 0.83), .black.opacity(0.7))
+        default:       return (OverlayTheme.gold.opacity(0.50), .black.opacity(0.7))
+        }
+    }
 }
 
 // MARK: - Overlay Mode

@@ -143,6 +143,7 @@ private struct LockboxCellBadge: View {
 struct TowersSolutionView: View {
     let solution: TowersSolution
     let hints: TowersHints
+    var onClose: (() -> Void)? = nil
 
     /// Distinct colours for tower heights 1-5.
     private static let heightColors: [Color] = [
@@ -163,10 +164,25 @@ struct TowersSolutionView: View {
                     .foregroundColor(.black.opacity(0.6))
                     .padding(.horizontal, 6).padding(.vertical, 2)
                     .background(Capsule().fill(OverlayTheme.gold.opacity(0.85)))
-                Spacer()
+                let masterColors = OverlayTheme.badgeColor(for: "master")
                 Text("MASTER")
                     .font(.system(size: 9, weight: .bold, design: .monospaced))
-                    .foregroundColor(.white.opacity(0.4))
+                    .foregroundColor(masterColors.text)
+                    .padding(.horizontal, 6).padding(.vertical, 2)
+                    .background(Capsule().fill(masterColors.bg))
+                Spacer()
+                if let onClose {
+                    Button(action: onClose) {
+                        Image(systemName: "xmark")
+                            .font(.system(size: 9, weight: .bold))
+                            .foregroundColor(OverlayTheme.gold.opacity(0.8))
+                            .frame(width: 18, height: 18)
+                            .background(Circle().fill(OverlayTheme.gold.opacity(0.12)))
+                            .overlay(Circle().strokeBorder(OverlayTheme.gold.opacity(0.25), lineWidth: 0.5))
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityLabel("Close towers overlay")
+                }
             }
             .padding(.horizontal, 12).padding(.top, 10).padding(.bottom, 6)
 
@@ -215,7 +231,11 @@ struct TowersSolutionView: View {
             }
             .padding(.horizontal, 12)
 
-            Spacer(minLength: 10)
+            if let onClose {
+                CloseButton(action: onClose)
+            } else {
+                Spacer(minLength: 10)
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .background(
@@ -277,13 +297,18 @@ private struct CelticKnotTrackInfo {
 
 struct CelticKnotSolutionView: View {
     let solution: CelticKnotSolution
+    var onClose: (() -> Void)? = nil
 
     var body: some View {
         VStack(spacing: 0) {
             celticKnotHeader
             Divider().opacity(0.25)
             celticKnotRows
-            Spacer(minLength: 10)
+            if let onClose {
+                CloseButton(action: onClose)
+            } else {
+                Spacer(minLength: 10)
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .background(
@@ -307,6 +332,18 @@ struct CelticKnotSolutionView: View {
             Text("\(solution.totalClicks) total clicks")
                 .font(.system(size: 9, design: .monospaced))
                 .foregroundColor(OverlayTheme.textSecondary)
+            if let onClose {
+                Button(action: onClose) {
+                    Image(systemName: "xmark")
+                        .font(.system(size: 9, weight: .bold))
+                        .foregroundColor(OverlayTheme.gold.opacity(0.8))
+                        .frame(width: 18, height: 18)
+                        .background(Circle().fill(OverlayTheme.gold.opacity(0.12)))
+                        .overlay(Circle().strokeBorder(OverlayTheme.gold.opacity(0.25), lineWidth: 0.5))
+                }
+                .buttonStyle(.plain)
+                .accessibilityLabel("Close Celtic Knot overlay")
+            }
         }
         .padding(.horizontal, 12).padding(.top, 10).padding(.bottom, 6)
     }

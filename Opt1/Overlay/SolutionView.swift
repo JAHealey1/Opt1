@@ -6,6 +6,7 @@ struct SolutionView: View {
     let mode: OverlayMode
     let message: String
     let detail: String
+    var onClose: (() -> Void)? = nil
 
     var body: some View {
         switch mode {
@@ -16,9 +17,9 @@ struct SolutionView: View {
         case .lockbox(let solution):
             LockboxSolutionView(solution: solution)
         case .towers(let solution, let hints):
-            TowersSolutionView(solution: solution, hints: hints)
+            TowersSolutionView(solution: solution, hints: hints, onClose: onClose)
         case .celticKnot(let solution):
-            CelticKnotSolutionView(solution: solution)
+            CelticKnotSolutionView(solution: solution, onClose: onClose)
         case .celticKnotNeedsInvert:
             CelticKnotInvertPromptView()
         case .eliteCompass(let state):
