@@ -9,9 +9,11 @@ import Opt1Matching
 struct WorldMapSection: View {
     let clue: ClueSolution
     var extraPins: [(x: Int, y: Int)] = []
+    var hideyHolePins: [(x: Int, y: Int)] = []
     var viewportHeight: CGFloat = 155
-
-    @State private var hasTiles: Bool? = nil
+    /// Propagated up to the parent so it can conditionally suppress features
+    /// (e.g. closest-teleport) that are unreliable when no surface tiles exist.
+    @Binding var hasTiles: Bool?
 
     private var coords: (Int, Int)? { parseGameCoords(clue.coordinates) }
 
@@ -26,7 +28,8 @@ struct WorldMapSection: View {
                     mapId: clue.mapId ?? MapTileCache.defaultMapId,
                     extraPins: extraPins,
                     viewportHeight: viewportHeight,
-                    hasTiles: $hasTiles
+                    hasTiles: $hasTiles,
+                    hideyHolePins: hideyHolePins
                 )
                 .padding(.horizontal, 8)
                 .padding(.vertical, 6)

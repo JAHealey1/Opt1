@@ -1,94 +1,6 @@
 import SwiftUI
 import Opt1Solvers
 
-// MARK: - Lockbox Solution
-
-/// Compact header shown in the side panel.
-/// When `gridBoundsOnScreen` is set the full grid is rendered directly on-screen
-/// by `LockboxGridOverlayView`, so only the summary line is shown here.
-/// Falls back to the full grid when on-screen bounds are unavailable.
-struct LockboxSolutionView: View {
-    let solution: LockboxSolution
-
-    private var hasOnScreenGrid: Bool { solution.gridBoundsOnScreen != nil }
-
-    var body: some View {
-        if hasOnScreenGrid {
-            // Compact header: target style + total clicks.
-            HStack(spacing: 10) {
-                Circle()
-                    .fill(OverlayTheme.gold)
-                    .frame(width: 7, height: 7)
-                VStack(alignment: .leading, spacing: 2) {
-                    Text("LOCKBOX — click to \(solution.targetStyle.description.uppercased())")
-                        .font(.system(size: 11, weight: .bold, design: .monospaced))
-                        .foregroundColor(OverlayTheme.gold)
-                    Text("\(solution.totalClicks) total click\(solution.totalClicks == 1 ? "" : "s")")
-                        .font(.system(size: 9))
-                        .foregroundColor(OverlayTheme.textSecondary)
-                }
-                Spacer(minLength: 0)
-            }
-            .padding(.horizontal, 12)
-            .padding(.vertical, 10)
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-            .background(OverlayTheme.bgPrimary.opacity(OverlayTheme.bgPrimaryOp))
-            .cornerRadius(OverlayTheme.cornerRadius)
-            .overlay(RoundedRectangle(cornerRadius: OverlayTheme.cornerRadius)
-                .strokeBorder(OverlayTheme.goldBorder.opacity(0.55), lineWidth: OverlayTheme.borderWidth))
-        } else {
-            // Fallback: full grid in the side panel (no on-screen bounds available).
-            VStack(spacing: 6) {
-                Text("LOCKBOX — click to \(solution.targetStyle.description.uppercased())")
-                    .font(.system(size: 11, weight: .bold, design: .monospaced))
-                    .foregroundColor(OverlayTheme.gold)
-
-                Text("\(solution.totalClicks) total click\(solution.totalClicks == 1 ? "" : "s")")
-                    .font(.system(size: 9))
-                    .foregroundColor(OverlayTheme.textSecondary)
-
-                VStack(spacing: 3) {
-                    ForEach(0..<5, id: \.self) { row in
-                        HStack(spacing: 3) {
-                            ForEach(0..<5, id: \.self) { col in
-                                LockboxFallbackCell(clicks: solution.clicks[row][col])
-                            }
-                        }
-                    }
-                }
-            }
-            .padding(10)
-            .background(OverlayTheme.bgPrimary.opacity(OverlayTheme.bgPrimaryOp))
-            .cornerRadius(OverlayTheme.cornerRadius)
-            .overlay(RoundedRectangle(cornerRadius: OverlayTheme.cornerRadius)
-                .strokeBorder(OverlayTheme.goldBorder.opacity(0.55), lineWidth: OverlayTheme.borderWidth))
-        }
-    }
-}
-
-private struct LockboxFallbackCell: View {
-    let clicks: Int
-
-    var color: Color {
-        switch clicks {
-        case 0:  return OverlayTheme.textSecondary.opacity(0.4)
-        case 1:  return OverlayTheme.gold
-        default: return Color(red: 1.0, green: 0.55, blue: 0.15)
-        }
-    }
-
-    var label: String { clicks == 0 ? "·" : "\(clicks)" }
-
-    var body: some View {
-        Text(label)
-            .font(.system(size: 18, weight: clicks == 0 ? .light : .bold, design: .monospaced))
-            .foregroundColor(color)
-            .frame(width: 34, height: 34)
-            .background(clicks == 0 ? Color.white.opacity(0.04) : color.opacity(0.15))
-            .cornerRadius(5)
-    }
-}
-
 // MARK: - Lockbox On-Screen Grid Overlay
 
 /// Passthrough overlay placed directly over the 5×5 lockbox grid on screen.
@@ -259,7 +171,7 @@ private struct TowersSolvedCell: View {
             .foregroundColor(color)
             .frame(width: 30, height: 30)
             .background(color.opacity(0.15))
-            .cornerRadius(4)
+            .clipShape(RoundedRectangle(cornerRadius: 4))
     }
 }
 

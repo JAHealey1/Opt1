@@ -28,6 +28,7 @@
 		A300000000000000000000B5 /* MapImages in Resources */ = {isa = PBXBuildFile; fileRef = A200000000000000000000B5 /* MapImages */; };
 		A300000000000000000000B8 /* PuzzleBoxOverlayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200000000000000000000B8 /* PuzzleBoxOverlayController.swift */; };
 		A300000000000000000000B9 /* PuzzleImages in Resources */ = {isa = PBXBuildFile; fileRef = A200000000000000000000B9 /* PuzzleImages */; };
+		A300000000000000000000BC /* HideyHoleImages in Resources */ = {isa = PBXBuildFile; fileRef = A200000000000000000000BC /* HideyHoleImages */; };
 		A300000000000000000000C0 /* ScreenCaptureKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A200000000000000000000B0 /* ScreenCaptureKit.framework */; };
 		A300000000000000000000C1 /* Vision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A200000000000000000000B1 /* Vision.framework */; };
 		A300000000000000000000C2 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A200000000000000000000B2 /* Accelerate.framework */; };
@@ -96,8 +97,10 @@
 		B300000000000000000000B8 /* RSWorldMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000B8 /* RSWorldMapView.swift */; };
 		B300000000000000000000B9 /* EliteCompassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000B9 /* EliteCompassView.swift */; };
 		B300000000000000000000BA /* ScanListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000BA /* ScanListView.swift */; };
-		B300000000000000000000BB /* SolutionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000BB /* SolutionCardView.swift */; };
 		B300000000000000000000BC /* PuzzleSolutionViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000BC /* PuzzleSolutionViews.swift */; };
+		B300000000000000000000BD /* DetectionHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000BD /* DetectionHelpers.swift */; };
+		B300000000000000000000BE /* PolygonGeometryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000BE /* PolygonGeometryTests.swift */; };
+		B300000000000000000000BF /* ClueScrollPipelineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000BF /* ClueScrollPipelineTests.swift */; };
 		B300000000000000000000C1 /* BadgeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000C1 /* BadgeSpec.swift */; };
 		B300000000000000000000C2 /* OverlayHeaderBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000C2 /* OverlayHeaderBar.swift */; };
 		B300000000000000000000C3 /* WorldMapSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000C3 /* WorldMapSection.swift */; };
@@ -105,9 +108,16 @@
 		B300000000000000000000C5 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000C5 /* CloseButton.swift */; };
 		B300000000000000000000C6 /* ItemChipRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000C6 /* ItemChipRow.swift */; };
 		B300000000000000000000C7 /* EmoteStepList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000C7 /* EmoteStepList.swift */; };
-		B300000000000000000000BD /* DetectionHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000BD /* DetectionHelpers.swift */; };
-		B300000000000000000000BE /* PolygonGeometryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000BE /* PolygonGeometryTests.swift */; };
-		B300000000000000000000BF /* ClueScrollPipelineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000BF /* ClueScrollPipelineTests.swift */; };
+		B300000000000000000000C8 /* ClueViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000C8 /* ClueViewHelpers.swift */; };
+		B300000000000000000000C9 /* CrypticClueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000C9 /* CrypticClueView.swift */; };
+		B300000000000000000000CA /* AnagramClueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000CA /* AnagramClueView.swift */; };
+		B300000000000000000000CB /* EmoteClueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000CB /* EmoteClueView.swift */; };
+		B300000000000000000000CC /* CoordinateClueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000CC /* CoordinateClueView.swift */; };
+		B300000000000000000000CD /* MapClueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000CD /* MapClueView.swift */; };
+		B300000000000000000000CE /* SkillClueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000CE /* SkillClueView.swift */; };
+		B300000000000000000000CF /* TravelRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000CF /* TravelRow.swift */; };
+		B300000000000000000000D0 /* SecondStepSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000D0 /* SecondStepSection.swift */; };
+		B300000000000000000000D1 /* ClueNoteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000D1 /* ClueNoteRow.swift */; };
 		F21F8EAE2F944160005662AA /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = F21F8EAD2F944160005662AA /* AppIcon.icon */; };
 		F21F993F2F993BAB005662AA /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = F21F993E2F993BAB005662AA /* Sparkle */; };
 		P300000000000000000000A0 /* DetectionConfiguration+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = P200000000000000000000A0 /* DetectionConfiguration+App.swift */; };
@@ -156,6 +166,7 @@
 		A200000000000000000000B9 /* PuzzleImages */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PuzzleImages; sourceTree = "<group>"; };
 		A200000000000000000000BA /* scrape_puzzles.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = scrape_puzzles.py; sourceTree = "<group>"; };
 		A200000000000000000000BB /* PuzzleSnipOverlayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleSnipOverlayController.swift; sourceTree = "<group>"; };
+		A200000000000000000000BC /* HideyHoleImages */ = {isa = PBXFileReference; lastKnownFileType = folder; path = HideyHoleImages; sourceTree = "<group>"; };
 		A200000000000000000000C5 /* GridLocalizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLocalizer.swift; sourceTree = "<group>"; };
 		A200000000000000000000C6 /* PuzzleIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleIdentifier.swift; sourceTree = "<group>"; };
 		A200000000000000000000C7 /* TileMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileMatcher.swift; sourceTree = "<group>"; };
@@ -231,8 +242,10 @@
 		B200000000000000000000B8 /* RSWorldMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSWorldMapView.swift; sourceTree = "<group>"; };
 		B200000000000000000000B9 /* EliteCompassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EliteCompassView.swift; sourceTree = "<group>"; };
 		B200000000000000000000BA /* ScanListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanListView.swift; sourceTree = "<group>"; };
-		B200000000000000000000BB /* SolutionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolutionCardView.swift; sourceTree = "<group>"; };
 		B200000000000000000000BC /* PuzzleSolutionViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleSolutionViews.swift; sourceTree = "<group>"; };
+		B200000000000000000000BD /* DetectionHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionHelpers.swift; sourceTree = "<group>"; };
+		B200000000000000000000BE /* PolygonGeometryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolygonGeometryTests.swift; sourceTree = "<group>"; };
+		B200000000000000000000BF /* ClueScrollPipelineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClueScrollPipelineTests.swift; sourceTree = "<group>"; };
 		B200000000000000000000C1 /* BadgeSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeSpec.swift; sourceTree = "<group>"; };
 		B200000000000000000000C2 /* OverlayHeaderBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayHeaderBar.swift; sourceTree = "<group>"; };
 		B200000000000000000000C3 /* WorldMapSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldMapSection.swift; sourceTree = "<group>"; };
@@ -240,9 +253,16 @@
 		B200000000000000000000C5 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		B200000000000000000000C6 /* ItemChipRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemChipRow.swift; sourceTree = "<group>"; };
 		B200000000000000000000C7 /* EmoteStepList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoteStepList.swift; sourceTree = "<group>"; };
-		B200000000000000000000BD /* DetectionHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionHelpers.swift; sourceTree = "<group>"; };
-		B200000000000000000000BE /* PolygonGeometryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolygonGeometryTests.swift; sourceTree = "<group>"; };
-		B200000000000000000000BF /* ClueScrollPipelineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClueScrollPipelineTests.swift; sourceTree = "<group>"; };
+		B200000000000000000000C8 /* ClueViewHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClueViewHelpers.swift; sourceTree = "<group>"; };
+		B200000000000000000000C9 /* CrypticClueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrypticClueView.swift; sourceTree = "<group>"; };
+		B200000000000000000000CA /* AnagramClueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnagramClueView.swift; sourceTree = "<group>"; };
+		B200000000000000000000CB /* EmoteClueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoteClueView.swift; sourceTree = "<group>"; };
+		B200000000000000000000CC /* CoordinateClueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateClueView.swift; sourceTree = "<group>"; };
+		B200000000000000000000CD /* MapClueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapClueView.swift; sourceTree = "<group>"; };
+		B200000000000000000000CE /* SkillClueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillClueView.swift; sourceTree = "<group>"; };
+		B200000000000000000000CF /* TravelRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelRow.swift; sourceTree = "<group>"; };
+		B200000000000000000000D0 /* SecondStepSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondStepSection.swift; sourceTree = "<group>"; };
+		B200000000000000000000D1 /* ClueNoteRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClueNoteRow.swift; sourceTree = "<group>"; };
 		F21F8C412F92B7B2005662AA /* Opt1.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Opt1.xctestplan; sourceTree = "<group>"; };
 		F21F8EAD2F944160005662AA /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
 		F300000000000000000000A0 /* Opt1.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Opt1.entitlements; sourceTree = "<group>"; };
@@ -393,6 +413,7 @@
 			children = (
 				F2E5A8FF2F77433900065394 /* ReferencePuzzleImages */,
 				A200000000000000000000B5 /* MapImages */,
+				A200000000000000000000BC /* HideyHoleImages */,
 				A200000000000000000000B9 /* PuzzleImages */,
 				A20000000000000000000102 /* SliderAnchors */,
 				A200000000000000000000E5 /* MapTiles */,
@@ -403,32 +424,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		A50000000000000000000024 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				B200000000000000000000C1 /* BadgeSpec.swift */,
-				B200000000000000000000C2 /* OverlayHeaderBar.swift */,
-				B200000000000000000000C3 /* WorldMapSection.swift */,
-				B200000000000000000000C4 /* ClosestTeleportBanner.swift */,
-				B200000000000000000000C5 /* CloseButton.swift */,
-				B200000000000000000000C6 /* ItemChipRow.swift */,
-				B200000000000000000000C7 /* EmoteStepList.swift */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
 		A5000000000000000000001C /* Overlay */ = {
 			isa = PBXGroup;
 			children = (
 				A200000000000000000000A6 /* OverlayWindowController.swift */,
-				A200000000000000000000A7 /* SolutionView.swift */,
 				B200000000000000000000B5 /* OverlayTheme.swift */,
 				A50000000000000000000024 /* Components */,
-				B200000000000000000000BB /* SolutionCardView.swift */,
+				A50000000000000000000025 /* Views */,
 				B200000000000000000000BC /* PuzzleSolutionViews.swift */,
-				B200000000000000000000BA /* ScanListView.swift */,
-				B200000000000000000000B9 /* EliteCompassView.swift */,
-				B200000000000000000000B8 /* RSWorldMapView.swift */,
 				A200000000000000000000F7 /* TeleportLayer.swift */,
 				B200000000000000000000B6 /* MapTileCache.swift */,
 				B200000000000000000000B7 /* ScrollZoomModifier.swift */,
@@ -527,6 +530,41 @@
 				A2000000000000000000010B /* TeleportInstructionSheet.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		A50000000000000000000024 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B200000000000000000000C1 /* BadgeSpec.swift */,
+				B200000000000000000000C2 /* OverlayHeaderBar.swift */,
+				B200000000000000000000C3 /* WorldMapSection.swift */,
+				B200000000000000000000C4 /* ClosestTeleportBanner.swift */,
+				B200000000000000000000C5 /* CloseButton.swift */,
+				B200000000000000000000C6 /* ItemChipRow.swift */,
+				B200000000000000000000C7 /* EmoteStepList.swift */,
+				B200000000000000000000CF /* TravelRow.swift */,
+				B200000000000000000000D0 /* SecondStepSection.swift */,
+				B200000000000000000000D1 /* ClueNoteRow.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		A50000000000000000000025 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B200000000000000000000C8 /* ClueViewHelpers.swift */,
+				B200000000000000000000C9 /* CrypticClueView.swift */,
+				B200000000000000000000CA /* AnagramClueView.swift */,
+				B200000000000000000000CB /* EmoteClueView.swift */,
+				B200000000000000000000CC /* CoordinateClueView.swift */,
+				B200000000000000000000CD /* MapClueView.swift */,
+				B200000000000000000000CE /* SkillClueView.swift */,
+				B200000000000000000000B9 /* EliteCompassView.swift */,
+				B200000000000000000000B8 /* RSWorldMapView.swift */,
+				B200000000000000000000BA /* ScanListView.swift */,
+				A200000000000000000000A7 /* SolutionView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		B400000000000000000000A0 /* Opt1Tests */ = {
@@ -670,6 +708,7 @@
 			files = (
 				A300000000000000000000B0 /* Assets.xcassets in Resources */,
 				A300000000000000000000B5 /* MapImages in Resources */,
+				A300000000000000000000BC /* HideyHoleImages in Resources */,
 				F21F8EAE2F944160005662AA /* AppIcon.icon in Resources */,
 				A300000000000000000000B9 /* PuzzleImages in Resources */,
 				A30000000000000000000102 /* SliderAnchors in Resources */,
@@ -760,7 +799,6 @@
 				B300000000000000000000B8 /* RSWorldMapView.swift in Sources */,
 				B300000000000000000000B9 /* EliteCompassView.swift in Sources */,
 				B300000000000000000000BA /* ScanListView.swift in Sources */,
-				B300000000000000000000BB /* SolutionCardView.swift in Sources */,
 				B300000000000000000000BC /* PuzzleSolutionViews.swift in Sources */,
 				B300000000000000000000C1 /* BadgeSpec.swift in Sources */,
 				B300000000000000000000C2 /* OverlayHeaderBar.swift in Sources */,
@@ -769,6 +807,16 @@
 				B300000000000000000000C5 /* CloseButton.swift in Sources */,
 				B300000000000000000000C6 /* ItemChipRow.swift in Sources */,
 				B300000000000000000000C7 /* EmoteStepList.swift in Sources */,
+				B300000000000000000000C8 /* ClueViewHelpers.swift in Sources */,
+				B300000000000000000000C9 /* CrypticClueView.swift in Sources */,
+				B300000000000000000000CA /* AnagramClueView.swift in Sources */,
+				B300000000000000000000CB /* EmoteClueView.swift in Sources */,
+				B300000000000000000000CC /* CoordinateClueView.swift in Sources */,
+				B300000000000000000000CD /* MapClueView.swift in Sources */,
+				B300000000000000000000CE /* SkillClueView.swift in Sources */,
+				B300000000000000000000CF /* TravelRow.swift in Sources */,
+				B300000000000000000000D0 /* SecondStepSection.swift in Sources */,
+				B300000000000000000000D1 /* ClueNoteRow.swift in Sources */,
 				B300000000000000000000BD /* DetectionHelpers.swift in Sources */,
 				P300000000000000000000A0 /* DetectionConfiguration+App.swift in Sources */,
 			);

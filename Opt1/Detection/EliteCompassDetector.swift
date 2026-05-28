@@ -115,11 +115,13 @@ struct EliteCompassDetector: PuzzleDetector {
         return result
     }
 
-    /// OCR-checks the bottom ~28 % of the detected scroll for the "EASTERN LANDS"
+    /// OCR-checks the bottom ~38 % of the detected scroll for the "EASTERN LANDS"
     /// region label that appears only on master-tier Arc compass clues.
     /// Returns `true` when the label is found, `false` on any failure or absence.
     private func detectEasternLandsLabel(image: CGImage, scrollBounds: CGRect) async -> Bool {
-        let labelH = scrollBounds.height * 0.28
+        // Use 38% to be generous — the label sits in the bottom ~15% but scroll-bound
+        // detection can be a few pixels short, and a wider crop costs nothing.
+        let labelH = scrollBounds.height * 0.38
         let cropRect = CGRect(
             x:      scrollBounds.minX,
             y:      scrollBounds.maxY - labelH,
@@ -135,16 +137,27 @@ struct EliteCompassDetector: PuzzleDetector {
         return await Task.detached(priority: .userInitiated) {
             let request = VNRecognizeTextRequest()
             request.recognitionLevel = .accurate
-            request.usesLanguageCorrection = true
+            // Language correction is deliberately OFF: the RuneScape decorative font
+            // produces uncertain letter reads that the corrector can silently mangle
+            // (e.g. "EASTERN" → some dictionary word). We match against the raw OCR
+            // hypothesis, which is more reliable for all-caps game UI text.
+            request.usesLanguageCorrection = false
             request.recognitionLanguages = ["en-US"]
             let handler = VNImageRequestHandler(cgImage: crop, options: [:])
             guard (try? handler.perform([request])) != nil else { return false }
+
+            // Collect the top-3 candidates per observation so a lower-confidence
+            // correct read isn't buried behind an incorrect top-1.
             let texts = (request.results as? [VNRecognizedTextObservation] ?? [])
-                .compactMap { $0.topCandidates(1).first?.string }
-            let found = texts.contains { $0.range(of: "EASTERN", options: .caseInsensitive) != nil }
-            if found {
-                print("[EliteCompass] Eastern Lands label detected via OCR: \(texts)")
+                .flatMap { $0.topCandidates(3).map(\.string) }
+
+            // Match on either keyword — both are unique enough on this scroll
+            // that a hit on either is a reliable Eastern Lands signal.
+            let found = texts.contains {
+                $0.range(of: "EASTERN", options: .caseInsensitive) != nil ||
+                $0.range(of: "LANDS",   options: .caseInsensitive) != nil
             }
+            print("[EliteCompass] Eastern Lands OCR — found=\(found) texts=\(texts)")
             return found
         }.value
     }
@@ -947,6 +960,7 @@ struct EliteCompassDetector: PuzzleDetector {
             "Elite Compass Debug — \(Date())",
             "Image: \(W)×\(H)",
             "Result: \(result != nil ? "DETECTED" : "FAILED")",
+            "Eastern Lands: \(result.map { $0.isEasternLands ? "YES" : "no" } ?? "n/a")",
             "Fail reason: \(dbg.failReason ?? "n/a")",
             "",
             "Total parchment pixels: \(dbg.totalParchment)",

@@ -32,6 +32,7 @@
       ]
     ],
     "hideyHoleName": "Rock (hidey-hole) (Ardougne Zoo)",
+    "hideyHoleImageRef": "Rock_(hidey-hole)_(Ardougne_Zoo)",
     "hideyHoleCoords": "2599,3280",
     "hasFight": false,
     "id": "emote_0001"
@@ -57,6 +58,7 @@
       ]
     ],
     "hideyHoleName": "Rock (hidey-hole) (Keep Le Faye)",
+    "hideyHoleImageRef": "Rock_(hidey-hole)_(Keep_Le_Faye)",
     "hideyHoleCoords": "2756,3404",
     "hasFight": false,
     "id": "emote_0002"
@@ -83,6 +85,7 @@
       ]
     ],
     "hideyHoleName": "Sack (hidey-hole)",
+    "hideyHoleImageRef": "Sack_(hidey-hole)",
     "hideyHoleCoords": "3323,3236",
     "hasFight": false,
     "id": "emote_0003"
@@ -109,6 +112,7 @@
       ]
     ],
     "hideyHoleName": "Rock (hidey-hole) (Legends' Guild)",
+    "hideyHoleImageRef": "Rock_(hidey-hole)_(Legends'_Guild)",
     "hideyHoleCoords": "2732,3352",
     "hasFight": false,
     "id": "emote_0004"
@@ -146,6 +150,7 @@
       ]
     ],
     "hideyHoleName": "Rock (hidey-hole) (Taverley)",
+    "hideyHoleImageRef": "Rock_(hidey-hole)_(Taverley)",
     "hideyHoleCoords": "2922,3476",
     "hasFight": false,
     "id": "emote_0006"
@@ -171,6 +176,7 @@
       ]
     ],
     "hideyHoleName": "Crate (hidey-hole) (Port Sarim)",
+    "hideyHoleImageRef": "Crate_(hidey-hole)_(Port_Sarim)",
     "hideyHoleCoords": "3042,3234",
     "hasFight": false,
     "id": "emote_0007"
@@ -217,6 +223,7 @@
       ]
     ],
     "hideyHoleName": "Crate (hidey-hole) (Exam Centre)",
+    "hideyHoleImageRef": "Crate_(hidey-hole)_(Exam_Centre)",
     "hideyHoleCoords": "3351,3348",
     "hasFight": false,
     "id": "emote_0009"
@@ -242,6 +249,7 @@
       ]
     ],
     "hideyHoleName": "Rock (hidey-hole) (Wizards' Tower)",
+    "hideyHoleImageRef": "Rock_(hidey-hole)_(Wizards'_Tower)",
     "hideyHoleCoords": "3099,3188",
     "hasFight": false,
     "id": "emote_0010"
@@ -267,6 +275,7 @@
       ]
     ],
     "hideyHoleName": "Crate (hidey-hole) (Mill Road Mill)",
+    "hideyHoleImageRef": "Crate_(hidey-hole)_(Mill_Road_Mill)",
     "hideyHoleCoords": "2635,3383",
     "hasFight": false,
     "id": "emote_0011"
@@ -292,6 +301,7 @@
       ]
     ],
     "hideyHoleName": "Tree stump (hidey-hole) (Fort Forinthry)",
+    "hideyHoleImageRef": "Tree_stump_(hidey-hole)_(Fort_Forinthry)",
     "hideyHoleCoords": "3299,3521",
     "hasFight": false,
     "id": "emote_0012"
@@ -317,6 +327,7 @@
       ]
     ],
     "hideyHoleName": "Rock (hidey-hole) (Fishing Guild)",
+    "hideyHoleImageRef": "Rock_(hidey-hole)_(Fishing_Guild)",
     "hideyHoleCoords": "2619,3388",
     "hasFight": false,
     "id": "emote_0013"
@@ -342,6 +353,7 @@
       ]
     ],
     "hideyHoleName": "Rock (hidey-hole) (Draynor Village)",
+    "hideyHoleImageRef": "Rock_(hidey-hole)_(Draynor_Village)",
     "hideyHoleCoords": "3112,3292",
     "hasFight": false,
     "id": "emote_0014"
@@ -367,6 +379,7 @@
       ]
     ],
     "hideyHoleName": "Potted plant (hidey-hole) (Falador)",
+    "hideyHoleImageRef": "Potted_plant_(hidey-hole)_(Falador)",
     "hideyHoleCoords": "3041,3372",
     "hasFight": false,
     "id": "emote_0015"
@@ -392,6 +405,7 @@
       ]
     ],
     "hideyHoleName": "Barrel (hidey-hole) (Lumbridge Swamp)",
+    "hideyHoleImageRef": "Barrel_(hidey-hole)_(Lumbridge_Swamp)",
     "hideyHoleCoords": "3204,3169",
     "hasFight": false,
     "id": "emote_0016"
@@ -453,6 +467,7 @@
       ]
     ],
     "hideyHoleName": "Rocks (hidey-hole)",
+    "hideyHoleImageRef": "Rocks_(hidey-hole)",
     "hideyHoleCoords": "3295,3282",
     "hasFight": false,
     "id": "emote_0020"
@@ -478,6 +493,7 @@
       ]
     ],
     "hideyHoleName": "Beehive (hidey-hole)",
+    "hideyHoleImageRef": "Beehive_(hidey-hole)",
     "hideyHoleCoords": "2762,3447",
     "hasFight": false,
     "id": "emote_0021"
@@ -503,6 +519,7 @@
       ]
     ],
     "hideyHoleName": "Rock (hidey-hole) (Sinclair Mansion)",
+    "hideyHoleImageRef": "Rock_(hidey-hole)_(Sinclair_Mansion)",
     "hideyHoleCoords": "2731,3534",
     "hasFight": false,
     "id": "emote_0022"
@@ -552,6 +569,7 @@
       ]
     ],
     "hideyHoleName": "Crate (hidey-hole) (Silvarea quarry)",
+    "hideyHoleImageRef": "Crate_(hidey-hole)_(Silvarea_quarry)",
     "hideyHoleCoords": "3376,3500",
     "hasFight": false,
     "id": "emote_0025"
@@ -1198,6 +1216,7 @@
       ]
     ],
     "hideyHoleName": "Cart (hidey-hole)",
+    "hideyHoleImageRef": "Cart_(hidey-hole)",
     "hideyHoleCoords": "2972,3235",
     "hasFight": false,
     "id": "emote_0077"
@@ -1403,6 +1422,7 @@
       ]
     ],
     "hideyHoleName": "Sack of items (hidey-hole)",
+    "hideyHoleImageRef": "Sack_of_items_(hidey-hole)",
     "hideyHoleCoords": "3165,3302",
     "hasFight": false,
     "id": "emote_0093"
@@ -1428,6 +1448,7 @@
       ]
     ],
     "hideyHoleName": "Rock (hidey-hole) (Rimmington)",
+    "hideyHoleImageRef": "Rock_(hidey-hole)_(Rimmington)",
     "hideyHoleCoords": "2959,3240",
     "hasFight": false,
     "id": "emote_0094"
@@ -1453,6 +1474,7 @@
       ]
     ],
     "hideyHoleName": "Dead tree (hidey-hole) (Draynor Manor)",
+    "hideyHoleImageRef": "Dead_tree_(hidey-hole)_(Draynor_Manor)",
     "hideyHoleCoords": "3090,3340",
     "hasFight": false,
     "id": "emote_0095"
@@ -1478,6 +1500,7 @@
       ]
     ],
     "hideyHoleName": "Rock (hidey-hole) (Mudskipper Point)",
+    "hideyHoleImageRef": "Rock_(hidey-hole)_(Mudskipper_Point)",
     "hideyHoleCoords": "3004,3123",
     "hasFight": false,
     "id": "emote_0096"
@@ -1527,6 +1550,7 @@
       ]
     ],
     "hideyHoleName": "Barrel (hidey-hole) (Draynor Village)",
+    "hideyHoleImageRef": "Barrel_(hidey-hole)_(Draynor_Village)",
     "hideyHoleCoords": "3078,3246",
     "hasFight": false,
     "id": "emote_0099"
@@ -1552,6 +1576,7 @@
       ]
     ],
     "hideyHoleName": "Crate (hidey-hole) (Varrock Palace)",
+    "hideyHoleImageRef": "Crate_(hidey-hole)_(Varrock_Palace)",
     "hideyHoleCoords": "3217,3494",
     "hasFight": false,
     "id": "emote_0100"
@@ -2022,6 +2047,7 @@
       ]
     ],
     "hideyHoleName": "Barrel (hidey-hole) (Varrock Dig Site)",
+    "hideyHoleImageRef": "Barrel_(hidey-hole)_(Varrock_Dig_Site)",
     "hideyHoleCoords": "3379,3445",
     "hasFight": false,
     "id": "emote_0137"
@@ -2050,6 +2076,7 @@
       ]
     ],
     "hideyHoleName": "Crate (hidey-hole) (Tai Bwo Wannai)",
+    "hideyHoleImageRef": "Crate_(hidey-hole)_(Tai_Bwo_Wannai)",
     "hideyHoleCoords": "2793,3073",
     "hasFight": false,
     "id": "emote_0138"
@@ -2126,6 +2153,7 @@
       ]
     ],
     "hideyHoleName": "Barrel (hidey-hole) (Barbarian Outpost)",
+    "hideyHoleImageRef": "Barrel_(hidey-hole)_(Barbarian_Outpost)",
     "hideyHoleCoords": "2545,3556",
     "hasFight": false,
     "id": "emote_0143"
@@ -2154,6 +2182,7 @@
       ]
     ],
     "hideyHoleName": "Crate (hidey-hole) (Combat Training Camp)",
+    "hideyHoleImageRef": "Crate_(hidey-hole)_(Combat_Training_Camp)",
     "hideyHoleCoords": "2521,3377",
     "hasFight": false,
     "id": "emote_0144"
@@ -2207,6 +2236,7 @@
       ]
     ],
     "hideyHoleName": "Crates (hidey-hole) (Catherby)",
+    "hideyHoleImageRef": "Crates_(hidey-hole)_(Catherby)",
     "hideyHoleCoords": "2829,3455",
     "hasFight": false,
     "id": "emote_0147"
@@ -2235,6 +2265,7 @@
       ]
     ],
     "hideyHoleName": "Tree stump (hidey-hole) (Gnome Stronghold)",
+    "hideyHoleImageRef": "Tree_stump_(hidey-hole)_(Gnome_Stronghold)",
     "hideyHoleCoords": "2473,3418",
     "hasFight": false,
     "id": "emote_0148"
@@ -2278,6 +2309,7 @@
       ]
     ],
     "hideyHoleName": "Crate (hidey-hole) (Shantay Pass)",
+    "hideyHoleImageRef": "Crate_(hidey-hole)_(Shantay_Pass)",
     "hideyHoleCoords": "3302,3130",
     "hasFight": false,
     "id": "emote_0150"
@@ -2307,6 +2339,7 @@
       ]
     ],
     "hideyHoleName": "Barrel (hidey-hole) (Canifis)",
+    "hideyHoleImageRef": "Barrel_(hidey-hole)_(Canifis)",
     "hideyHoleCoords": "3491,3480",
     "hasFight": false,
     "id": "emote_0151"
@@ -2655,6 +2688,7 @@
       ]
     ],
     "hideyHoleName": "Crate (hidey-hole) (Yanille)",
+    "hideyHoleImageRef": "Crate_(hidey-hole)_(Yanille)",
     "hideyHoleCoords": "2613,3088",
     "hasFight": false,
     "id": "emote_0177"
@@ -2850,6 +2884,7 @@
       ]
     ],
     "hideyHoleName": "Crate (hidey-hole) (Mausoleum)",
+    "hideyHoleImageRef": "Crate_(hidey-hole)_(Mausoleum)",
     "hideyHoleCoords": "3506,3574",
     "hasFight": false,
     "id": "emote_0191"
@@ -3110,6 +3145,7 @@
       ]
     ],
     "hideyHoleName": "Crate (hidey-hole) (Observatory)",
+    "hideyHoleImageRef": "Crate_(hidey-hole)_(Observatory)",
     "hideyHoleCoords": "2445,3161",
     "hasFight": false,
     "id": "emote_0211"
@@ -3222,6 +3258,7 @@
       ]
     ],
     "hideyHoleName": "Rock (hidey-hole) (Barbarian Village)",
+    "hideyHoleImageRef": "Rock_(hidey-hole)_(Barbarian_Village)",
     "hideyHoleCoords": "3114,3417",
     "hasFight": false,
     "id": "emote_0219"
@@ -3277,6 +3314,7 @@
       ]
     ],
     "hideyHoleName": "Stone blocks (hidey-hole)",
+    "hideyHoleImageRef": "Stone_blocks_(hidey-hole)",
     "hideyHoleCoords": "2448,3087",
     "hasFight": false,
     "id": "emote_0222"
@@ -3832,6 +3870,7 @@
     "imageRef": null,
     "travel": "Ring of duelling to Het's Oasis, then run west. • Al Kharid lodestone, then run north.",
     "npc": "Cam the Camel",
+    "secondStep": "Puzzle box (Ice strykewyrm)",
     "id": "anagram_0268"
   },
   {
@@ -3845,6 +3884,7 @@
     "imageRef": null,
     "travel": "Shortcut tunnel entrance available north of Taverley lodestone, next to the flax field • North of the Catherby lodestone.",
     "npc": "Captain Ninto",
+    "secondStep": "Puzzle box (Nomad)",
     "id": "anagram_0269"
   },
   {
@@ -3858,6 +3898,7 @@
     "imageRef": null,
     "travel": "North from the fairy ring code akq. • Teleport to Memorial to Guthix site with Memory strand. • Teleport to Eagles' Peak lodestone and travel with the boat to Piscatoris.",
     "npc": "Ramara du Croissant",
+    "secondStep": "Puzzle box (Tree)",
     "id": "anagram_0270"
   },
   {
@@ -3871,6 +3912,7 @@
     "imageRef": null,
     "travel": "Ardougne Teleport, then run south.",
     "npc": "Zenesha",
+    "secondStep": "Puzzle box (Wizard)",
     "id": "anagram_0271"
   },
   {
@@ -3907,6 +3949,7 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Edgeville lodestone, then run north.",
+    "secondStep": "Puzzle box (Vanstrom Klause)",
     "id": "cryptic_0274"
   },
   {
@@ -3981,6 +4024,7 @@
       ]
     ],
     "hideyHoleName": "Potted plant (hidey-hole) (Shilo Village)",
+    "hideyHoleImageRef": "Potted_plant_(hidey-hole)_(Shilo_Village)",
     "hideyHoleCoords": "2856,2953",
     "hasFight": true,
     "id": "emote_0279"
@@ -4006,6 +4050,7 @@
       ]
     ],
     "hideyHoleName": "Crate (hidey-hole) (Fishing Guild)",
+    "hideyHoleImageRef": "Crate_(hidey-hole)_(Fishing_Guild)",
     "hideyHoleCoords": "2585,3424",
     "hasFight": true,
     "id": "emote_0280"
@@ -4031,6 +4076,7 @@
       ]
     ],
     "hideyHoleName": "Crate (hidey-hole) (Lighthouse)",
+    "hideyHoleImageRef": "Crate_(hidey-hole)_(Lighthouse)",
     "hideyHoleCoords": "2512,3639",
     "hasFight": true,
     "id": "emote_0281"
@@ -4107,6 +4153,7 @@
       ]
     ],
     "hideyHoleName": "Crate (hidey-hole) (Sophanem)",
+    "hideyHoleImageRef": "Crate_(hidey-hole)_(Sophanem)",
     "hideyHoleCoords": "3310,2784",
     "hasFight": true,
     "id": "emote_0286"
@@ -4158,6 +4205,7 @@
     "imageRef": null,
     "travel": "Ring of duelling to Castle Wars, then run south.",
     "npc": "Uglug Nar",
+    "secondStep": "Puzzle box (Nymora)",
     "id": "anagram_0290"
   },
   {
@@ -4170,6 +4218,7 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Archaeology teleport (Option 9 \"Collectors\") (Option 3 \"Generals Bentnose & Wartface\") • Use a Wicked hood or Mind altar teleport to teleport to the Mind altar, then take the agility shortcut to the west.",
+    "secondStep": "Puzzle box (Menaphos Pharaoh)",
     "id": "cryptic_0291"
   },
   {
@@ -4183,6 +4232,7 @@
     "imageRef": null,
     "travel": "Master camouflage outfit teleport to the Consortium, then climb down the stairs to the bottom floor and run east. • Keldagrim trapdoor from the Grand Exchange, then run north.",
     "npc": "Riki the sculptor's model",
+    "secondStep": "Puzzle box (Bridge)",
     "id": "anagram_0292"
   },
   {
@@ -4220,6 +4270,7 @@
     "imageRef": null,
     "travel": "Run south from the fairy ring with code DLQ • Teleport to Nardah with Desert amulet 2 or higher",
     "npc": "Shiratti the Custodian",
+    "secondStep": "Puzzle box (Castle)",
     "id": "anagram_0295"
   },
   {
@@ -4233,6 +4284,7 @@
     "imageRef": null,
     "travel": "Zanaris house • Any fairy ring to Zanaris, then run north-west. • Fairy Resistance Hideout • Fairy ring code AIR, DLR, DJQ, AJS.",
     "npc": "Fairy Nuff",
+    "secondStep": "Puzzle box (Araxxor)",
     "id": "anagram_0296"
   },
   {
@@ -4281,6 +4333,7 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Worker district teleport • Menaphos lodestone, then head west to the Imperial District's Shifting Tombs entrance. Enter and exit via the north Worker's District entrance, then head slightly northwest to Hamid.",
+    "secondStep": "Puzzle box (Adventurer)",
     "id": "cryptic_0300"
   },
   {
@@ -4342,6 +4395,7 @@
     "imageRef": null,
     "travel": "After completing the Fur 'n Seek Wish list, the skeletal horror Teleport can be used. • The invitation box can be also used after completing Missing, Presumed Death to get a quick teleport. • A teleport to the Archaeology Campus and then running north can also be done with the Archaeology journal, Dig Site pendant, or Senntisten Teleport. • A teleport to the entrance to the earth altar can be done with the wicked hood or earth altar teleport and then running east. • Fort Forinthry Teleport and run south east.",
     "npc": "Odd Old Man",
+    "secondStep": "Sword of Edicts puzzle",
     "id": "anagram_0305"
   },
   {
@@ -4365,6 +4419,7 @@
       ]
     ],
     "hideyHoleName": "Rock (hidey-hole) (Mountain Camp)",
+    "hideyHoleImageRef": "Rock_(hidey-hole)_(Mountain_Camp)",
     "hideyHoleCoords": "2790,3667",
     "hasFight": true,
     "id": "emote_0306"
@@ -4476,6 +4531,7 @@
     "imageRef": null,
     "travel": "Watchtower Teleport to Yanille, then run east into the Wizard's Guild and down to the basement.",
     "npc": "Wizard Frumscone",
+    "secondStep": "Puzzle box (Archers)",
     "id": "anagram_0315"
   },
   {
@@ -4513,6 +4569,7 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Dig Site pendant to Exam Centre. • Teleport with the Archaeology journal and run south-east.",
+    "secondStep": "Puzzle box (V)",
     "id": "cryptic_0318"
   },
   {
@@ -4526,6 +4583,7 @@
     "imageRef": null,
     "travel": "Wicked hood or traveller's necklace • Fairy ring code DIS, then run to entrance",
     "npc": "Professor Onglewip",
+    "secondStep": "Puzzle box (Troll)",
     "id": "anagram_0319"
   },
   {
@@ -4549,6 +4607,7 @@
       ]
     ],
     "hideyHoleName": "Rock (hidey-hole) (White Wolf Mountain)",
+    "hideyHoleImageRef": "Rock_(hidey-hole)_(White_Wolf_Mountain)",
     "hideyHoleCoords": "2845,3496",
     "hasFight": true,
     "id": "emote_0320"
@@ -4594,6 +4653,7 @@
     "imageRef": null,
     "travel": "Port Sarim lodestone, then run south-east.",
     "npc": "Trader Stan",
+    "secondStep": "Puzzle box (Helwyr)",
     "id": "anagram_0323"
   },
   {
@@ -4619,6 +4679,8 @@
     "imageRef": null,
     "travel": "Planted spirit tree to Etceteria, then run north-east to the castle and up the ladder. • Fairy ring code CIP to Etceteria, then run around the castle wall to the south into the castle and up the ladder.",
     "npc": "Queen Sigrid",
+    "secondStep": "Puzzle box (Werewolf)",
+    "note": "After Blood Runs Deep she can be found on the 1st floor of Miscellania Castle.",
     "id": "anagram_0325"
   },
   {
@@ -4641,6 +4703,7 @@
       ]
     ],
     "hideyHoleName": "Log (hidey-hole)",
+    "hideyHoleImageRef": "Log_(hidey-hole)",
     "hideyHoleCoords": "2914,3154",
     "hasFight": true,
     "id": "emote_0326"
@@ -4666,6 +4729,7 @@
       ]
     ],
     "hideyHoleName": "Rock (hidey-hole) (Wilderness)",
+    "hideyHoleImageRef": "Rock_(hidey-hole)_(Wilderness)",
     "hideyHoleCoords": "3245,3610",
     "hasFight": true,
     "id": "emote_0327"
@@ -4740,6 +4804,8 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Tirannwn quiver 3 teleport directly to the camp • Tirannwn lodestone teleport",
+    "secondStep": "Puzzle box (Elves)",
+    "note": "After Plague's End he can be found in the Iorwerth chapel in Prifddinas.",
     "id": "cryptic_0333"
   },
   {
@@ -4752,6 +4818,7 @@
     "mapId": 28,
     "imageRef": null,
     "travel": "Taverley lodestone, then run south, climb White Wolf Mountain, enter the cave to appear at the top of the mountain, then run south-east • Gnome Glider Travel to \"2. Sindarpos\" (White Wolf Mountain)",
+    "secondStep": "Puzzle box (Tuska)",
     "id": "cryptic_0334"
   },
   {
@@ -4871,6 +4938,7 @@
       ]
     ],
     "hideyHoleName": "Dead tree (hidey-hole) (Wilderness)",
+    "hideyHoleImageRef": "Dead_tree_(hidey-hole)_(Wilderness)",
     "hideyHoleCoords": "3031,3722",
     "hasFight": true,
     "id": "emote_0343"
@@ -5198,6 +5266,7 @@
     "imageRef": null,
     "travel": "Crystal teleport seed or • Tirannwn quiver 1 to Lletya.",
     "npc": "Amaethwr",
+    "secondStep": "Puzzle box (Lockbox)",
     "id": "anagram_0370"
   },
   {
@@ -5234,6 +5303,7 @@
       ]
     ],
     "hideyHoleName": "Rock (hidey-hole) (Celestial dragons)",
+    "hideyHoleImageRef": "Rock_(hidey-hole)_(Celestial_dragons)",
     "hideyHoleCoords": "2277,5965",
     "hasFight": true,
     "id": "emote_0372"
@@ -5260,6 +5330,7 @@
       ]
     ],
     "hideyHoleName": "Rock (hidey-hole) (Charm sprites)",
+    "hideyHoleImageRef": "Rock_(hidey-hole)_(Charm_sprites)",
     "hideyHoleCoords": "2397,3367",
     "hasFight": true,
     "id": "emote_0373"
@@ -5285,6 +5356,7 @@
       ]
     ],
     "hideyHoleName": "Table (hidey-hole)",
+    "hideyHoleImageRef": "Table_(hidey-hole)",
     "hideyHoleCoords": "4638,5106",
     "hasFight": true,
     "id": "emote_0374"
@@ -5310,6 +5382,7 @@
       ]
     ],
     "hideyHoleName": "Water barrel (hidey-hole)",
+    "hideyHoleImageRef": "Water_barrel_(hidey-hole)",
     "hideyHoleCoords": "3802,1989",
     "hasFight": true,
     "id": "emote_0375"
@@ -5335,6 +5408,7 @@
       ]
     ],
     "hideyHoleName": "Barrel (hidey-hole) (Port Phasmatys)",
+    "hideyHoleImageRef": "Barrel_(hidey-hole)_(Port_Phasmatys)",
     "hideyHoleCoords": "3676,3494",
     "hasFight": true,
     "id": "emote_0376"
@@ -5362,6 +5436,7 @@
     "imageRef": null,
     "travel": "Senntisten teleport • Quest Cape to The Empty Throne room • Archaeology journal teleport and run north-east (look for the dungeon icon just northeast of the archaeologist's workbench).",
     "npc": "Celia Diggory",
+    "secondStep": "Puzzle box (Towers)",
     "id": "anagram_0378"
   },
   {
@@ -5411,6 +5486,7 @@
       ]
     ],
     "hideyHoleName": "Barrel (hidey-hole) (Invention Guild)",
+    "hideyHoleImageRef": "Barrel_(hidey-hole)_(Invention_Guild)",
     "hideyHoleCoords": "6176,1050",
     "hasFight": true,
     "id": "emote_0381"
@@ -5436,6 +5512,7 @@
       ]
     ],
     "hideyHoleName": "Crates (hidey-hole) (Slayer Tower)",
+    "hideyHoleImageRef": "Crates_(hidey-hole)_(Slayer_Tower)",
     "hideyHoleCoords": "3427,3541",
     "hasFight": true,
     "id": "emote_0382"
@@ -5486,6 +5563,7 @@
       ]
     ],
     "hideyHoleName": "Barrel (hidey-hole) (Edgeville Monastery)",
+    "hideyHoleImageRef": "Barrel_(hidey-hole)_(Edgeville_Monastery)",
     "hideyHoleCoords": "3056,3499",
     "hasFight": true,
     "id": "emote_0385"
@@ -5501,6 +5579,7 @@
     "imageRef": null,
     "travel": "Tuai Leit teleport",
     "npc": "Sensei Seaworth",
+    "secondStep": "Puzzle box (Towers)",
     "id": "anagram_0386"
   },
   {
@@ -5514,6 +5593,8 @@
     "imageRef": null,
     "travel": "Spirit tree to the Battlefield, then run north.",
     "npc": "Philipe Carnillean",
+    "note": "After Carnillean Rising, Philipe's location varies based on your quest points.",
+    "noteUrl": "https://runescape.wiki/w/Philipe_Carnillean#Adventures_of_his_own",
     "id": "anagram_0387"
   },
   {
@@ -5552,6 +5633,7 @@
     "imageRef": null,
     "travel": "Skills necklace to Crafting Guild, then run south-west. • Master archaeologist's outfit or Archaeology teleport to Lowse, then run east. • Port Sarim lodestone, then run north-west.",
     "npc": "Malignius Mortifer",
+    "secondStep": "Puzzle box (Lockbox)",
     "id": "anagram_0390"
   },
   {
@@ -5575,6 +5657,7 @@
       ]
     ],
     "hideyHoleName": "Barrel (hidey-hole) (Lumbridge)",
+    "hideyHoleImageRef": "Barrel_(hidey-hole)_(Lumbridge)",
     "hideyHoleCoords": "3198,3258",
     "hasFight": true,
     "id": "emote_0391"
@@ -5625,6 +5708,7 @@
       ]
     ],
     "hideyHoleName": "Potted plant (hidey-hole) (Prifddinas)",
+    "hideyHoleImageRef": "Potted_plant_(hidey-hole)_(Prifddinas)",
     "hideyHoleCoords": "2181,3402",
     "hasFight": true,
     "id": "emote_0394"
@@ -5675,6 +5759,7 @@
       ]
     ],
     "hideyHoleName": "Plant (hidey-hole)",
+    "hideyHoleImageRef": "Plant_(hidey-hole)",
     "hideyHoleCoords": "3172,2711",
     "hasFight": true,
     "id": "emote_0397"

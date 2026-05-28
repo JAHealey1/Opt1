@@ -147,7 +147,8 @@ final class OverlayPresenter {
 
         dismissTriangulationIfNeeded()
         let controller = OverlayWindowController()
-        controller.showSolution(solution, windowFrame: windowFrame)
+        controller.showSolution(solution, windowFrame: windowFrame,
+                                onClose: { [weak controller] in controller?.close() })
         overlayWindowController = controller
 
         let hasRichContent = solution.travel != nil
@@ -223,15 +224,6 @@ final class OverlayPresenter {
             panel.orderFront(nil)
             lockboxGridPanel = panel
             scheduleDismiss(panel: panel, after: 10)
-        } else {
-            // Fallback: no screen bounds — show the mimic-grid side panel.
-            let mode = OverlayMode.lockbox(solution: solution)
-            let view = SolutionView(mode: mode, message: "", detail: "")
-            let size = CGSize(width: 240, height: 240)
-            let controller = OverlayWindowController()
-            controller.showSolutionView(AnyView(view), size: size, windowFrame: windowFrame)
-            overlayWindowController = controller
-            scheduleDismiss(controller: controller, after: 30)
         }
     }
 
@@ -290,7 +282,11 @@ final class OverlayPresenter {
         let mode = OverlayMode.celticKnot(solution: solution)
         let controller = OverlayWindowController()
         let view = SolutionView(mode: mode, message: "", detail: "",
-                                onClose: { [weak controller] in controller?.close() })
+                                onClose: { [weak self, weak controller] in
+                                    self?.celticKnotArrowPanel?.close()
+                                    self?.celticKnotArrowPanel = nil
+                                    controller?.close()
+                                })
         let size = mode.preferredSize
         controller.showSolutionView(AnyView(view), size: size, windowFrame: windowFrame)
         overlayWindowController = controller
