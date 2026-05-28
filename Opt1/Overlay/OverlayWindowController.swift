@@ -67,7 +67,8 @@ class OverlayWindowController: NSObject, NSWindowDelegate {
               frame: NSRect,
               movableByBackground: Bool = true,
               resizable: Bool = false,
-              minSize: CGSize? = nil) {
+              minSize: CGSize? = nil,
+              snapToContentHeight: Bool = false) {
         close()
 
         var styleMask: NSWindow.StyleMask = [.borderless, .nonactivatingPanel]
@@ -102,6 +103,36 @@ class OverlayWindowController: NSObject, NSWindowDelegate {
         self.panel = newPanel
         self.overlaySize = frame.size
         Task { @MainActor [weak self] in self?.isUpdatingPosition = false }
+
+        if snapToContentHeight {
+            snapPanelToContentHeight()
+        }
+    }
+
+    /// Resizes the panel to its SwiftUI content's fitting height, keeping the
+    /// top edge pinned. Called after `orderFront` so the hosting view has had
+    /// time to perform its initial SwiftUI layout pass.
+    private func snapPanelToContentHeight() {
+        // Defer one run-loop cycle to let SwiftUI complete its first layout.
+        DispatchQueue.main.async { [weak self] in
+            guard let self, let panel = self.panel, let cv = panel.contentView else { return }
+            let fit = cv.fittingSize
+            let current = panel.frame
+            // Only snap when the fitting height is meaningfully smaller than the
+            // allocated frame — avoids no-ops and prevents over-shrinking.
+            guard fit.height > 20, fit.height < current.height - 10 else { return }
+            // Shrink from the bottom, keeping the top edge of the panel fixed.
+            let snapped = NSRect(
+                x: current.origin.x,
+                y: current.origin.y + (current.height - fit.height),
+                width: current.width,
+                height: fit.height
+            )
+            self.isUpdatingPosition = true
+            panel.setFrame(snapped, display: true)
+            self.overlaySize = snapped.size
+            DispatchQueue.main.async { [weak self] in self?.isUpdatingPosition = false }
+        }
     }
 
     // MARK: - Solution Display (offset-aware, window-tracking)
@@ -118,6 +149,7 @@ class OverlayWindowController: NSObject, NSWindowDelegate {
                           movableByBackground: Bool = true,
                           resizable: Bool = false,
                           minSize: CGSize? = nil,
+                          snapToContentHeight: Bool = false,
                           onResize: ((CGSize) -> Void)? = nil) {
         // Set lastWindowFrame and overlaySize BEFORE show() so that any synchronous
         // windowDidMove fired by orderFront can compute the correct default frame.
@@ -129,18 +161,21 @@ class OverlayWindowController: NSObject, NSWindowDelegate {
              frame: frame,
              movableByBackground: movableByBackground,
              resizable: resizable,
-             minSize: minSize)
+             minSize: minSize,
+             snapToContentHeight: snapToContentHeight)
         startTracking()
     }
 
-    func showSolution(_ solution: ClueSolution, windowFrame: CGRect) {
+    func showSolution(_ solution: ClueSolution, windowFrame: CGRect, onClose: (() -> Void)? = nil) {
         let size = OverlayMode.solution(solution).preferredSize
         let view = SolutionView(
             mode: .solution(solution),
             message: solution.solution,
-            detail: solution.location ?? ""
+            detail: solution.location ?? "",
+            onClose: onClose
         )
-        showSolutionView(AnyView(view), size: size, windowFrame: windowFrame)
+        showSolutionView(AnyView(view), size: size, windowFrame: windowFrame,
+                         snapToContentHeight: true)
     }
 
     // MARK: - Window Tracking (5 Hz)

@@ -23,7 +23,70 @@ public struct ClueSolution: Codable, Identifiable {
     /// live OCR-detected range and fall back to this value when OCR is wrong.
     public var scanRange: Int?
 
-    public init(id: String, type: String, difficulty: String? = nil, clue: String, solution: String, location: String? = nil, coordinates: String? = nil, mapId: Int? = nil, imageRef: String? = nil, travel: String? = nil, confidence: Double? = nil, scanTextAliases: [String]? = nil, scanRange: Int? = nil) {
+    // MARK: - Emote clue fields
+
+    /// Items the player must equip, in order (emote clues only).
+    /// e.g. ["Iron med helm", "Emerald ring", "Leather gloves"]
+    public var emoteItems: [String]?
+    /// Emote steps to perform, in sequence (emote clues only).
+    /// Each inner array is one step; multiple entries mean alternatives are accepted.
+    /// Easy: one step  — e.g. [["Clap"]] or [["Bow", "Curtsy"]]
+    /// Medium: two steps — e.g. [["Beckon"], ["Bow", "Curtsy"]]
+    ///   Step 1 summons Uri; step 2 must be performed before speaking to Uri.
+    public var emoteSteps: [[String]]?
+    /// Name of the hidey-hole object for this emote location.
+    /// e.g. "Rock (hidey-hole) (Wizards' Tower)"
+    public var hideyHoleName: String?
+    /// Game-tile coordinates of the hidey-hole object.
+    /// e.g. "3099,3188" — single tile, not a polygon.
+    public var hideyHoleCoords: String?
+    /// Base filename (no extension) for the bundled hidey-hole image in HideyHoleImages/.
+    /// Matches the wiki File: name with spaces replaced by underscores,
+    /// e.g. "Rock_(hidey-hole)_(Mountain_Camp)".
+    public var hideyHoleImageRef: String?
+    /// True when a double agent spawns on performing the emote (hard and master clues).
+    public var hasFight: Bool?
+
+    // MARK: - Anagram clue fields
+
+    /// Challenge scroll question posed by the NPC after solving the anagram
+    /// (anagram clues only, when the NPC has a challenge scroll).
+    public var challengeQuestion: String?
+    /// Correct answer to the challenge scroll question.
+    public var challengeAnswer: String?
+    /// Second step required after speaking to the NPC, when it is NOT a challenge
+    /// scroll (anagram clues only). Challenge scroll data lives in
+    /// challengeQuestion/challengeAnswer; this field covers everything else,
+    /// e.g. "Puzzle box (Tree)", "Puzzle box (Castle)".
+    public var secondStep: String?
+
+    // MARK: - Shared
+
+    /// Optional contextual note displayed beneath the solution — used for
+    /// quest-conditional location changes or other caveats the scraper cannot
+    /// derive automatically. e.g. "After Blood Runs Deep she moves to Miscellania Castle."
+    public var note: String?
+    /// Optional URL (typically a wiki page) shown alongside `note` as a tappable
+    /// "View on wiki" link. Only rendered when `note` is also present.
+    public var noteUrl: String?
+
+    /// NPC name associated with this clue. Populated on anagram entries (the
+    /// NPC to speak to) and challenge entries (the NPC that poses the question).
+    /// Maps to the "npc" JSON key for compatibility with existing challenge entries.
+    public var npcName: String?
+
+    public init(
+        id: String, type: String, difficulty: String? = nil,
+        clue: String, solution: String, location: String? = nil,
+        coordinates: String? = nil, mapId: Int? = nil, imageRef: String? = nil,
+        travel: String? = nil, confidence: Double? = nil,
+        scanTextAliases: [String]? = nil, scanRange: Int? = nil,
+        emoteItems: [String]? = nil, emoteSteps: [[String]]? = nil,
+        hideyHoleName: String? = nil, hideyHoleCoords: String? = nil, hideyHoleImageRef: String? = nil,
+        hasFight: Bool? = nil, challengeQuestion: String? = nil,
+        challengeAnswer: String? = nil, secondStep: String? = nil,
+        npcName: String? = nil, note: String? = nil, noteUrl: String? = nil
+    ) {
         self.id = id
         self.type = type
         self.difficulty = difficulty
@@ -37,11 +100,27 @@ public struct ClueSolution: Codable, Identifiable {
         self.confidence = confidence
         self.scanTextAliases = scanTextAliases
         self.scanRange = scanRange
+        self.emoteItems = emoteItems
+        self.emoteSteps = emoteSteps
+        self.hideyHoleName = hideyHoleName
+        self.hideyHoleCoords = hideyHoleCoords
+        self.hideyHoleImageRef = hideyHoleImageRef
+        self.hasFight = hasFight
+        self.challengeQuestion = challengeQuestion
+        self.challengeAnswer = challengeAnswer
+        self.secondStep = secondStep
+        self.npcName = npcName
+        self.note = note
+        self.noteUrl = noteUrl
     }
 
     enum CodingKeys: String, CodingKey {
         case id, type, difficulty, clue, solution, location, coordinates, mapId,
              imageRef, travel, confidence, scanTextAliases, scanRange
+        case emoteItems, emoteSteps, hideyHoleName, hideyHoleCoords, hideyHoleImageRef, hasFight
+        case challengeQuestion, challengeAnswer, secondStep
+        case npcName = "npc"
+        case note, noteUrl
     }
 
     public init(from decoder: Decoder) throws {
@@ -59,6 +138,18 @@ public struct ClueSolution: Codable, Identifiable {
         confidence = try c.decodeIfPresent(Double.self, forKey: .confidence)
         scanTextAliases = try c.decodeIfPresent([String].self, forKey: .scanTextAliases)
         scanRange = try Self.decodeScanRange(from: c)
+        emoteItems = try c.decodeIfPresent([String].self, forKey: .emoteItems)
+        emoteSteps = try c.decodeIfPresent([[String]].self, forKey: .emoteSteps)
+        hideyHoleName = try c.decodeIfPresent(String.self, forKey: .hideyHoleName)
+        hideyHoleCoords = try c.decodeIfPresent(String.self, forKey: .hideyHoleCoords)
+        hideyHoleImageRef = try c.decodeIfPresent(String.self, forKey: .hideyHoleImageRef)
+        hasFight = try c.decodeIfPresent(Bool.self, forKey: .hasFight)
+        challengeQuestion = try c.decodeIfPresent(String.self, forKey: .challengeQuestion)
+        challengeAnswer = try c.decodeIfPresent(String.self, forKey: .challengeAnswer)
+        secondStep = try c.decodeIfPresent(String.self, forKey: .secondStep)
+        npcName = try c.decodeIfPresent(String.self, forKey: .npcName)
+        note = try c.decodeIfPresent(String.self, forKey: .note)
+        noteUrl = try c.decodeIfPresent(String.self, forKey: .noteUrl)
     }
 
     /// `clues.json` uses quoted scan ranges (`"22"`) in addition to numeric JSON.
@@ -88,6 +179,18 @@ public struct ClueSolution: Codable, Identifiable {
         try c.encodeIfPresent(confidence, forKey: .confidence)
         try c.encodeIfPresent(scanTextAliases, forKey: .scanTextAliases)
         try c.encodeIfPresent(scanRange, forKey: .scanRange)
+        try c.encodeIfPresent(emoteItems, forKey: .emoteItems)
+        try c.encodeIfPresent(emoteSteps, forKey: .emoteSteps)
+        try c.encodeIfPresent(hideyHoleName, forKey: .hideyHoleName)
+        try c.encodeIfPresent(hideyHoleCoords, forKey: .hideyHoleCoords)
+        try c.encodeIfPresent(hideyHoleImageRef, forKey: .hideyHoleImageRef)
+        try c.encodeIfPresent(hasFight, forKey: .hasFight)
+        try c.encodeIfPresent(challengeQuestion, forKey: .challengeQuestion)
+        try c.encodeIfPresent(challengeAnswer, forKey: .challengeAnswer)
+        try c.encodeIfPresent(secondStep, forKey: .secondStep)
+        try c.encodeIfPresent(npcName, forKey: .npcName)
+        try c.encodeIfPresent(note, forKey: .note)
+        try c.encodeIfPresent(noteUrl, forKey: .noteUrl)
     }
 }
 

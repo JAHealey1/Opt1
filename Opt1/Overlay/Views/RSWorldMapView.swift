@@ -66,6 +66,8 @@ struct RSWorldMapView: View {
     /// Drawn as a gold target ring on top of all other layers so it is
     /// immediately visible, but visually distinct from confirmed pins.
     var recommendedPin: (x: Int, y: Int)? = nil
+    /// Hidey-hole locations to mark with a distinct teal pin (emote clues).
+    var hideyHolePins: [(x: Int, y: Int)] = []
     /// Game-tile coordinates used solely to compute the initial auto-fit scale
     /// and focal point. Unlike `extraPins` these are never rendered as visible
     /// pins on the map — they act as invisible bounding-box anchors.
@@ -251,6 +253,15 @@ struct RSWorldMapView: View {
                     Self.drawPin(&ctx, at: pp, radius: Self.pinRadius)
                 }
 
+                // Hidey-hole pins (teal — visually distinct from the red NPC/dig pin)
+                for pin in hideyHolePins {
+                    let pp = toScreen(Self.toMapPx(pin.x), Self.toMapPx(pin.y),
+                                      size: size, s: s, focal: fc)
+                    Self.drawPin(&ctx, at: pp, radius: Self.pinRadius,
+                                 fill:   Color(red: 0.20, green: 0.78, blue: 0.72),
+                                 stroke: Color(red: 0.06, green: 0.28, blue: 0.26))
+                }
+
                 // Player position pins (scan overlay — green)
                 for pp in playerPins {
                     let sp = toScreen(Self.toMapPx(pp.x), Self.toMapPx(pp.y),
@@ -326,6 +337,19 @@ struct RSWorldMapView: View {
                     .strokeBorder(Color.white.opacity(0.08), lineWidth: 0.5)
             )
 
+            // ── Pin legend (only shown when multiple pin types are present) ─────────
+            if !hideyHolePins.isEmpty && showPrimaryPin {
+                HStack(spacing: 6) {
+                    legendEntry(color: Color(red: 0.96, green: 0.27, blue: 0.18), label: "NPC")
+                    legendEntry(color: Color(red: 0.20, green: 0.78, blue: 0.72), label: "Hidey-hole")
+                }
+                .padding(.horizontal, 6)
+                .padding(.vertical, 3)
+                .background(RoundedRectangle(cornerRadius: 5).fill(OverlayTheme.bgDeep.opacity(0.88)))
+                .padding(6)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
+            }
+
             // ── Zoom / reset controls ────────────────────────────────────
             HStack(spacing: 4) {
                 Button("+") {
@@ -398,6 +422,7 @@ struct RSWorldMapView: View {
             // Choose initial focal point and scale to fit all pins.
             // `boundsHints` extend the bounding box without rendering a pin.
             let renderPins = [(gameX, gameY)] + extraPins.map { ($0.x, $0.y) }
+                                             + hideyHolePins.map { ($0.x, $0.y) }
             let allPins    = renderPins + boundsHints.map { ($0.x, $0.y) }
             let centX = renderPins.map(\.0).reduce(0, +) / renderPins.count
             let centY = renderPins.map(\.1).reduce(0, +) / renderPins.count
@@ -473,6 +498,20 @@ struct RSWorldMapView: View {
         if !initialCheckDone {
             initialCheckDone = true
             hasTiles = anyFound
+        }
+    }
+
+    // MARK: - Legend
+
+    @ViewBuilder
+    private func legendEntry(color: Color, label: String) -> some View {
+        HStack(spacing: 3) {
+            Circle()
+                .fill(color)
+                .frame(width: 7, height: 7)
+            Text(label)
+                .font(.system(size: 9, weight: .medium, design: .monospaced))
+                .foregroundColor(OverlayTheme.textSecondary)
         }
     }
 

@@ -1,4 +1,5 @@
 import SwiftUI
+import Opt1Matching
 
 // MARK: - Solution View
 
@@ -6,25 +7,36 @@ struct SolutionView: View {
     let mode: OverlayMode
     let message: String
     let detail: String
+    var onClose: (() -> Void)? = nil
 
     var body: some View {
         switch mode {
         case .solution(let clue):
-            SolutionCardView(solution: clue)
+            clueView(for: clue)
         case .scanList(let state):
             ScanListView(state: state)
-        case .lockbox(let solution):
-            LockboxSolutionView(solution: solution)
         case .towers(let solution, let hints):
-            TowersSolutionView(solution: solution, hints: hints)
+            TowersSolutionView(solution: solution, hints: hints, onClose: onClose)
         case .celticKnot(let solution):
-            CelticKnotSolutionView(solution: solution)
+            CelticKnotSolutionView(solution: solution, onClose: onClose)
         case .celticKnotNeedsInvert:
             CelticKnotInvertPromptView()
         case .eliteCompass(let state):
             EliteCompassView(state: state)
         default:
             BannerView(mode: mode, message: message, detail: detail)
+        }
+    }
+
+    @ViewBuilder
+    private func clueView(for clue: ClueSolution) -> some View {
+        switch clue.type {
+        case "emote":      EmoteClueView(clue: clue, onClose: onClose)
+        case "anagram":    AnagramClueView(clue: clue, onClose: onClose)
+        case "coordinate": CoordinateClueView(clue: clue, onClose: onClose)
+        case "map":        MapClueView(clue: clue, onClose: onClose)
+        case "skill":      SkillClueView(clue: clue, onClose: onClose)
+        default:           CrypticClueView(clue: clue, onClose: onClose)
         }
     }
 }

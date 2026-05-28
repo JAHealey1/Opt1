@@ -21,9 +21,6 @@ struct EliteCompassView: View {
     /// Local mirror of `AppSettings.disabledScanTeleportIds` so SwiftUI tracks
     /// the dependency and re-renders when the user disables a teleport.
     @State private var disabledTeleportIds: Set<String> = AppSettings.disabledScanTeleportIds
-    @State private var groupSteps: [String: [String]] = AppSettings.teleportGroupSteps
-    @State private var spotSteps:  [String: [String]] = AppSettings.teleportSpotSteps
-    @State private var showingKeybindSheet = false
 
     /// Default map centre for surface (elite) compass clues — Lumbridge area.
     private static let defaultX = 3222
@@ -57,29 +54,21 @@ struct EliteCompassView: View {
         return CGPoint(x: inside[0].x, y: inside[0].y)
     }
 
-    /// Finds the teleport spot nearest to the computed intersection, along with
-    /// its distance in tiles. Returns `nil` when no intersection has been
-    /// calculated yet. Uses the same `defaultMapId` catalogue slice as the map
-    /// renderer so Arc spots are returned in translated game-tile coordinates
-    /// and will naturally win the distance comparison when the intersection falls
-    /// in the Eastern Lands region.
-    private var nearestTeleport: (spot: TeleportSpot, tiles: Double)? {
-        guard let pt = state.intersection else { return nil }
-        let spots = TeleportCatalogue.shared.spots(forMapId: MapTileCache.defaultMapId)
-            .filter { !disabledTeleportIds.contains($0.id) }
+    /// Teleport spots sorted by distance to the computed intersection, filtered
+    /// for disabled IDs. Empty when no intersection has been calculated yet.
+    /// Uses the `defaultMapId` catalogue slice so Arc spots are returned in
+    /// translated game-tile coordinates and will naturally win the comparison
+    /// when the intersection falls in the Eastern Lands region.
+    private var closestTeleports: [(spot: TeleportSpot, tiles: Double)] {
+        guard let pt = state.intersection else { return [] }
         let px = Double(pt.x), py = Double(pt.y)
-        guard let closest = spots.min(by: {
-            hypot(Double($0.x) - px, Double($0.y) - py) <
-            hypot(Double($1.x) - px, Double($1.y) - py)
-        }) else { return nil }
-        let d = hypot(Double(closest.x) - px, Double(closest.y) - py)
-        return (closest, d)
-    }
-
-    private func resolvedSteps(for spot: TeleportSpot) -> [String] {
-        AppSettings.perSpotKeybindGroups.contains(spot.groupId)
-            ? spotSteps[spot.id] ?? []
-            : groupSteps[spot.groupId] ?? []
+        return Array(
+            TeleportCatalogue.shared.spots(forMapId: MapTileCache.defaultMapId)
+                .filter { !disabledTeleportIds.contains($0.id) }
+                .map { ($0, hypot(Double($0.x) - px, Double($0.y) - py)) }
+                .sorted { $0.1 < $1.1 }
+                .prefix(4)
+        )
     }
 
     private var instructionText: String {
@@ -222,116 +211,19 @@ struct EliteCompassView: View {
             .padding(.bottom, 8)
 
             // Nearest teleport banner — visible only once an intersection resolves
-            if let nearest = nearestTeleport {
+            if !closestTeleports.isEmpty {
                 Divider().opacity(0.2).padding(.horizontal, 8)
-
-                HStack(spacing: 8) {
-                    if let iconName = nearest.spot.resolvedIcon,
-                       let cg = TeleportSpriteCache.shared.image(named: iconName) {
-                        Image(nsImage: NSImage(cgImage: cg, size: NSSize(width: 20, height: 20)))
-                            .frame(width: 20, height: 20)
-                    } else {
-                        Image(systemName: "arrow.triangle.swap")
-                            .font(.system(size: 12))
-                            .foregroundColor(OverlayTheme.gold.opacity(0.7))
-                            .frame(width: 20, height: 20)
+                ClosestTeleportBanner(
+                    spots: closestTeleports,
+                    onDisable: { spot in
+                        AppSettings.disableScanTeleport(id: spot.id)
+                        disabledTeleportIds = AppSettings.disabledScanTeleportIds
                     }
-
-                    VStack(alignment: .leading, spacing: 1) {
-                        Text("Closest teleport")
-                            .font(.system(size: 8, design: .monospaced))
-                            .foregroundColor(OverlayTheme.textSecondary.opacity(0.6))
-                        Text(nearest.spot.name)
-                            .font(.system(size: 11, weight: .semibold, design: .monospaced))
-                            .foregroundColor(OverlayTheme.gold)
-                        Text(nearest.spot.groupName)
-                            .font(.system(size: 9, design: .monospaced))
-                            .foregroundColor(OverlayTheme.textSecondary)
-                        if let seq = keybindSequence(
-                            steps: resolvedSteps(for: nearest.spot),
-                            code:  nearest.spot.code
-                        ) {
-                            Text(seq)
-                                .font(.system(size: 9, design: .monospaced))
-                                .foregroundColor(OverlayTheme.gold.opacity(0.75))
-                                .lineLimit(1)
-                                .truncationMode(.tail)
-                        }
-                    }
-
-                    Spacer()
-
-                    VStack(alignment: .trailing, spacing: 4) {
-                        Text("\(Int(nearest.tiles.rounded())) tiles")
-                            .font(.system(size: 10, weight: .medium, design: .monospaced))
-                            .foregroundColor(OverlayTheme.textSecondary)
-                            .padding(.horizontal, 6).padding(.vertical, 2)
-                            .background(Capsule().fill(OverlayTheme.gold.opacity(0.12)))
-
-                        Button {
-                            showingKeybindSheet = true
-                        } label: {
-                            let hasSteps = !resolvedSteps(for: nearest.spot).isEmpty
-                            Text(hasSteps ? "Edit keybind" : "Add keybind")
-                                .font(.system(size: 8))
-                                .foregroundColor(OverlayTheme.gold.opacity(0.7))
-                                .padding(.horizontal, 6).padding(.vertical, 2)
-                                .background(Capsule().fill(OverlayTheme.gold.opacity(0.08)))
-                                .overlay(Capsule().strokeBorder(OverlayTheme.gold.opacity(0.2), lineWidth: 0.5))
-                        }
-                        .buttonStyle(.plain)
-                        .help(AppSettings.perSpotKeybindGroups.contains(nearest.spot.groupId)
-                            ? "Set custom keybind pre-steps for \(nearest.spot.name)."
-                            : "Set custom keybind pre-steps for all \(nearest.spot.groupName) teleports.")
-                        .sheet(isPresented: $showingKeybindSheet, onDismiss: {
-                            groupSteps = AppSettings.teleportGroupSteps
-                            spotSteps  = AppSettings.teleportSpotSteps
-                        }) {
-                            let isSpot = AppSettings.perSpotKeybindGroups.contains(nearest.spot.groupId)
-                            TeleportInstructionSheet(
-                                scopeId:     isSpot ? nearest.spot.id        : nearest.spot.groupId,
-                                scopeName:   isSpot ? nearest.spot.name      : nearest.spot.groupName,
-                                contextLine: isSpot
-                                    ? "\(nearest.spot.name) · \(nearest.spot.groupName)"
-                                    : "Applies to all \(nearest.spot.groupName) teleports",
-                                knownCode:   nearest.spot.code,
-                                isSpotLevel: isSpot
-                            )
-                        }
-
-                        Button {
-                            AppSettings.disableScanTeleport(id: nearest.spot.id)
-                            disabledTeleportIds = AppSettings.disabledScanTeleportIds
-                        } label: {
-                            Text("I don't have this")
-                                .font(.system(size: 8))
-                                .foregroundColor(.white.opacity(0.5))
-                                .padding(.horizontal, 6).padding(.vertical, 2)
-                                .background(Capsule().fill(.white.opacity(0.08)))
-                                .overlay(Capsule().strokeBorder(.white.opacity(0.12), lineWidth: 0.5))
-                        }
-                        .buttonStyle(.plain)
-                        .help("Exclude this teleport from suggestions. Re-enable it in Settings → Scan Teleports.")
-                    }
-                }
-                .padding(.horizontal, 12)
-                .padding(.vertical, 6)
+                )
                 .transition(.opacity.combined(with: .move(edge: .bottom)))
             }
 
-            // Close button
-            Button(action: { state.onClose?() }) {
-                Text("Close")
-                    .font(.system(size: 11, weight: .semibold))
-                    .foregroundColor(OverlayTheme.bgDeep)
-                    .padding(.horizontal, 24)
-                    .padding(.vertical, 6)
-                    .background(RoundedRectangle(cornerRadius: 6).fill(OverlayTheme.gold.opacity(0.75)))
-                    .overlay(RoundedRectangle(cornerRadius: 6).strokeBorder(OverlayTheme.goldBorder.opacity(0.4), lineWidth: 0.5))
-            }
-            .buttonStyle(.plain)
-            .frame(maxWidth: .infinity)
-            .padding(.bottom, 10)
+            CloseButton(action: { state.onClose?() })
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .background(WindowAccessor(window: $overlayWindow))
@@ -345,8 +237,6 @@ struct EliteCompassView: View {
         )
         .onReceive(NotificationCenter.default.publisher(for: UserDefaults.didChangeNotification)) { _ in
             disabledTeleportIds = AppSettings.disabledScanTeleportIds
-            groupSteps = AppSettings.teleportGroupSteps
-            spotSteps  = AppSettings.teleportSpotSteps
         }
     }
 }
