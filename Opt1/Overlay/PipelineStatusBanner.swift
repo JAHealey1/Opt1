@@ -13,27 +13,24 @@ final class PipelineStatusBannerModel: ObservableObject {
 private struct PipelineStatusBannerView: View {
     @ObservedObject var model: PipelineStatusBannerModel
 
-    // Warm dark background + gold accent to match the overlay theme
-    private static let bgColor   = Color(red: 0.10, green: 0.08, blue: 0.04)
-    private static let textColor = Color(red: 0.95, green: 0.90, blue: 0.78)
-    private static let gold      = Color(red: 1.00, green: 0.80, blue: 0.25)
-
     var body: some View {
         HStack(spacing: 8) {
             ProgressView()
                 .controlSize(.small)
-                .tint(Self.gold)
+                .tint(OverlayTheme.gold)
             Text(model.message)
                 .font(.system(size: 13, weight: .semibold, design: .rounded))
-                .foregroundColor(Self.textColor)
+                .foregroundColor(OverlayTheme.textPrimary)
         }
         .padding(.horizontal, 14)
         .padding(.vertical, 8)
-        .background(Self.bgColor.opacity(0.93))
-        .cornerRadius(10)
+        .background(
+            RoundedRectangle(cornerRadius: 10, style: .continuous)
+                .fill(OverlayTheme.bgPrimary.opacity(OverlayTheme.bgPrimaryOp))
+        )
         .overlay(
-            RoundedRectangle(cornerRadius: 10)
-                .strokeBorder(Self.gold.opacity(0.35), lineWidth: 1.0)
+            RoundedRectangle(cornerRadius: 10, style: .continuous)
+                .strokeBorder(OverlayTheme.goldBorder.opacity(0.35), lineWidth: 1.0)
         )
     }
 }

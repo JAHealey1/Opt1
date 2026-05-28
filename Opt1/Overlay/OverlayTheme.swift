@@ -1,6 +1,6 @@
 import SwiftUI
-import Opt1Solvers
 import Opt1Matching
+import Opt1Solvers
 
 // MARK: - Overlay Theme
 
@@ -30,6 +30,19 @@ enum OverlayTheme {
     // Standard radii / widths
     static let cornerRadius: CGFloat = 12
     static let borderWidth:  CGFloat = 1.0
+
+    /// Background and text colour for the difficulty capsule badge.
+    /// Matched to in-game scroll colours as agreed in Phase 3.
+    static func badgeColor(for difficulty: String) -> (bg: Color, text: Color) {
+        switch difficulty.lowercased() {
+        case "easy":   return (Color(red: 0.53, green: 0.53, blue: 0.53), .black.opacity(0.7))
+        case "medium": return (Color(red: 0.75, green: 0.47, blue: 0.19), .black.opacity(0.7))
+        case "hard":   return (Color(red: 0.82, green: 0.80, blue: 0.75), .black.opacity(0.7))
+        case "elite":  return (Color(red: 0.90, green: 0.70, blue: 0.22), .black.opacity(0.7))
+        case "master": return (Color(red: 0.53, green: 0.73, blue: 0.83), .black.opacity(0.7))
+        default:       return (OverlayTheme.gold.opacity(0.50), .black.opacity(0.7))
+        }
+    }
 }
 
 // MARK: - Overlay Mode
@@ -39,7 +52,6 @@ enum OverlayMode {
     case rawOCR(String)
     case solution(ClueSolution)
     case scanList(state: ScanFilterState)
-    case lockbox(solution: LockboxSolution)
     case towers(solution: TowersSolution, hints: TowersHints)
     case celticKnot(solution: CelticKnotSolution)
     case celticKnotNeedsInvert
@@ -57,7 +69,6 @@ enum OverlayMode {
     var preferredSize: CGSize {
         switch self {
         case .towers:              return CGSize(width: 280, height: 320)
-        case .lockbox:             return CGSize(width: 240, height: 240)
         case .celticKnot:          return CGSize(width: 320, height: 200)
         case .scanList:            return CGSize(width: 480, height: 560)
         case .eliteCompass:
@@ -67,23 +78,30 @@ enum OverlayMode {
             return AppSettings.shared.eliteCompassPanelSize
                 ?? AppSettings.defaultEliteCompassSize
         case .solution(let clue):
-            let isCoord   = clue.coordinates != nil
-            let hasTravel = clue.travel != nil
+            let hasMap   = clue.coordinates != nil
             let height: CGFloat
-            if isCoord {
-                // 280 pt map + header + solution text + coords row + padding
-                height = 550
-            } else {
-                height = hasTravel ? 230 : 150
+            switch clue.type {
+            case "emote":
+                let stepCount = clue.emoteSteps?.count ?? 0
+                let itemCount = clue.emoteItems?.count ?? 0
+                height = hasMap ? 560 : (320 + CGFloat(stepCount + itemCount) * 20)
+            case "anagram":
+                height = hasMap ? 440 : (clue.challengeQuestion != nil ? 280 : 220)
+            case "coordinate":
+                height = 420
+            case "map":
+                height = clue.imageRef != nil ? 520 : (hasMap ? 380 : 220)
+            default:
+                height = hasMap ? 380 : 200
             }
-            return CGSize(width: 480, height: height)
+            return CGSize(width: 360, height: height)
         default:            return CGSize(width: 480, height: 150)
         }
     }
 
     var tintColor: Color {
         switch self {
-        case .phase1Confirmation, .solution, .scanList, .lockbox, .towers,
+        case .phase1Confirmation, .solution, .scanList, .towers,
              .celticKnot, .eliteCompass:
             return OverlayTheme.gold
         case .celticKnotNeedsInvert: return .orange

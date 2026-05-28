@@ -163,6 +163,9 @@ final class AppSettings {
         // Teleport IDs the user has opted out of seeing as scan recommendations.
         // Stored as a [String] array; each entry is TeleportSpot.id ("<groupId>.<spotId>").
         static let disabledScanTeleportIds = "disabledScanTeleportIds"
+        // Names of hidey-holes the user has marked as filled.
+        // Stored as a [String] array keyed by hideyHoleName (the wiki object name).
+        static let filledHideyHoles = "filledHideyHoles"
         // Per-group custom keybind pre-steps. Keyed by TeleportSpot.groupId; value is
         // an ordered [String] of display-label steps (e.g. ["P", "⌥5"]).  The known
         // in-game `code` from teleports.json is appended at display time and never stored.
@@ -491,6 +494,39 @@ final class AppSettings {
         var ids = disabledScanTeleportIds
         ids.remove(id)
         disabledScanTeleportIds = ids
+    }
+
+    // MARK: - Filled hidey-holes
+
+    /// Names of hidey-holes the user has stocked. Keyed by `ClueSolution.hideyHoleName`.
+    static var filledHideyHoles: Set<String> {
+        get {
+            let arr = UserDefaults.standard.stringArray(forKey: Keys.filledHideyHoles) ?? []
+            return Set(arr)
+        }
+        set {
+            UserDefaults.standard.set(Array(newValue), forKey: Keys.filledHideyHoles)
+        }
+    }
+
+    static func fillHideyHole(name: String) {
+        var set = filledHideyHoles
+        set.insert(name)
+        filledHideyHoles = set
+    }
+
+    static func unfillHideyHole(name: String) {
+        var set = filledHideyHoles
+        set.remove(name)
+        filledHideyHoles = set
+    }
+
+    static func toggleHideyHole(name: String) {
+        if filledHideyHoles.contains(name) {
+            unfillHideyHole(name: name)
+        } else {
+            fillHideyHole(name: name)
+        }
     }
 
     // MARK: - Teleport group keybind steps
