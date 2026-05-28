@@ -6198,7 +6198,7 @@
     "type": "compass",
     "difficulty": "elite",
     "clue": "Daemonheim",
-    "solution": "South of Daemonheim Castle. Just east of the steps south of the rewards trader.",
+    "solution": "South of Daemonheim Castle. Just east of the steps south of Marmaros the rewards trader.",
     "location": "Daemonheim",
     "coordinates": "3437,3682",
     "imageRef": null,
@@ -18108,12 +18108,24 @@
     "difficulty": "master",
     "clue": "This scroll will work in the Lost Grove. Orb scan range: 14 paces.",
     "location": "The Lost Grove",
+    "solution": "South of the central area.",
+    "coordinates": "1949,3138",
+    "mapId": 28,
+    "scanRange": "14",
+    "imageRef": null,
+    "id": "scan_1507"
+  },
+  {
+    "type": "scan",
+    "difficulty": "master",
+    "clue": "This scroll will work in the Lost Grove. Orb scan range: 14 paces.",
+    "location": "The Lost Grove",
     "solution": "North-west of the ruins.",
     "coordinates": "1978,3199",
     "mapId": 28,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_1507"
+    "id": "scan_1508"
   },
   {
     "type": "scan",
@@ -18125,7 +18137,7 @@
     "mapId": 28,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_1508"
+    "id": "scan_1509"
   },
   {
     "type": "scan",
@@ -18137,7 +18149,7 @@
     "mapId": 28,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_1509"
+    "id": "scan_1510"
   },
   {
     "type": "scan",
@@ -18149,7 +18161,7 @@
     "mapId": 28,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_1510"
+    "id": "scan_1511"
   },
   {
     "type": "scan",
@@ -18161,7 +18173,7 @@
     "mapId": 28,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_1511"
+    "id": "scan_1512"
   },
   {
     "type": "scan",
@@ -18173,7 +18185,7 @@
     "mapId": 28,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_1512"
+    "id": "scan_1513"
   },
   {
     "type": "scan",
@@ -18185,7 +18197,7 @@
     "mapId": 28,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_1513"
+    "id": "scan_1514"
   },
   {
     "type": "scan",
@@ -18197,7 +18209,7 @@
     "mapId": 28,
     "scanRange": "30",
     "imageRef": null,
-    "id": "scan_1514"
+    "id": "scan_1515"
   },
   {
     "type": "scan",
@@ -18209,7 +18221,7 @@
     "mapId": 28,
     "scanRange": "30",
     "imageRef": null,
-    "id": "scan_1515"
+    "id": "scan_1516"
   },
   {
     "type": "scan",
@@ -18221,7 +18233,7 @@
     "mapId": 28,
     "scanRange": "30",
     "imageRef": null,
-    "id": "scan_1516"
+    "id": "scan_1517"
   },
   {
     "type": "scan",
@@ -18233,7 +18245,7 @@
     "mapId": 28,
     "scanRange": "30",
     "imageRef": null,
-    "id": "scan_1517"
+    "id": "scan_1518"
   },
   {
     "type": "scan",
@@ -18245,7 +18257,7 @@
     "mapId": 28,
     "scanRange": "30",
     "imageRef": null,
-    "id": "scan_1518"
+    "id": "scan_1519"
   },
   {
     "type": "scan",
@@ -18257,7 +18269,7 @@
     "mapId": 28,
     "scanRange": "30",
     "imageRef": null,
-    "id": "scan_1519"
+    "id": "scan_1520"
   },
   {
     "type": "scan",
@@ -18269,7 +18281,7 @@
     "mapId": 28,
     "scanRange": "30",
     "imageRef": null,
-    "id": "scan_1520"
+    "id": "scan_1521"
   },
   {
     "type": "scan",
@@ -18281,7 +18293,7 @@
     "mapId": 28,
     "scanRange": "30",
     "imageRef": null,
-    "id": "scan_1521"
+    "id": "scan_1522"
   },
   {
     "type": "scan",
@@ -18293,7 +18305,7 @@
     "mapId": 28,
     "scanRange": "30",
     "imageRef": null,
-    "id": "scan_1522"
+    "id": "scan_1523"
   },
   {
     "type": "scan",
@@ -18305,7 +18317,7 @@
     "mapId": 28,
     "scanRange": "30",
     "imageRef": null,
-    "id": "scan_1523"
+    "id": "scan_1524"
   },
   {
     "type": "scan",
@@ -18317,7 +18329,7 @@
     "mapId": 28,
     "scanRange": "30",
     "imageRef": null,
-    "id": "scan_1524"
+    "id": "scan_1525"
   },
   {
     "type": "scan",
@@ -18329,7 +18341,7 @@
     "mapId": 28,
     "scanRange": "30",
     "imageRef": null,
-    "id": "scan_1525"
+    "id": "scan_1526"
   },
   {
     "type": "scan",
@@ -18341,7 +18353,7 @@
     "mapId": 28,
     "scanRange": "30",
     "imageRef": null,
-    "id": "scan_1526"
+    "id": "scan_1527"
   },
   {
     "type": "scan",
@@ -18353,7 +18365,7 @@
     "mapId": 28,
     "scanRange": "30",
     "imageRef": null,
-    "id": "scan_1527"
+    "id": "scan_1528"
   },
   {
     "type": "scan",
@@ -18365,7 +18377,7 @@
     "mapId": 28,
     "scanRange": "30",
     "imageRef": null,
-    "id": "scan_1528"
+    "id": "scan_1529"
   },
   {
     "type": "scan",
@@ -18377,7 +18389,7 @@
     "mapId": 28,
     "scanRange": "30",
     "imageRef": null,
-    "id": "scan_1529"
+    "id": "scan_1530"
   },
   {
     "type": "scan",
@@ -18389,7 +18401,7 @@
     "mapId": 28,
     "scanRange": "30",
     "imageRef": null,
-    "id": "scan_1530"
+    "id": "scan_1531"
   },
   {
     "type": "scan",
@@ -18401,7 +18413,7 @@
     "mapId": 28,
     "scanRange": "30",
     "imageRef": null,
-    "id": "scan_1531"
+    "id": "scan_1532"
   },
   {
     "type": "challenge",
@@ -18412,7 +18424,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "Zookeeper",
-    "id": "challenge_1532"
+    "id": "challenge_1533"
   },
   {
     "type": "challenge",
@@ -18423,7 +18435,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "King Roald",
-    "id": "challenge_1533"
+    "id": "challenge_1534"
   },
   {
     "type": "challenge",
@@ -18434,7 +18446,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "Gabooty",
-    "id": "challenge_1534"
+    "id": "challenge_1535"
   },
   {
     "type": "challenge",
@@ -18445,7 +18457,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "Cook",
-    "id": "challenge_1535"
+    "id": "challenge_1536"
   },
   {
     "type": "challenge",
@@ -18456,7 +18468,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "Caroline",
-    "id": "challenge_1536"
+    "id": "challenge_1537"
   },
   {
     "type": "challenge",
@@ -18467,7 +18479,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "Recruiter",
-    "id": "challenge_1537"
+    "id": "challenge_1538"
   },
   {
     "type": "challenge",
@@ -18478,7 +18490,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "Brundt the Chieftain",
-    "id": "challenge_1538"
+    "id": "challenge_1539"
   },
   {
     "type": "challenge",
@@ -18489,7 +18501,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "Edmond",
-    "id": "challenge_1539"
+    "id": "challenge_1540"
   },
   {
     "type": "challenge",
@@ -18500,7 +18512,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "Oracle",
-    "id": "challenge_1540"
+    "id": "challenge_1541"
   },
   {
     "type": "challenge",
@@ -18511,7 +18523,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "Karim",
-    "id": "challenge_1541"
+    "id": "challenge_1542"
   },
   {
     "type": "challenge",
@@ -18522,7 +18534,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "Hazelmere / Brimstail",
-    "id": "challenge_1542"
+    "id": "challenge_1543"
   },
   {
     "type": "challenge",
@@ -18533,7 +18545,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "Gnome ball referee",
-    "id": "challenge_1543"
+    "id": "challenge_1544"
   },
   {
     "type": "challenge",
@@ -18544,7 +18556,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "Valerio",
-    "id": "challenge_1544"
+    "id": "challenge_1545"
   },
   {
     "type": "challenge",
@@ -18555,7 +18567,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "Moldark, Emissary of Zamorak",
-    "id": "challenge_1545"
+    "id": "challenge_1546"
   },
   {
     "type": "challenge",
@@ -18566,7 +18578,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "Father Urhney",
-    "id": "challenge_1546"
+    "id": "challenge_1547"
   },
   {
     "type": "challenge",
@@ -18577,7 +18589,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "Rommik",
-    "id": "challenge_1547"
+    "id": "challenge_1548"
   },
   {
     "type": "challenge",
@@ -18588,7 +18600,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "Nails Newton",
-    "id": "challenge_1548"
+    "id": "challenge_1549"
   },
   {
     "type": "challenge",
@@ -18599,7 +18611,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "Cap'n Izzy No-Beard's parrot",
-    "id": "challenge_1549"
+    "id": "challenge_1550"
   },
   {
     "type": "challenge",
@@ -18610,7 +18622,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "Bolkoy",
-    "id": "challenge_1550"
+    "id": "challenge_1551"
   },
   {
     "type": "challenge",
@@ -18621,7 +18633,7 @@
     "coordinates": null,
     "imageRef": null,
     "npc": "Gnome Coach",
-    "id": "challenge_1551"
+    "id": "challenge_1552"
   },
   {
     "type": "skill",
@@ -18631,7 +18643,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1552"
+    "id": "skill_1553"
   },
   {
     "type": "skill",
@@ -18641,7 +18653,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1553"
+    "id": "skill_1554"
   },
   {
     "type": "skill",
@@ -18651,7 +18663,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1554"
+    "id": "skill_1555"
   },
   {
     "type": "skill",
@@ -18661,7 +18673,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1555"
+    "id": "skill_1556"
   },
   {
     "type": "skill",
@@ -18671,7 +18683,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1556"
+    "id": "skill_1557"
   },
   {
     "type": "skill",
@@ -18681,7 +18693,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1557"
+    "id": "skill_1558"
   },
   {
     "type": "skill",
@@ -18691,7 +18703,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1558"
+    "id": "skill_1559"
   },
   {
     "type": "skill",
@@ -18701,7 +18713,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1559"
+    "id": "skill_1560"
   },
   {
     "type": "skill",
@@ -18711,7 +18723,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1560"
+    "id": "skill_1561"
   },
   {
     "type": "skill",
@@ -18721,7 +18733,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1561"
+    "id": "skill_1562"
   },
   {
     "type": "skill",
@@ -18731,7 +18743,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1562"
+    "id": "skill_1563"
   },
   {
     "type": "skill",
@@ -18741,7 +18753,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1563"
+    "id": "skill_1564"
   },
   {
     "type": "skill",
@@ -18751,7 +18763,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1564"
+    "id": "skill_1565"
   },
   {
     "type": "skill",
@@ -18761,7 +18773,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1565"
+    "id": "skill_1566"
   },
   {
     "type": "skill",
@@ -18771,7 +18783,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1566"
+    "id": "skill_1567"
   },
   {
     "type": "skill",
@@ -18781,7 +18793,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1567"
+    "id": "skill_1568"
   },
   {
     "type": "skill",
@@ -18791,7 +18803,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1568"
+    "id": "skill_1569"
   },
   {
     "type": "skill",
@@ -18801,7 +18813,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1569"
+    "id": "skill_1570"
   },
   {
     "type": "skill",
@@ -18811,7 +18823,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1570"
+    "id": "skill_1571"
   },
   {
     "type": "skill",
@@ -18821,7 +18833,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1571"
+    "id": "skill_1572"
   },
   {
     "type": "skill",
@@ -18831,7 +18843,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1572"
+    "id": "skill_1573"
   },
   {
     "type": "skill",
@@ -18841,7 +18853,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1573"
+    "id": "skill_1574"
   },
   {
     "type": "skill",
@@ -18851,7 +18863,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1574"
+    "id": "skill_1575"
   },
   {
     "type": "skill",
@@ -18861,7 +18873,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1575"
+    "id": "skill_1576"
   },
   {
     "type": "skill",
@@ -18871,7 +18883,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1576"
+    "id": "skill_1577"
   },
   {
     "type": "skill",
@@ -18881,7 +18893,7 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1577"
+    "id": "skill_1578"
   },
   {
     "type": "skill",
@@ -18891,7 +18903,262 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1578"
+    "id": "skill_1579"
+  },
+  {
+    "type": "scan",
+    "difficulty": "elite",
+    "clue": "This scroll will work in Wendlewick. Orb scan range: 12 paces.",
+    "location": "Havenhythe",
+    "solution": "Wendlewick",
+    "coordinates": "4189,3330",
+    "mapId": 28,
+    "scanRange": "12",
+    "imageRef": null,
+    "id": "scan_1580"
+  },
+  {
+    "type": "scan",
+    "difficulty": "elite",
+    "clue": "This scroll will work in Wendlewick. Orb scan range: 12 paces.",
+    "location": "Havenhythe",
+    "solution": "Wendlewick",
+    "coordinates": "4175,3347",
+    "mapId": 28,
+    "scanRange": "12",
+    "imageRef": null,
+    "id": "scan_1581"
+  },
+  {
+    "type": "scan",
+    "difficulty": "elite",
+    "clue": "This scroll will work in Wendlewick. Orb scan range: 12 paces.",
+    "location": "Havenhythe",
+    "solution": "Wendlewick",
+    "coordinates": "4218,3380",
+    "mapId": 28,
+    "scanRange": "12",
+    "imageRef": null,
+    "id": "scan_1582"
+  },
+  {
+    "type": "scan",
+    "difficulty": "elite",
+    "clue": "This scroll will work in Wendlewick. Orb scan range: 12 paces.",
+    "location": "Havenhythe",
+    "solution": "Wendlewick",
+    "coordinates": "4181,3370",
+    "mapId": 28,
+    "scanRange": "12",
+    "imageRef": null,
+    "id": "scan_1583"
+  },
+  {
+    "type": "scan",
+    "difficulty": "elite",
+    "clue": "This scroll will work in Wendlewick. Orb scan range: 12 paces.",
+    "location": "Havenhythe",
+    "solution": "Wendlewick",
+    "coordinates": "4210,3341",
+    "mapId": 28,
+    "scanRange": "12",
+    "imageRef": null,
+    "id": "scan_1584"
+  },
+  {
+    "type": "scan",
+    "difficulty": "elite",
+    "clue": "This scroll will work in Wendlewick. Orb scan range: 12 paces.",
+    "location": "Havenhythe",
+    "solution": "Wendlewick",
+    "coordinates": "4198,3309",
+    "mapId": 28,
+    "scanRange": "12",
+    "imageRef": null,
+    "id": "scan_1585"
+  },
+  {
+    "type": "scan",
+    "difficulty": "elite",
+    "clue": "This scroll will work in Wendlewick. Orb scan range: 12 paces.",
+    "location": "Havenhythe",
+    "solution": "Wendlewick",
+    "coordinates": "4191,3296",
+    "mapId": 28,
+    "scanRange": "12",
+    "imageRef": null,
+    "id": "scan_1586"
+  },
+  {
+    "type": "scan",
+    "difficulty": "elite",
+    "clue": "This scroll will work in Wendlewick. Orb scan range: 12 paces.",
+    "location": "Havenhythe",
+    "solution": "Wendlewick",
+    "coordinates": "4170,3315",
+    "mapId": 28,
+    "scanRange": "12",
+    "imageRef": null,
+    "id": "scan_1587"
+  },
+  {
+    "type": "scan",
+    "difficulty": "elite",
+    "clue": "This scroll will work in Wendlewick. Orb scan range: 12 paces.",
+    "location": "Havenhythe",
+    "solution": "Wendlewick",
+    "coordinates": "4146,3342",
+    "mapId": 28,
+    "scanRange": "12",
+    "imageRef": null,
+    "id": "scan_1588"
+  },
+  {
+    "type": "scan",
+    "difficulty": "elite",
+    "clue": "This scroll will work in Wendlewick. Orb scan range: 12 paces.",
+    "location": "Havenhythe",
+    "solution": "Wendlewick",
+    "coordinates": "4125,3317",
+    "mapId": 28,
+    "scanRange": "12",
+    "imageRef": null,
+    "id": "scan_1589"
+  },
+  {
+    "type": "scan",
+    "difficulty": "elite",
+    "clue": "This scroll will work in Wendlewick. Orb scan range: 12 paces.",
+    "location": "Havenhythe",
+    "solution": "Wendlewick",
+    "coordinates": "4106,3302",
+    "mapId": 28,
+    "scanRange": "12",
+    "imageRef": null,
+    "id": "scan_1590"
+  },
+  {
+    "type": "scan",
+    "difficulty": "elite",
+    "clue": "This scroll will work in Wendlewick. Orb scan range: 12 paces.",
+    "location": "Havenhythe",
+    "solution": "Wendlewick",
+    "coordinates": "4141,3286",
+    "mapId": 28,
+    "scanRange": "12",
+    "imageRef": null,
+    "id": "scan_1591"
+  },
+  {
+    "type": "scan",
+    "difficulty": "elite",
+    "clue": "This scroll will work in Wendlewick. Orb scan range: 12 paces.",
+    "location": "Havenhythe",
+    "solution": "Wendlewick",
+    "coordinates": "4127,3301",
+    "mapId": 28,
+    "scanRange": "12",
+    "imageRef": null,
+    "id": "scan_1592"
+  },
+  {
+    "type": "scan",
+    "difficulty": "elite",
+    "clue": "This scroll will work in Wendlewick. Orb scan range: 12 paces.",
+    "location": "Havenhythe",
+    "solution": "Wendlewick",
+    "coordinates": "4175,3290",
+    "mapId": 28,
+    "scanRange": "12",
+    "imageRef": null,
+    "id": "scan_1593"
+  },
+  {
+    "type": "scan",
+    "difficulty": "elite",
+    "clue": "This scroll will work in Wendlewick. Orb scan range: 12 paces.",
+    "location": "Havenhythe",
+    "solution": "Wendlewick",
+    "coordinates": "4187,3267",
+    "mapId": 28,
+    "scanRange": "12",
+    "imageRef": null,
+    "id": "scan_1594"
+  },
+  {
+    "type": "scan",
+    "difficulty": "elite",
+    "clue": "This scroll will work in Wendlewick. Orb scan range: 12 paces.",
+    "location": "Havenhythe",
+    "solution": "Wendlewick",
+    "coordinates": "4233,3292",
+    "mapId": 28,
+    "scanRange": "12",
+    "imageRef": null,
+    "id": "scan_1595"
+  },
+  {
+    "type": "scan",
+    "difficulty": "elite",
+    "clue": "This scroll will work in Wendlewick. Orb scan range: 12 paces.",
+    "location": "Havenhythe",
+    "solution": "Wendlewick",
+    "coordinates": "4274,3270",
+    "mapId": 28,
+    "scanRange": "12",
+    "imageRef": null,
+    "id": "scan_1596"
+  },
+  {
+    "type": "scan",
+    "difficulty": "elite",
+    "clue": "This scroll will work in Wendlewick. Orb scan range: 12 paces.",
+    "location": "Havenhythe",
+    "solution": "Wendlewick",
+    "coordinates": "4258,3262",
+    "mapId": 28,
+    "scanRange": "12",
+    "imageRef": null,
+    "id": "scan_1597"
+  },
+  {
+    "type": "scan",
+    "difficulty": "elite",
+    "clue": "This scroll will work in Wendlewick. Orb scan range: 12 paces.",
+    "location": "Havenhythe",
+    "solution": "Wendlewick",
+    "coordinates": "4263,3296",
+    "mapId": 28,
+    "scanRange": "12",
+    "imageRef": null,
+    "id": "scan_1598"
+  },
+  {
+    "type": "scan",
+    "difficulty": "elite",
+    "clue": "This scroll will work in Wendlewick. Orb scan range: 12 paces.",
+    "location": "Havenhythe",
+    "solution": "Wendlewick",
+    "coordinates": "4268,3324",
+    "mapId": 28,
+    "scanRange": "12",
+    "imageRef": null,
+    "id": "scan_1599"
+  },
+  {
+    "type": "anagram",
+    "difficulty": "medium",
+    "clue": "This anagram reveals who to speak to next: OK CO",
+    "solution": "Cook",
+    "location": "Speak to the Cook in Lumbridge Castle.",
+    "coordinates": "3209, 3215",
+    "mapId": 28,
+    "imageRef": null,
+    "travel": "Lumbridge teleport.",
+    "npc": "Cook",
+    "challengeQuestion": "How many cannons does Lumbridge Castle have?",
+    "challengeAnswer": "7",
+    "id": "anagram_1600"
   },
   {
     "type": "emote",
@@ -18909,6 +19176,6 @@
       ]
     ],
     "hasFight": true,
-    "id": "emote_1579"
+    "id": "emote_1601"
   }
 ]

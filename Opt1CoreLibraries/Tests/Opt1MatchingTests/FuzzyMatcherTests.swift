@@ -111,7 +111,47 @@ struct FuzzyMatcherTests {
         // "BANKIR" — one char off from "BANKER"
         let obs = ["This anagram reveals who to speak to next: BANKIR"]
         let result = m.bestMatch(forAny: obs, in: ClueCorpus(clues: db))
-        _ = result
+        // Near-miss should resolve to the only candidate via suffix-only fallback.
+        let match = try #require(result)
+        #expect(match.clue.id == "a1")
+    }
+
+    @Test("Anagram: 'OK CO' matches Cook, not Oracle")
+    func anagramCookNotOracle() throws {
+        // Regression for user report: 'OK CO' was incorrectly identified as Oracle
+        // ("ARE COL") instead of Cook because the full-text Levenshtein fallthrough
+        // was dominated by the shared 44-char boilerplate prefix.
+        let db = [
+            anagramClue("cook", "OK CO"),
+            anagramClue("oracle", "ARE COL"),
+        ]
+        let m = FuzzyMatcher()
+        let obs = ["This anagram reveals who to speak to next: OK CO"]
+        let result = m.bestMatch(forAny: obs, in: ClueCorpus(clues: db))
+        let match = try #require(result)
+        #expect(match.clue.id == "cook")
+    }
+
+    @Test("Anagram: boilerplate-only observation (no suffix) returns nil")
+    func anagramNoSuffixReturnsNil() throws {
+        let db = [anagramClue("a1", "BANKER")]
+        let m = FuzzyMatcher()
+        // Observation contains only the prefix line — cannot identify which anagram.
+        let obs = ["This anagram reveals who to speak to next:"]
+        let result = m.bestMatch(forAny: obs, in: ClueCorpus(clues: db))
+        #expect(result == nil)
+    }
+
+    @Test("Anagram: unknown scramble (missing from DB) returns nil, not a wrong clue")
+    func anagramMissingFromDBReturnsNil() throws {
+        // When the correct anagram is absent from the DB, the matcher must not
+        // return a plausible-looking but wrong match via boilerplate similarity.
+        let db = [anagramClue("oracle", "ARE COL")]
+        let m = FuzzyMatcher()
+        let obs = ["This anagram reveals who to speak to next: OK CO"]
+        let result = m.bestMatch(forAny: obs, in: ClueCorpus(clues: db))
+        // Oracle should NOT be returned just because the boilerplate matches.
+        #expect(result == nil)
     }
 
     // MARK: - Coordinate matching

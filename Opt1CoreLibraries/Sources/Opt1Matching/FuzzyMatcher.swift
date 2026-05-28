@@ -375,10 +375,27 @@ public struct FuzzyMatcher {
                 var result = match; result.confidence = bestScore
                 return (result, bestScore)
             }
-            // Anagram letter-sort didn't produce a strong match —
-            // fall through to standard Levenshtein so garbled OCR
-            // still has a chance via whole-text similarity.
-            print("[FuzzyMatcher] Anagram letter-sort inconclusive (best=\(String(format: "%.2f", bestScore))) — trying standard match")
+            // Letter-sort inconclusive — try a suffix-only Levenshtein (post-colon
+            // scramble text only) so garbled OCR can still recover without letting
+            // the shared boilerplate prefix inflate every anagram's score equally.
+            // Falling through to full-text Levenshtein is wrong here: 44 shared
+            // prefix characters dominate the edit distance, making unrelated anagrams
+            // (e.g. Oracle / "ARE COL") outscore the correct one on short queries.
+            print("[FuzzyMatcher] Anagram letter-sort inconclusive (best=\(String(format: "%.2f", bestScore))) — trying suffix-only Levenshtein")
+            var suffixBestClue: ClueSolution?
+            var suffixBestScore = 0.0
+            for (entry, _) in corpusAnagramLetters {
+                guard let range = entry.normalised.range(of: anagramPrefix) else { continue }
+                let entrySuffix = String(entry.normalised[range.upperBound...]).trimmingCharacters(in: .whitespaces)
+                let score = levenshteinSimilarity(fullSuffix, entrySuffix)
+                if score > suffixBestScore { suffixBestScore = score; suffixBestClue = entry.clue }
+            }
+            if let match = suffixBestClue, suffixBestScore >= confidenceThreshold {
+                print("[FuzzyMatcher] Anagram suffix fallback '\(match.clue.prefix(60))' score=\(String(format: "%.2f", suffixBestScore))")
+                var result = match; result.confidence = suffixBestScore
+                return (result, suffixBestScore)
+            }
+            return nil
         }
 
         // ── Coordinate clue matching ──

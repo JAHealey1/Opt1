@@ -1512,8 +1512,8 @@
     "id": "BKS",
     "name": "Inanna's shrine",
     "icon": "fairyring.png",
-    "x": 3599,
-    "y": 1410,
+    "x": 4260,
+    "y": 3215,
     "level": 0,
     "code": "BKS"
   },
@@ -2623,8 +2623,8 @@
     "id": "wendlewick",
     "name": "Wendlewick",
     "icon": "lode_wendlewick.png",
-    "x": 3462,
-    "y": 1520,
+    "x": 4164,
+    "y": 3311,
     "level": 0,
     "code": "Opt+W"
   },
@@ -3291,6 +3291,17 @@
   {
     "groupId": "naturessentinel",
     "groupName": "Nature's sentinel outfit",
+    "id": "creepingwendlewick",
+    "name": "Creeping Ivy - Wendlewick",
+    "icon": "sentinel.png",
+    "x": 4167,
+    "y": 3329,
+    "level": 0,
+    "code": "7,1"
+  },
+  {
+    "groupId": "naturessentinel",
+    "groupName": "Nature's sentinel outfit",
     "id": "ivyardougne",
     "name": "Choking Ivy - East Ardougne Church",
     "icon": "sentinel.png",
@@ -3302,6 +3313,17 @@
   {
     "groupId": "naturessentinel",
     "groupName": "Nature's sentinel outfit",
+    "id": "creepinggeva",
+    "name": "Creeping Ivy - Geva's Cabin",
+    "icon": "sentinel.png",
+    "x": 4160,
+    "y": 3476,
+    "level": 0,
+    "code": "7,2"
+  },
+  {
+    "groupId": "naturessentinel",
+    "groupName": "Nature's sentinel outfit",
     "id": "ivyeastvarrock",
     "name": "Choking Ivy - East Varrock Palace",
     "icon": "sentinel.png",
@@ -3309,6 +3331,17 @@
     "y": 3460,
     "level": 0,
     "code": "6,2"
+  },
+  {
+    "groupId": "naturessentinel",
+    "groupName": "Nature's sentinel outfit",
+    "id": "creepingraz",
+    "name": "Creeping Ivy - Raz's Hut",
+    "icon": "sentinel.png",
+    "x": 4280,
+    "y": 3429,
+    "level": 0,
+    "code": "7,3"
   },
   {
     "groupId": "naturessentinel",
@@ -3511,6 +3544,17 @@
   {
     "groupId": "naturessentinel",
     "groupName": "Nature's sentinel outfit",
+    "id": "eternalmagicdalia",
+    "name": "Eternal Magic Trees - Dalia's Tree Nursery",
+    "icon": "sentinel.png",
+    "x": 4197,
+    "y": 3200,
+    "level": 0,
+    "code": "1,2"
+  },
+  {
+    "groupId": "naturessentinel",
+    "groupName": "Nature's sentinel outfit",
     "id": "magiccrwys",
     "name": "Magic Trees - Crwys sector",
     "icon": "sentinel.png",
@@ -3562,6 +3606,17 @@
     "y": 3140,
     "level": 0,
     "code": "4,4"
+  },
+  {
+    "groupId": "naturessentinel",
+    "groupName": "Nature's sentinel outfit",
+    "id": "mahoganytai",
+    "name": "Mahogany Trees - Tai Bwo Wannai",
+    "icon": "sentinel.png",
+    "x": 2815,
+    "y": 3083,
+    "level": 0,
+    "code": "0,2,1"
   },
   {
     "groupId": "naturessentinel",
@@ -3676,6 +3731,17 @@
   {
     "groupId": "naturessentinel",
     "groupName": "Nature's sentinel outfit",
+    "id": "idolsjadinko",
+    "name": "Overgrown Idols - North Jadinko Lair",
+    "icon": "sentinel.png",
+    "x": 2949,
+    "y": 2979,
+    "level": 0,
+    "code": "3,2"
+  },
+  {
+    "groupId": "naturessentinel",
+    "groupName": "Nature's sentinel outfit",
     "id": "teakape",
     "name": "Teak Trees - Ape Atoll",
     "icon": "sentinel.png",
@@ -3731,6 +3797,17 @@
   {
     "groupId": "naturessentinel",
     "groupName": "Nature's sentinel outfit",
+    "id": "willowmarigold",
+    "name": "Willow Trees - Marigold Farm",
+    "icon": "sentinel.png",
+    "x": 4232,
+    "y": 3370,
+    "level": 0,
+    "code": "0,6,4"
+  },
+  {
+    "groupId": "naturessentinel",
+    "groupName": "Nature's sentinel outfit",
     "id": "willowcathery",
     "name": "Willow Trees - Catherby",
     "icon": "sentinel.png",
@@ -3782,6 +3859,17 @@
     "y": 3502,
     "level": 0,
     "code": "5,4"
+  },
+  {
+    "groupId": "naturessentinel",
+    "groupName": "Nature's sentinel outfit",
+    "id": "yewcrwys",
+    "name": "Yew Trees - Crwys district",
+    "icon": "sentinel.png",
+    "x": 2263,
+    "y": 3384,
+    "level": 0,
+    "code": "5,5"
   },
   {
     "groupId": "naturessentinel",
@@ -3998,8 +4086,8 @@
     "id": "wendlewick",
     "name": "Wendlewick",
     "icon": "tele-wendlewick.png",
-    "x": 3479,
-    "y": 1552,
+    "x": 4186,
+    "y": 3346,
     "level": 0,
     "code": null
   },
@@ -4009,8 +4097,8 @@
     "id": "wendlewick-marigold",
     "name": "Wendlewick (Marigold Farm)",
     "icon": "tele-wendlewick-marigold-farm.png",
-    "x": 3560,
-    "y": 1486,
+    "x": 4266,
+    "y": 3280,
     "level": 0,
     "code": null
   },
@@ -5760,6 +5848,39 @@
     "icon": "witchdoctormask.png",
     "x": 2953,
     "y": 2933,
+    "level": 0,
+    "code": null
+  },
+  {
+    "groupId": "warsbossportal",
+    "groupName": "Boss portal",
+    "id": "ivar",
+    "name": "Ivar, King of Bones",
+    "icon": "Ivar,_King_of_Bones.png",
+    "x": 4348,
+    "y": 3424,
+    "level": 0,
+    "code": null
+  },
+  {
+    "groupId": "warsbossportal",
+    "groupName": "Boss portal",
+    "id": "silverquill",
+    "name": "Silverquill, the Dreadhog",
+    "icon": "Silverquill,_the_Dreadhog.png",
+    "x": 4342,
+    "y": 3268,
+    "level": 0,
+    "code": null
+  },
+  {
+    "groupId": "fangofmohegan",
+    "groupName": "Fang of Mohegan",
+    "id": "fanghavenhythe",
+    "name": "Shrine of Inanna - Havenhythe",
+    "icon": "Fang_of_Mohegan.png",
+    "x": 4262,
+    "y": 3213,
     "level": 0,
     "code": null
   }
