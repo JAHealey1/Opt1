@@ -6,16 +6,16 @@
     <description>Most recent updates to Opt1.</description>
     <language>en</language>
     <item>
-      <title>Version 1.0.7</title>
-      <pubDate>Tue, 19 May 2026 14:45:55 +0000</pubDate>
-      <sparkle:version>8</sparkle:version>
-      <sparkle:shortVersionString>1.0.7</sparkle:shortVersionString>
+      <title>Version 1.0.8</title>
+      <pubDate>Fri, 29 May 2026 00:00:48 +0000</pubDate>
+      <sparkle:version>9</sparkle:version>
+      <sparkle:shortVersionString>1.0.8</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
       <description><![CDATA[<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Opt1 1.0.7 release notes</title>
+  <title>Opt1 1.0.8 release notes</title>
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, sans-serif;
            font-size: 13px; line-height: 1.5; padding: 12px; }
@@ -30,14 +30,68 @@
   </style>
 </head>
 <body>
-<h1>Opt1 1.0.7</h1>
+<h1>Opt1 1.0.8</h1>
 <h2>What's new</h2>
 <ul>
-<li>Improved robustness of towers detection at various resolutions</li>
+<li>Overhauled the UI for simple clues so you now have the most important information front and centre.</li>
+<li>Added emote guidance and equipment information for emote clues.</li>
+<li>Added hidey hole information for emote clues.</li>
+<li>You can now mark a hidey hole as filled so you don't have to remember yourself.</li>
+<li>Cryptic clues are instruction-first.</li>
+<li>Challenge scroll answers now appear in the UI for the clue instead of having to press Opt+1 again to get the challenge scroll answer.</li>
+<li>The UI now warns you if you should beware of double agents.</li>
+<li>Coordinate clues now show dig info before reiterating the coordinates.</li>
+<li>Closest teleport now shows the two closest teleports.</li>
+<li>Aligned colours of clue difficulty badges to in-game colours.</li>
+<li>Added close buttons to all interfaces.</li>
+<li>Added intial support for the Wendlewick elite scan clue.</li>
+<li>Added Havenhythe teleport information.</li>
+<li>Added all new natures sentinel outfit teleports.</li>
+</ul>
+<h2>Fixes</h2>
+<ul>
+<li>Added missing anagram clue for Cook.</li>
+<li>Added some missing teleport information.</li>
 </ul>
 </body>
 </html>
 ]]></description>
+      <sparkle:fullReleaseNotesLink>https://github.com/JAHealey1/Opt1-Releases/releases</sparkle:fullReleaseNotesLink>
+      <enclosure url="https://github.com/JAHealey1/Opt1-Releases/releases/download/v1.0.8/Opt1-1.0.8.dmg" sparkle:edSignature="/PFg51efn/tX4VXehWikWetm2hhpay1OarNB1Xviji7ltvMvGB8HMatiCUubqwNuN4PSj7BPrE2l/ptI+KJICw==" length="117170488" type="application/octet-stream" />
+    </item>
+    <item>
+      <title>Version 1.0.7</title>
+      <pubDate>Tue, 19 May 2026 14:45:55 +0000</pubDate>
+      <sparkle:version>8</sparkle:version>
+      <sparkle:shortVersionString>1.0.7</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Opt1 1.0.7 release notes&lt;/title&gt;
+  &lt;style&gt;
+    body { font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+           font-size: 13px; line-height: 1.5; padding: 12px; }
+    h1, h2, h3 { margin-top: 1em; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+           background: rgba(127,127,127,0.15); padding: 1px 4px;
+           border-radius: 3px; }
+    pre code { display: block; padding: 8px; }
+    ul, ol { padding-left: 1.5em; }
+    a { color: #0a84ff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Opt1 1.0.7&lt;/h1&gt;
+&lt;h2&gt;What's new&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Improved robustness of towers detection at various resolutions&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</description>
       <sparkle:fullReleaseNotesLink>https://github.com/JAHealey1/Opt1-Releases/releases</sparkle:fullReleaseNotesLink>
       <enclosure url="https://github.com/JAHealey1/Opt1-Releases/releases/download/v1.0.7/Opt1-1.0.7.dmg" sparkle:edSignature="zNdvFt/bAy9WEqcht9/WVRC5EQKfH7ECwCQ4pABcgdcc5vqI4I1AFvPPcH332Ix9WjL5jKmcBRvrXT12FkxdDg==" length="86926636" type="application/octet-stream" />
     </item>
