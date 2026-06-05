@@ -47,6 +47,12 @@ final class ScanFilterState: ObservableObject {
 
     private var rangeInt: Int { Int(scanRange) ?? 0 }
 
+    /// Chebyshev radius (game tiles) of uncertainty in the marked scan origin.
+    /// The origin is an approximate map tap rather than the player's exact game
+    /// tile, so a spot is kept if it matches the observed pulse from any tile
+    /// within this radius — preventing boundary spots from being wrongly cut.
+    private let originTolerance = 1
+
     // MARK: - Init
 
     init(region: String, scanRange: String, spots: [ClueSolution]) {
@@ -140,7 +146,8 @@ final class ScanFilterState: ObservableObject {
                 from: allCoords,
                 player: (obs.x, obs.y),
                 range: rangeInt,
-                pulse: obs.pulse
+                pulse: obs.pulse,
+                tolerance: originTolerance
             )
             surviving = surviving == nil ? ids : surviving!.intersection(ids)
         }
