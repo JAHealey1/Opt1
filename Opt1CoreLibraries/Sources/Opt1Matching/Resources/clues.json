@@ -2873,7 +2873,8 @@
     "travel": "Go to the graveyard south-east of the Fenkenstrain's Castle and push the easternmost memorial to pass through Fenkenstrain's Dungeon. Go north-west following the tunnel to the end and up the ladder. • Modified farmer's hat • Canifis lodestone • Kharyrll Teleport • Fairy ring code ALQ • Ectophial",
     "emoteItems": [
       "Mithril plateskirt",
-      "Maple shieldbow"
+      "Maple shieldbow",
+      "Nothing equipped in feet slot"
     ],
     "emoteSteps": [
       [
@@ -4067,7 +4068,9 @@
     "travel": "A Lighthouse Teleport scroll will teleport the player directly to the Lighthouse • Games necklace teleport to the Barbarian Outpost, then crossing the basalt rocks to the north • Enchanted lyre teleport to Rellekka or Relleka market, then running south then south-west • Fremennik Province lodestone teleport, then running south then west • Blue spiky vambraces do not work.",
     "emoteItems": [
       "Blue dragonhide body",
-      "Blue dragonhide vambraces"
+      "Blue dragonhide vambraces",
+      "Nothing equipped in neck slot",
+      "Nothing equipped in ring slot"
     ],
     "emoteSteps": [
       [
@@ -4695,7 +4698,9 @@
     "travel": "Amulet of glory Karamja teleport • Port Sarim ship to Musa Point • Fairy ring code BLP to teleport to the TzHaar City, exit the volcano, and run east • Karamja lodestone",
     "emoteItems": [
       "Diamond ring",
-      "Amulet of power"
+      "Amulet of power",
+      "Nothing equipped in torso slot",
+      "Nothing equipped in legs slot"
     ],
     "emoteSteps": [
       [
@@ -5280,6 +5285,7 @@
     "imageRef": null,
     "travel": "Gower farm • Nature's sentinel outfit to elder tree south of Varrock, then run south. • Varrock Lodestone, then run south-east.",
     "npc": "Paul Gower",
+    "note": "After the events of The Gower Quest, he can be found at the life altar (Green Disk of Returning teleport from a bank area).",
     "id": "anagram_0371"
   },
   {
@@ -18641,9 +18647,14 @@
     "clue": "A view of the city from high above. I can hear their prayers below.",
     "solution": "Go to the top of the Hefin Agility Course.",
     "location": null,
-    "coordinates": null,
+    "coordinates": "2190, 3442",
     "imageRef": null,
-    "id": "skill_1553"
+    "id": "skill_1553",
+    "requirements": [
+      "Plague's End",
+      "Agility 77"
+    ],
+    "mapId": 28
   },
   {
     "type": "skill",
@@ -18651,9 +18662,13 @@
     "clue": "Being open to Chaos can raise your defences. It may also bring you closer to death. Take a moment to bottle this feeling.",
     "solution": "Create a Zamorak brew. (Mix jangerberries into a torstol potion).",
     "location": null,
-    "coordinates": null,
+    "coordinates": "2276, 3312",
     "imageRef": null,
-    "id": "skill_1554"
+    "id": "skill_1554",
+    "requirements": [
+      "Herblore 78"
+    ],
+    "mapId": 28
   },
   {
     "type": "skill",
@@ -18661,9 +18676,14 @@
     "clue": "Catching only one shark. That don't impress me much.",
     "solution": "Catch two sharks at once. Great white sharks count toward the challenge. You can also use a Dwarven fish extractor on the double resources mode. In order for the double catch to count while wearing the fury shark outfit, it must be set to \"catch\" mode as \"consume\" will not count.",
     "location": null,
-    "coordinates": null,
+    "coordinates": "2854, 3427",
     "imageRef": null,
-    "id": "skill_1555"
+    "id": "skill_1555",
+    "requirements": [
+      "Agility 76",
+      "Fishing 76"
+    ],
+    "mapId": 28
   },
   {
     "type": "skill",
@@ -18671,9 +18691,14 @@
     "clue": "Charm me and I shall unlock.\nBut be brave in the darkness.",
     "solution": "Catch a charming moth in the Wilderness, bare-handed.",
     "location": null,
-    "coordinates": null,
+    "coordinates": "3375, 3740",
     "imageRef": null,
-    "id": "skill_1556"
+    "id": "skill_1556",
+    "requirements": [
+      "Hunter 88",
+      "Agility 83"
+    ],
+    "mapId": 28
   },
   {
     "type": "skill",
@@ -18681,9 +18706,14 @@
     "clue": "Corruption seeps from this stone but there are those who work to cleanse it. Lend your voice.",
     "solution": "Completely use up a cleansing crystal on the Corrupted Seren Stone. Warning: If you click away early, the clue will not be completed and the cleansing crystal will be lost, forcing you to purchase another.",
     "location": null,
-    "coordinates": null,
+    "coordinates": "2190, 3448",
     "imageRef": null,
-    "id": "skill_1557"
+    "id": "skill_1557",
+    "requirements": [
+      "Plague's End",
+      "Prayer 75"
+    ],
+    "mapId": 28
   },
   {
     "type": "skill",
@@ -18691,9 +18721,13 @@
     "clue": "Crossing the desert I met a crocodile. She gave me a dazzling smile but she had something in her teeth.",
     "solution": "Catch a plover bird in the southern part of Sophanem.",
     "location": null,
-    "coordinates": null,
+    "coordinates": "3278, 2681",
     "imageRef": null,
-    "id": "skill_1558"
+    "id": "skill_1558",
+    "requirements": [
+      "Hunter 73"
+    ],
+    "mapId": 28
   },
   {
     "type": "skill",
@@ -18701,9 +18735,13 @@
     "clue": "Ernie once mentioned to me a secret to improve my cooking. His idea was strong but I went the extra mile.",
     "solution": "Add a fire rune to a decorated cooking urn (nr).",
     "location": null,
-    "coordinates": null,
+    "coordinates": "2276, 3312",
     "imageRef": null,
-    "id": "skill_1559"
+    "id": "skill_1559",
+    "requirements": [
+      "Crafting 81"
+    ],
+    "mapId": 28
   },
   {
     "type": "skill",
@@ -18711,9 +18749,13 @@
     "clue": "Head protection is never a bad thing. Make it from rune for the best chance of survival.",
     "solution": "Smith a rune med helm or rune full helm. Note: Neither smithing an elder rune full helm nor smithing a rune full helm +2 will count towards completing this skill challenge.",
     "location": null,
-    "coordinates": null,
+    "coordinates": "3229, 3254",
     "imageRef": null,
-    "id": "skill_1560"
+    "id": "skill_1560",
+    "requirements": [
+      "Smithing 50"
+    ],
+    "mapId": 28
   },
   {
     "type": "skill",
@@ -18723,7 +18765,10 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1561"
+    "id": "skill_1561",
+    "requirements": [
+      "Cooking 80"
+    ]
   },
   {
     "type": "skill",
@@ -18731,9 +18776,15 @@
     "clue": "In a station of power someone requires assistance. Do a good deed to spread some happiness.",
     "solution": "Help Turgall at the Dorgesh-Kaan Agility Course.",
     "location": null,
-    "coordinates": null,
+    "coordinates": "2723, 5216",
     "imageRef": null,
-    "id": "skill_1562"
+    "id": "skill_1562",
+    "requirements": [
+      "Agility 80",
+      "Death to the Dorgeshuun",
+      "A light source"
+    ],
+    "mapId": -1
   },
   {
     "type": "skill",
@@ -18741,9 +18792,13 @@
     "clue": "I once met a man returning from market. He showed me the spoils of his day. It's precious to see what people pay for.",
     "solution": "Steal from the Ardougne Gem Stall.",
     "location": null,
-    "coordinates": null,
+    "coordinates": "2668, 3303",
     "imageRef": null,
-    "id": "skill_1563"
+    "id": "skill_1563",
+    "requirements": [
+      "Thieving 75"
+    ],
+    "mapId": 28
   },
   {
     "type": "skill",
@@ -18753,7 +18808,10 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1564"
+    "id": "skill_1564",
+    "requirements": [
+      "Firemaking 90"
+    ]
   },
   {
     "type": "skill",
@@ -18761,9 +18819,13 @@
     "clue": "Keeping all your gold together. That's a good idea. It shall be mine.",
     "solution": "Mine a concentrated gold deposit in the Living Rock Caverns.",
     "location": null,
-    "coordinates": null,
+    "coordinates": "3647, 5143",
     "imageRef": null,
-    "id": "skill_1565"
+    "id": "skill_1565",
+    "requirements": [
+      "Mining 80"
+    ],
+    "mapId": -1
   },
   {
     "type": "skill",
@@ -18771,9 +18833,13 @@
     "clue": "Magical energy floats unleashed. The fluid of life that flows through us all. Span the gap to capture this energy.",
     "solution": "Siphon some blood runes from a blood esswraith, blood pool or bloody skulls in the Runespan.",
     "location": null,
-    "coordinates": null,
+    "coordinates": "4353, 6065",
     "imageRef": null,
-    "id": "skill_1566"
+    "id": "skill_1566",
+    "requirements": [
+      "Runecrafting 77"
+    ],
+    "mapId": -1
   },
   {
     "type": "skill",
@@ -18781,9 +18847,14 @@
     "clue": "Round and round we go, burning, burning all aglow.",
     "solution": "Burn a curly root in the Jadinko Lair. You must start a firepit, not just add to one.",
     "location": null,
-    "coordinates": null,
+    "coordinates": "3019, 9244",
     "imageRef": null,
-    "id": "skill_1567"
+    "id": "skill_1567",
+    "requirements": [
+      "Woodcutting 83",
+      "Firemaking 83"
+    ],
+    "mapId": -1
   },
   {
     "type": "skill",
@@ -18791,9 +18862,13 @@
     "clue": "Rowdy Unruly Boisterous I am pie.",
     "solution": "Cook a wild pie or a wilder pie from their raw counterparts.The ingredients for a wild pie are raw bear meat, raw chompy, raw rabbit, and a pie shell. If making a wilder pie, add crushed dragonstone to the raw pie before cooking on a range. This can be done on any range, other than one in a PoH. The Bake Pie spell does work for this skill challenge. A raw wild or wilder pie purchased from the grand exchange does work.",
     "location": null,
-    "coordinates": null,
+    "coordinates": "2634, 3165",
     "imageRef": null,
-    "id": "skill_1568"
+    "id": "skill_1568",
+    "requirements": [
+      "Cooking 85"
+    ],
+    "mapId": 28
   },
   {
     "type": "skill",
@@ -18801,9 +18876,13 @@
     "clue": "Rumours of a great shark continue to spread. Catch me one and I will be fed.",
     "solution": "The easiest way to do this is to buy Great white shark bait from the G.E. then find Goomah at the Fishing Guild and teleport. Lay the bait in one of the swarms and catch a raw great white shark. Otherwise Great White's can be fished at earlier levels at whirlpools and swarm fishing.",
     "location": null,
-    "coordinates": null,
+    "coordinates": "2854, 3427",
     "imageRef": null,
-    "id": "skill_1569"
+    "id": "skill_1569",
+    "requirements": [
+      "Fishing 80"
+    ],
+    "mapId": 28
   },
   {
     "type": "skill",
@@ -18813,7 +18892,10 @@
     "location": null,
     "coordinates": null,
     "imageRef": null,
-    "id": "skill_1570"
+    "id": "skill_1570",
+    "requirements": [
+      "Firemaking 75"
+    ]
   },
   {
     "type": "skill",
@@ -18821,9 +18903,13 @@
     "clue": "Take the journey to a distant mining site. Become a blight to your foes.",
     "solution": "Smelt a Bane bar at a furnace. Any type of bane bar will count. Superheating the bar does not count for this clue.",
     "location": null,
-    "coordinates": null,
+    "coordinates": "3227, 3256",
     "imageRef": null,
-    "id": "skill_1571"
+    "id": "skill_1571",
+    "requirements": [
+      "Smithing 80"
+    ],
+    "mapId": 28
   },
   {
     "type": "skill",
@@ -18831,9 +18917,14 @@
     "clue": "The crystals tempt most however, there are other riches to gain for the quick-fingered.",
     "solution": "Pickpocket any elf.",
     "location": null,
-    "coordinates": null,
+    "coordinates": "2144, 3339",
     "imageRef": null,
-    "id": "skill_1572"
+    "id": "skill_1572",
+    "requirements": [
+      "Mourning's End Part I",
+      "Thieving 85"
+    ],
+    "mapId": 28
   },
   {
     "type": "skill",
@@ -18841,9 +18932,13 @@
     "clue": "The God of Order requires a sacrifice of strength but in return restores me. If only we could keep that feeling in his absence.",
     "solution": "Create a Saradomin brew. (Mix a crushed bird nest into a toadflax potion.)",
     "location": null,
-    "coordinates": null,
+    "coordinates": "2276, 3312",
     "imageRef": null,
-    "id": "skill_1573"
+    "id": "skill_1573",
+    "requirements": [
+      "Herblore 81"
+    ],
+    "mapId": 28
   },
   {
     "type": "skill",
@@ -18851,9 +18946,13 @@
     "clue": "The spell struck me in the chest. Perhaps if I had worn armour today. Black looks better than red.",
     "solution": "Craft a black dragonhide body.",
     "location": null,
-    "coordinates": null,
+    "coordinates": "2276, 3312",
     "imageRef": null,
-    "id": "skill_1574"
+    "id": "skill_1574",
+    "requirements": [
+      "Crafting 60"
+    ],
+    "mapId": 28
   },
   {
     "type": "skill",
@@ -18861,9 +18960,14 @@
     "clue": "There are those who prove themselves and become a beacon of light in the darkness. Come to the crystal city and become that figure.",
     "solution": "Use Light Form in Prifddinas.",
     "location": null,
-    "coordinates": null,
+    "coordinates": "2208, 3361",
     "imageRef": null,
-    "id": "skill_1575"
+    "id": "skill_1575",
+    "requirements": [
+      "Prayer 80",
+      "The Light Within"
+    ],
+    "mapId": 28
   },
   {
     "type": "skill",
@@ -18871,9 +18975,14 @@
     "clue": "There is a temple where there are rivers of red. Bind the magic to get ahead.",
     "solution": "Craft some blood runes. This only works at the Blood Altar in Morytania, not the Ourania Runecrafting Altar.",
     "location": null,
-    "coordinates": null,
+    "coordinates": "2463, 4896",
     "imageRef": null,
-    "id": "skill_1576"
+    "id": "skill_1576",
+    "requirements": [
+      "Runecrafting 77",
+      "Legacy of Seergaze"
+    ],
+    "mapId": -1
   },
   {
     "type": "skill",
@@ -18881,9 +18990,13 @@
     "clue": "Those things I once held dear continue to fade. I look upon her face and barely know who she is. But her eyes... They are still so radiant.",
     "solution": "Harvest a radiant memory on Dragontooth Island. A Dungeoneering cape can be used to teleport directly to the Dragontooth Island resource dungeon.",
     "location": null,
-    "coordinates": null,
+    "coordinates": "3805, 3552",
     "imageRef": null,
-    "id": "skill_1577"
+    "id": "skill_1577",
+    "requirements": [
+      "Divination 85"
+    ],
+    "mapId": 28
   },
   {
     "type": "skill",
@@ -18891,9 +19004,13 @@
     "clue": "When I encountered this individual, she had more rings than any I had seen before.",
     "solution": "Cut elder logs off an elder tree. The player-grown elder tree in Prifddinas works for this clue. Receiving elder logs from the polishing perk does not work.",
     "location": null,
-    "coordinates": null,
+    "coordinates": "2271, 3388",
     "imageRef": null,
-    "id": "skill_1578"
+    "id": "skill_1578",
+    "requirements": [
+      "Woodcutting 90"
+    ],
+    "mapId": 28
   },
   {
     "type": "skill",
@@ -18901,9 +19018,14 @@
     "clue": "Where there is Light there is also Death. Should you contain this you may progress.",
     "solution": "Craft some death runes. This only works at the Death Altar, not the Ourania Runecrafting Altar.",
     "location": null,
-    "coordinates": null,
+    "coordinates": "2205, 4836",
     "imageRef": null,
-    "id": "skill_1579"
+    "id": "skill_1579",
+    "requirements": [
+      "Mourning's End Part II",
+      "Runecrafting 65"
+    ],
+    "mapId": -1
   },
   {
     "type": "scan",

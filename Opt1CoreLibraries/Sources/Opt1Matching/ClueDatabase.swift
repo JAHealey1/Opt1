@@ -75,6 +75,13 @@ public struct ClueSolution: Codable, Identifiable {
     /// Maps to the "npc" JSON key for compatibility with existing challenge entries.
     public var npcName: String?
 
+    // MARK: - Skill riddle fields
+
+    /// Skill/quest/item requirements to complete the action (skill clues only).
+    /// Chip-ready strings preserving the wiki's ordering, e.g.
+    /// ["Mining 80"], ["Plague's End", "Agility 77"], ["Agility 80", "A light source"].
+    public var requirements: [String]?
+
     public init(
         id: String, type: String, difficulty: String? = nil,
         clue: String, solution: String, location: String? = nil,
@@ -85,7 +92,8 @@ public struct ClueSolution: Codable, Identifiable {
         hideyHoleName: String? = nil, hideyHoleCoords: String? = nil, hideyHoleImageRef: String? = nil,
         hasFight: Bool? = nil, challengeQuestion: String? = nil,
         challengeAnswer: String? = nil, secondStep: String? = nil,
-        npcName: String? = nil, note: String? = nil, noteUrl: String? = nil
+        npcName: String? = nil, note: String? = nil, noteUrl: String? = nil,
+        requirements: [String]? = nil
     ) {
         self.id = id
         self.type = type
@@ -112,6 +120,7 @@ public struct ClueSolution: Codable, Identifiable {
         self.npcName = npcName
         self.note = note
         self.noteUrl = noteUrl
+        self.requirements = requirements
     }
 
     enum CodingKeys: String, CodingKey {
@@ -121,6 +130,7 @@ public struct ClueSolution: Codable, Identifiable {
         case challengeQuestion, challengeAnswer, secondStep
         case npcName = "npc"
         case note, noteUrl
+        case requirements
     }
 
     public init(from decoder: Decoder) throws {
@@ -150,6 +160,7 @@ public struct ClueSolution: Codable, Identifiable {
         npcName = try c.decodeIfPresent(String.self, forKey: .npcName)
         note = try c.decodeIfPresent(String.self, forKey: .note)
         noteUrl = try c.decodeIfPresent(String.self, forKey: .noteUrl)
+        requirements = try c.decodeIfPresent([String].self, forKey: .requirements)
     }
 
     /// `clues.json` uses quoted scan ranges (`"22"`) in addition to numeric JSON.
@@ -191,6 +202,7 @@ public struct ClueSolution: Codable, Identifiable {
         try c.encodeIfPresent(npcName, forKey: .npcName)
         try c.encodeIfPresent(note, forKey: .note)
         try c.encodeIfPresent(noteUrl, forKey: .noteUrl)
+        try c.encodeIfPresent(requirements, forKey: .requirements)
     }
 }
 

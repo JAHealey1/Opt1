@@ -82,8 +82,8 @@ struct CreditsView: View {
                     elite compass reader (flood-fill rose detection, MSAA detection, \
                     AA pixel-count windows, and the binary-search / keyframe \
                     calibration tables from CompassReader.ts and \
-                    CompassCalibrationFunction.ts), and the teleport spot \
-                    dataset.
+                    CompassCalibrationFunction.ts), the teleport spot \
+                    dataset, and the master skill-riddle action locations.
                     """,
                     link: ("ClueTrainer on GitHub",
                            URL(string: "https://github.com/Leridon/cluetrainer")!)

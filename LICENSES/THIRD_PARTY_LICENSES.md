@@ -24,6 +24,9 @@ ClueTrainer's source into Swift, including:
   `src/trainer/ui/neosolving/cluereader/CompassReader.ts` and
   `…/capture/CompassCalibrationFunction.ts`.
 - The teleport spot dataset (ported from `src/data/teleport_data.ts`).
+- Master skill-riddle action locations (the `coordinates`/`mapId` values for
+  `type: "skill"` entries in `Opt1/.../Resources/clues.json`), derived from the
+  `skilling` dataset in `src/data/clues.ts`.
 
 **License (MIT).**
 
