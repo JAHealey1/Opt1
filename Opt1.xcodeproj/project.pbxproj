@@ -77,6 +77,7 @@
 		A30000000000000000000112 /* BFSPathfinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000112 /* BFSPathfinder.swift */; };
 		A30000000000000000000113 /* walkability.json in Resources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000113 /* walkability.json */; };
 		A30000000000000000000114 /* PolygonGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000114 /* PolygonGeometry.swift */; };
+		A30000000000000000000115 /* walkability_global.json in Resources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000115 /* walkability_global.json */; };
 		B300000000000000000000A4 /* CelticKnotSolverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000A4 /* CelticKnotSolverTests.swift */; };
 		B300000000000000000000A8 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000A8 /* Mocks.swift */; };
 		B300000000000000000000A9 /* ClueOrchestratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000A9 /* ClueOrchestratorTests.swift */; };
@@ -221,6 +222,7 @@
 		A20000000000000000000112 /* BFSPathfinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BFSPathfinder.swift; sourceTree = "<group>"; };
 		A20000000000000000000113 /* walkability.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = walkability.json; sourceTree = "<group>"; };
 		A20000000000000000000114 /* PolygonGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolygonGeometry.swift; sourceTree = "<group>"; };
+		A20000000000000000000115 /* walkability_global.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = walkability_global.json; sourceTree = "<group>"; };
 		B200000000000000000000A0 /* Opt1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Opt1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B200000000000000000000A4 /* CelticKnotSolverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelticKnotSolverTests.swift; sourceTree = "<group>"; };
 		B200000000000000000000A8 /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
@@ -419,6 +421,7 @@
 				A200000000000000000000E5 /* MapTiles */,
 				A200000000000000000000F8 /* teleports.json */,
 				A20000000000000000000113 /* walkability.json */,
+				A20000000000000000000115 /* walkability_global.json */,
 				A200000000000000000000F9 /* TeleportIcons */,
 			);
 			path = Resources;
@@ -715,6 +718,7 @@
 				A300000000000000000000DD /* MapTiles in Resources */,
 				A300000000000000000000F8 /* teleports.json in Resources */,
 				A30000000000000000000113 /* walkability.json in Resources */,
+				A30000000000000000000115 /* walkability_global.json in Resources */,
 				A300000000000000000000F9 /* TeleportIcons in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

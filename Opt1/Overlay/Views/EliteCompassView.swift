@@ -61,13 +61,14 @@ struct EliteCompassView: View {
     /// when the intersection falls in the Eastern Lands region.
     private var closestTeleports: [(spot: TeleportSpot, tiles: Double)] {
         guard let pt = state.intersection else { return [] }
-        let px = Double(pt.x), py = Double(pt.y)
-        return Array(
-            TeleportCatalogue.shared.spots(forMapId: MapTileCache.defaultMapId)
-                .filter { !disabledTeleportIds.contains($0.id) }
-                .map { ($0, hypot(Double($0.x) - px, Double($0.y) - py)) }
-                .sorted { $0.1 < $1.1 }
-                .prefix(4)
+        // Rank by real BFS walking distance over the whole-map walkability grid
+        // (respects rivers/walls), matching every other clue type. Points off the
+        // baked grid (e.g. The Arc) fall back to straight-line inside the helper.
+        return walkingClosestTeleports(
+            toGameX: Int(pt.x.rounded()),
+            gameY:   Int(pt.y.rounded()),
+            mapId:   MapTileCache.defaultMapId,
+            excluding: disabledTeleportIds
         )
     }
 
