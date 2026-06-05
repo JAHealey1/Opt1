@@ -334,7 +334,7 @@ final class ClueOrchestrator {
                     SliderInterfaceLocator().locate(in: image, logicalWindowWidth: logW)
                 }.value
                 if let loc = sliderLoc,
-                   let cropImage = image.cropping(to: loc.puzzleRectInImage) {
+                   let cropImage = image.safeCropping(to: loc.puzzleRectInImage) {
                     print("[Opt1] Slider anchor matched: '\(loc.anchorKey)' conf=\(String(format: "%.3f", loc.confidence))")
                     statusBanner.cancel()
                     await puzzleBoxCoordinator.runAutoDetectFlow(

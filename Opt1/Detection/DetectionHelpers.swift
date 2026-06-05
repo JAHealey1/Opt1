@@ -2,6 +2,44 @@ import CoreGraphics
 import Foundation
 import Vision
 
+// MARK: - Geometry / image safety helpers
+
+extension CGRect {
+    /// True only when every component is finite (no NaN/±∞) and the rect
+    /// encloses at least one whole pixel.
+    ///
+    /// `CGRect.null` (origin `(∞, ∞)`), `CGRect.infinite`, and any rect that
+    /// has picked up a NaN/∞ from upstream geometry math all fail this check.
+    /// Those rects are exactly the ones that make `CGImage.cropping(to:)` and
+    /// `CGContext` allocation *trap* (not return `nil`), so callers should gate
+    /// on this before handing a derived rect to CoreGraphics.
+    var isFiniteNonEmpty: Bool {
+        guard origin.x.isFinite, origin.y.isFinite,
+              size.width.isFinite, size.height.isFinite else { return false }
+        return width >= 1 && height >= 1
+    }
+}
+
+extension CGImage {
+    /// Crops to `rect` without ever crashing.
+    ///
+    /// `CGImage.cropping(to:)` does **not** simply return `nil` for malformed
+    /// input — it traps when handed a `CGRect.null`/infinite/NaN rect, and an
+    /// `if let` cannot rescue a trap. Debug-image code routinely derives crop
+    /// rects from sub-threshold detection candidates whose geometry can project
+    /// fully off-image (yielding `CGRect.null` after an `.intersection`), so use
+    /// this whenever the rect isn't guaranteed to be a finite in-bounds rect.
+    ///
+    /// Returns `nil` for any rect that can't yield a valid in-bounds sub-image.
+    func safeCropping(to rect: CGRect) -> CGImage? {
+        guard rect.isFiniteNonEmpty else { return nil }
+        let bounds = CGRect(x: 0, y: 0, width: width, height: height)
+        let clamped = rect.integral.intersection(bounds)
+        guard clamped.isFiniteNonEmpty else { return nil }
+        return cropping(to: clamped)
+    }
+}
+
 // MARK: - Math helpers
 
 /// Small numerical helpers shared by detectors and classifiers.

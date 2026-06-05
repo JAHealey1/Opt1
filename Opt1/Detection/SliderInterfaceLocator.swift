@@ -197,28 +197,35 @@ final class SliderInterfaceLocator {
             CGRect(x: r.minX, y: CGFloat(H) - r.maxY, width: r.width, height: r.height)
         }
 
-        // Inferred puzzle rect (yellow).
-        let puzzleR = userRect(puzzle)
-        ctx.setStrokeColor(CGColor(srgbRed: 1, green: 1, blue: 0, alpha: 0.95))
-        ctx.setLineWidth(3)
-        ctx.stroke(puzzleR)
+        // Inferred puzzle rect (yellow) plus orientation ticks. Guarded because
+        // a sub-threshold candidate's geometry can yield a null/off-image
+        // `puzzle` rect; feeding non-finite coordinates to the path API is at
+        // best meaningless and at worst unstable.
+        if puzzle.isFiniteNonEmpty {
+            let puzzleR = userRect(puzzle)
+            ctx.setStrokeColor(CGColor(srgbRed: 1, green: 1, blue: 0, alpha: 0.95))
+            ctx.setLineWidth(3)
+            ctx.stroke(puzzleR)
 
-        // Tick marks at the puzzle rect's TOP edge (image-space top = high y in
-        // CG user-space) so vertical orientation is unambiguous in the saved
-        // PNG even when the picture is otherwise rotationally symmetric.
-        let tickLen: CGFloat = 14
-        ctx.setStrokeColor(CGColor(srgbRed: 1, green: 0.6, blue: 0, alpha: 1))
-        ctx.setLineWidth(2)
-        ctx.move(to: CGPoint(x: puzzleR.minX, y: puzzleR.maxY))
-        ctx.addLine(to: CGPoint(x: puzzleR.minX, y: puzzleR.maxY + tickLen))
-        ctx.move(to: CGPoint(x: puzzleR.maxX, y: puzzleR.maxY))
-        ctx.addLine(to: CGPoint(x: puzzleR.maxX, y: puzzleR.maxY + tickLen))
-        ctx.strokePath()
+            // Tick marks at the puzzle rect's TOP edge (image-space top = high y
+            // in CG user-space) so vertical orientation is unambiguous in the
+            // saved PNG even when the picture is otherwise rotationally symmetric.
+            let tickLen: CGFloat = 14
+            ctx.setStrokeColor(CGColor(srgbRed: 1, green: 0.6, blue: 0, alpha: 1))
+            ctx.setLineWidth(2)
+            ctx.move(to: CGPoint(x: puzzleR.minX, y: puzzleR.maxY))
+            ctx.addLine(to: CGPoint(x: puzzleR.minX, y: puzzleR.maxY + tickLen))
+            ctx.move(to: CGPoint(x: puzzleR.maxX, y: puzzleR.maxY))
+            ctx.addLine(to: CGPoint(x: puzzleR.maxX, y: puzzleR.maxY + tickLen))
+            ctx.strokePath()
+        }
 
         // Matched needle rect (cyan).
-        ctx.setStrokeColor(CGColor(srgbRed: 0, green: 1, blue: 1, alpha: 0.95))
-        ctx.setLineWidth(2)
-        ctx.stroke(userRect(match))
+        if match.isFiniteNonEmpty {
+            ctx.setStrokeColor(CGColor(srgbRed: 0, green: 1, blue: 1, alpha: 0.95))
+            ctx.setLineWidth(2)
+            ctx.stroke(userRect(match))
+        }
 
         guard let annotated = ctx.makeImage() else { return }
         let ts = Int(Date().timeIntervalSince1970)
@@ -245,14 +252,21 @@ final class SliderInterfaceLocator {
         // for successful matches; for `nomatch` cases this is the patch the
         // (sub-threshold) best anchor *thought* the puzzle was at, which is
         // exactly what we want to inspect to debug a desert-area failure.
-        if let crop = image.cropping(to: puzzle.integral) {
+        //
+        // `safeCropping` is essential here: a sub-threshold candidate's geometry
+        // can project the puzzle rect fully off-image, leaving `puzzle` as
+        // `CGRect.null` after its `.intersection`. Passing that to the raw
+        // `cropping(to:)` traps rather than returning nil.
+        if let crop = image.safeCropping(to: puzzle) {
             writePNG(crop, to: dir.appendingPathComponent("\(prefix)_\(ts)_crop.png"))
+        } else {
+            print("[SliderInterfaceLocator] Skipped '\(prefix)' crop — puzzle rect not croppable (rect=\(puzzle), image=\(W)×\(H))")
         }
 
         // Crop of the matched-needle area (25×25 in 100% UI scale) so we can
         // diff it pixel-for-pixel against the bundle-loaded anchor PNG when a
         // capture-time vs runtime mismatch is suspected.
-        if let needleCrop = image.cropping(to: match.integral) {
+        if let needleCrop = image.safeCropping(to: match) {
             writePNG(needleCrop, to: dir.appendingPathComponent("\(prefix)_\(ts)_needle.png"))
         }
 

@@ -704,7 +704,7 @@ struct ClueScrollDetector {
             }
         }
 
-        if let cr = clueRect, let crop = image.cropping(to: cr.integral) {
+        if let cr = clueRect, let crop = image.safeCropping(to: cr) {
             let name = accepted ? "detected_accepted.png" : "detected_rejected.png"
             savePNG(crop, to: debugDir.appendingPathComponent(name))
         }
