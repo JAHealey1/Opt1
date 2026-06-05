@@ -30,6 +30,11 @@ ClueTrainer's source into Swift, including:
   `Opt1/Detection/UncertainAngle.swift`.
 - The teleport spot dataset (ported from `src/data/teleport_data.ts` into
   `Opt1/Matching/Resources/teleports.json`).
+- Master skill-riddle action locations — the `coordinates` and `mapId` values
+  for `type: "skill"` entries in
+  `Opt1CoreLibraries/Sources/Opt1Matching/Resources/clues.json` — derived from
+  the `skilling` dataset in `src/data/clues.ts` (area centroids converted to
+  single dig/interaction coordinates).
 
 **License (MIT).**
 

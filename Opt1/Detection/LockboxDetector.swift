@@ -151,7 +151,7 @@ struct LockboxDetector: PuzzleDetector {
 
                 let fullRect = CGRect(x: ox, y: oy, width: cellW, height: cellH)
 
-                if let dir = debugDir, let fullCrop = image.cropping(to: fullRect) {
+                if let dir = debugDir, let fullCrop = image.safeCropping(to: fullRect) {
                     savePNG(fullCrop, to: dir.appendingPathComponent("cell_r\(row)c\(col)_full.png"))
                 }
 
@@ -162,7 +162,7 @@ struct LockboxDetector: PuzzleDetector {
                     height: cellH * 0.50
                 )
 
-                if let dir = debugDir, let sampleCrop = image.cropping(to: sample) {
+                if let dir = debugDir, let sampleCrop = image.safeCropping(to: sample) {
                     savePNG(sampleCrop, to: dir.appendingPathComponent("cell_r\(row)c\(col)_sample.png"))
                 }
 

@@ -1470,7 +1470,7 @@ struct TowersDetector: PuzzleDetector {
         ) {
             writeDebugPNG(dialogOverlay, to: dir.appendingPathComponent("dialog_overlay.png"))
             if hintPatchRect.width >= 24, hintPatchRect.height >= 24,
-               let zoomed = dialogOverlay.cropping(to: hintPatchRect) {
+               let zoomed = dialogOverlay.safeCropping(to: hintPatchRect) {
                 writeDebugPNG(zoomed, to: dir.appendingPathComponent("hint_area_overlay.png"))
             }
         }

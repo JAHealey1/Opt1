@@ -948,7 +948,7 @@ struct EliteCompassDetector: PuzzleDetector {
                 width: min(W - max(0, Int(sb.minX) - pad), Int(sb.width) + pad * 2),
                 height: min(H - max(0, Int(sb.minY) - pad), Int(sb.height) + pad * 2)
             )
-            if let crop = image.cropping(to: cropRect) {
+            if let crop = image.safeCropping(to: cropRect) {
                 savePNG(crop, to: dir.appendingPathComponent("scroll_crop_\(ts).png"))
             }
         }
