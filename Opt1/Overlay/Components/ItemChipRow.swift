@@ -35,7 +35,7 @@ struct ItemChipRow: View {
 
 /// Simple left-to-right wrapping layout for chip rows.
 /// Requires macOS 13+ (Layout protocol).
-private struct ChipFlowLayout: Layout {
+struct ChipFlowLayout: Layout {
     var spacing: CGFloat = 8
 
     func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {

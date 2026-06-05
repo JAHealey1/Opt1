@@ -21,12 +21,19 @@ struct SkillClueView: View {
             )
             Divider().opacity(0.25)
 
-            if clue.coordinates != nil {
-                WorldMapSection(clue: clue, hasTiles: $mapHasTiles)
+            taskSection
+
+            if let requirements = clue.requirements, !requirements.isEmpty {
                 Divider().opacity(0.25)
+                requirementsSection(requirements)
             }
 
-            taskSection
+            // The map is only meaningful once a dig/interaction location is known.
+            // Skill riddles currently lack coordinates on the wiki, so this stays
+            // hidden until a location is added — matching the design.
+            if clue.coordinates != nil {
+                WorldMapSection(clue: clue, hasTiles: $mapHasTiles)
+            }
 
             if let travel = clue.travel, !travel.isEmpty {
                 Divider().opacity(0.25)
@@ -77,6 +84,30 @@ struct SkillClueView: View {
         }
         .padding(.horizontal, 12)
         .padding(.vertical, 10)
+        .frame(maxWidth: .infinity, alignment: .leading)
+    }
+
+    @ViewBuilder
+    private func requirementsSection(_ requirements: [String]) -> some View {
+        VStack(alignment: .leading, spacing: 4) {
+            Text("REQUIREMENTS")
+                .font(.system(size: 8, weight: .bold, design: .monospaced))
+                .foregroundColor(OverlayTheme.textSecondary.opacity(0.7))
+                .padding(.horizontal, 12)
+
+            ChipFlowLayout(spacing: 4) {
+                ForEach(requirements, id: \.self) { req in
+                    Text(req)
+                        .font(.system(size: 10, weight: .medium))
+                        .foregroundColor(OverlayTheme.gold.opacity(0.9))
+                        .padding(.horizontal, 8).padding(.vertical, 3)
+                        .background(Capsule().fill(OverlayTheme.gold.opacity(0.12)))
+                        .overlay(Capsule().strokeBorder(OverlayTheme.gold.opacity(0.25), lineWidth: 0.5))
+                }
+            }
+            .padding(.horizontal, 12)
+        }
+        .padding(.vertical, 8)
         .frame(maxWidth: .infinity, alignment: .leading)
     }
 
