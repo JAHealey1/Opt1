@@ -724,7 +724,7 @@ final class PuzzleBoxCoordinator {
             ctx.setStrokeColor(NSColor.green.cgColor)
             ctx.setLineWidth(4)
             ctx.stroke(flipped)
-            if let crop = image.cropping(to: rect) {
+            if let crop = image.safeCropping(to: rect) {
                 savePNG(crop, to: d.appendingPathComponent("hint_capture_chosen_crop.png"))
             }
         }

@@ -990,7 +990,7 @@ final class CelticKnotCoordinator {
         if let overlay = detector.drawTemplateOverlay(on: image, puzzleBounds: puzzleBounds, layout: layout) {
             savePNG(overlay, to: captureDir.appendingPathComponent("debug_overlay.png"))
         }
-        if let puzzleCrop = image.cropping(to: puzzleBounds) {
+        if let puzzleCrop = image.safeCropping(to: puzzleBounds) {
             savePNG(puzzleCrop, to: captureDir.appendingPathComponent("puzzle_crop.png"))
         }
 
