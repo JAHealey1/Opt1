@@ -233,13 +233,24 @@
   {
     "groupId": "archteleport",
     "groupName": "Archaeology teleport (or outfit)",
+    "id": "artiefax",
+    "name": "Collectors - Artiefax",
+    "icon": "archteleport.png",
+    "x": 2893,
+    "y": 3417,
+    "level": 0,
+    "code": "0,2"
+  },
+  {
+    "groupId": "archteleport",
+    "groupName": "Archaeology teleport (or outfit)",
     "id": "tess",
     "name": "Collectors - Chief Tess",
     "icon": "archteleport.png",
     "x": 2550,
     "y": 2853,
     "level": 0,
-    "code": "0,2"
+    "code": "0,3"
   },
   {
     "groupId": "archteleport",
@@ -250,7 +261,7 @@
     "x": 2957,
     "y": 3510,
     "level": 0,
-    "code": "0,3"
+    "code": "0,4"
   },
   {
     "groupId": "archteleport",
@@ -261,7 +272,7 @@
     "x": 2921,
     "y": 9701,
     "level": 0,
-    "code": "0,4"
+    "code": "0,5"
   },
   {
     "groupId": "archteleport",
@@ -272,7 +283,7 @@
     "x": 2991,
     "y": 699,
     "level": 0,
-    "code": "0,5"
+    "code": "0,6"
   },
   {
     "groupId": "archteleport",
@@ -283,7 +294,7 @@
     "x": 5456,
     "y": 2344,
     "level": 0,
-    "code": "0,6"
+    "code": "0,7"
   },
   {
     "groupId": "archteleport",
@@ -294,7 +305,7 @@
     "x": 2963,
     "y": 3346,
     "level": 0,
-    "code": "0,7"
+    "code": "0,8"
   },
   {
     "groupId": "archteleport",
@@ -305,7 +316,7 @@
     "x": 3181,
     "y": 3417,
     "level": 0,
-    "code": "0,8"
+    "code": "0,9"
   },
   {
     "groupId": "archteleport",
@@ -316,7 +327,7 @@
     "x": 3342,
     "y": 3383,
     "level": 0,
-    "code": "0,9"
+    "code": "0,0,1"
   },
   {
     "groupId": "archteleport",
@@ -327,7 +338,18 @@
     "x": 3088,
     "y": 3254,
     "level": 0,
-    "code": "0,0,1"
+    "code": "0,0,2"
+  },
+  {
+    "groupId": "archteleport",
+    "groupName": "Archaeology teleport (or outfit)",
+    "id": "eblis",
+    "name": "Collectors - Eblis",
+    "icon": "archteleport.png",
+    "x": 3213,
+    "y": 2957,
+    "level": 0,
+    "code": "0,0,3"
   },
   {
     "groupId": "archteleport",
@@ -338,7 +360,7 @@
     "x": 3428,
     "y": 3699,
     "level": 0,
-    "code": "7"
+    "code": "8"
   },
   {
     "groupId": "archteleport",
@@ -376,13 +398,24 @@
   {
     "groupId": "archteleport",
     "groupName": "Archaeology teleport (or outfit)",
+    "id": "moonrise",
+    "name": "Moonrise",
+    "icon": "archteleport.png",
+    "x": 4418,
+    "y": 3443,
+    "level": 0,
+    "code": "5"
+  },
+  {
+    "groupId": "archteleport",
+    "groupName": "Archaeology teleport (or outfit)",
     "id": "orthen",
     "name": "Orthen",
     "icon": "archteleport.png",
     "x": 5457,
     "y": 2339,
     "level": 0,
-    "code": "9"
+    "code": "0"
   },
   {
     "groupId": "archteleport",
@@ -393,7 +426,7 @@
     "x": 1784,
     "y": 1296,
     "level": 0,
-    "code": "5"
+    "code": "6"
   },
   {
     "groupId": "archteleport",
@@ -404,7 +437,7 @@
     "x": 2680,
     "y": 3403,
     "level": 0,
-    "code": "6"
+    "code": "7"
   },
   {
     "groupId": "archteleport",
@@ -415,7 +448,7 @@
     "x": 2409,
     "y": 2824,
     "level": 0,
-    "code": "8"
+    "code": "9"
   },
   {
     "groupId": "arcsailing",
