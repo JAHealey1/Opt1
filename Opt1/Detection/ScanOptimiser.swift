@@ -195,8 +195,8 @@ enum ScanOptimiser {
         let disabled = AppSettings.disabledScanTeleportIds
         let nearTeleports = TeleportCatalogue.shared
             .spots(forMapId: mapId, plane: plane)
-            .filter { $0.x >= xLow - range && $0.x <= xHigh + range
-                   && $0.y >= yLow - range && $0.y <= yHigh + range
+            .filter { $0.x >= xLow - effectiveRange && $0.x <= xHigh + effectiveRange
+                   && $0.y >= yLow - effectiveRange && $0.y <= yHigh + effectiveRange
                    && !disabled.contains($0.id) }
 
         // Build the candidate pool.

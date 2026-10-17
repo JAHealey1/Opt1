@@ -162,7 +162,7 @@ final class ScanFilterState: ObservableObject {
     /// recording a new observation. Call this when user preferences change
     /// mid-session — e.g. after the user disables a teleport.
     func refreshRecommendation() {
-        updateRecommendation()
+        recompute()
     }
 
     // MARK: - Filter computation

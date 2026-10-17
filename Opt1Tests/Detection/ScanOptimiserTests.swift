@@ -289,6 +289,30 @@ struct ScanAssumptionsTests {
         ))
 
         #expect(withoutMeerkats.x != withMeerkats.x || withoutMeerkats.y != withMeerkats.y)
+
+        let effectiveRange = baseRange + 5
+        let rec = (x: withMeerkats.x, y: withMeerkats.y)
+        let annulusSpot = try #require(spots.first { spot in
+            let d = ScanPulseFilter.chebyshev(from: rec, to: (spot.x, spot.y))
+            return d > baseRange + 5 && d <= baseRange + 10
+        })
+        #expect(annulusSpot.id == "B")
+
+        var triple15 = 0, double15 = 0, single15 = 0
+        var triple20 = 0, double20 = 0, single20 = 0
+        for spot in spots {
+            let d = ScanPulseFilter.chebyshev(from: rec, to: (spot.x, spot.y))
+            if d <= effectiveRange              { triple15 += 1 }
+            else if d <= effectiveRange * 2      { double15 += 1 }
+            else                                 { single15 += 1 }
+            if d <= baseRange + 10              { triple20 += 1 }
+            else if d <= (baseRange + 10) * 2   { double20 += 1 }
+            else                                { single20 += 1 }
+        }
+        #expect(withMeerkats.expectedTriple == triple15)
+        #expect(withMeerkats.expectedDouble == double15)
+        #expect(withMeerkats.expectedSingle == single15)
+        #expect(triple15 != triple20 || double15 != double20 || single15 != single20)
     }
 
     @Test("meerkats does not change recommendation after the first observation")
