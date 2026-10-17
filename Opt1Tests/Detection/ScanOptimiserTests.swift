@@ -262,39 +262,68 @@ struct ScanAssumptionsTests {
 
     @Test("meerkats +5 range on first observation changes the recommended tile")
     func meerkatsChangesFirstObservationRecommendation() throws {
-        // Two spots spaced so tile (13, 0) splits triple/single at range 10 but is
-        // uninformative (both double) without Meerkats; at effective range 15 it splits.
-        let spots: [(id: String, x: Int, y: Int)] = [("A", 0, 0), ("B", 25, 0)]
+        // Base range 10; B sits at Chebyshev 17 from the origin — in (base+5, base+10].
+        // Effective 10 vs 15 changes bucketing; effective 20 (double-applied +5) would differ again.
+        let spots: [(id: String, x: Int, y: Int)] = [("A", 0, 0), ("B", 17, 0)]
         let surviving = Set(spots.map(\.id))
-        let base = (
+        let baseRange = 10
+
+        let withoutMeerkats = try #require(ScanOptimiser.recommend(
+            surviving: surviving,
+            allCoords: spots,
+            range: baseRange,
+            mapId: 0,
+            preferTeleports: false,
+            assumptions: ScanAssumptions(doubleSurge: false, doubleEscape: false, meerkats: false, mobilePerk: false),
+            isFirstObservation: true
+        ))
+
+        let withMeerkats = try #require(ScanOptimiser.recommend(
+            surviving: surviving,
+            allCoords: spots,
+            range: baseRange,
+            mapId: 0,
+            preferTeleports: false,
+            assumptions: ScanAssumptions(doubleSurge: false, doubleEscape: false, meerkats: true, mobilePerk: false),
+            isFirstObservation: true
+        ))
+
+        #expect(withoutMeerkats.x != withMeerkats.x || withoutMeerkats.y != withMeerkats.y)
+    }
+
+    @Test("meerkats does not change recommendation after the first observation")
+    func meerkatsIgnoredWhenNotFirstObservation() throws {
+        let spots: [(id: String, x: Int, y: Int)] = [
+            ("A", 0, 0),
+            ("B", 30, 0),
+            ("C", 60, 0),
+        ]
+        let surviving: Set<String> = ["A", "B"]
+        let playerPos = (x: 8, y: 0)
+
+        let withoutMeerkats = try #require(ScanOptimiser.recommend(
             surviving: surviving,
             allCoords: spots,
             range: 10,
             mapId: 0,
             preferTeleports: false,
-            isFirstObservation: true
-        )
-
-        let withoutMeerkats = try #require(ScanOptimiser.recommend(
-            surviving: base.surviving,
-            allCoords: base.allCoords,
-            range: base.range,
-            mapId: base.mapId,
-            preferTeleports: base.preferTeleports,
+            playerPos: playerPos,
             assumptions: ScanAssumptions(doubleSurge: false, doubleEscape: false, meerkats: false, mobilePerk: false),
-            isFirstObservation: base.isFirstObservation
+            isFirstObservation: false
         ))
 
         let withMeerkats = try #require(ScanOptimiser.recommend(
-            surviving: base.surviving,
-            allCoords: base.allCoords,
-            range: base.range,
-            mapId: base.mapId,
-            preferTeleports: base.preferTeleports,
+            surviving: surviving,
+            allCoords: spots,
+            range: 10,
+            mapId: 0,
+            preferTeleports: false,
+            playerPos: playerPos,
             assumptions: ScanAssumptions(doubleSurge: false, doubleEscape: false, meerkats: true, mobilePerk: false),
-            isFirstObservation: base.isFirstObservation
+            isFirstObservation: false
         ))
 
-        #expect(withoutMeerkats.x != withMeerkats.x || withoutMeerkats.y != withMeerkats.y)
+        #expect(withoutMeerkats.x == withMeerkats.x)
+        #expect(withoutMeerkats.y == withMeerkats.y)
     }
 }
