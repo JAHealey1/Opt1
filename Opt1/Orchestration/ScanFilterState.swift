@@ -41,7 +41,7 @@ final class ScanFilterState: ObservableObject {
     let mapId:     Int
 
     /// Pre-parsed spot coordinates for Chebyshev distance math.
-    let allCoords: [(id: String, x: Int, y: Int)]
+    let allCoords: [(id: String, x: Int, y: Int, plane: Int)]
 
     var onClose: (() -> Void)? = nil
 
@@ -66,7 +66,7 @@ final class ScanFilterState: ObservableObject {
             guard parts.count == 2,
                   let x = Int(parts[0]),
                   let y = Int(parts[1]) else { return nil }
-            return (spot.id, x, y)
+            return (spot.id, x, y, spot.plane ?? 0)
         }
         // Compute the initial recommendation from all spots (no observations yet).
         // preferTeleports: true — the player hasn't moved yet, so any teleport

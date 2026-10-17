@@ -91,14 +91,15 @@ struct ScanPulseFilter {
     /// `player` with the given `range`.
     ///
     /// - Parameters:
-    ///   - coords:    Pre-parsed spot coordinates as `(id, x, y)` triples.
+    ///   - coords:    Pre-parsed spot coordinates as `(id, x, y, plane)` tuples.
+    ///                `plane` is unused today; reserved for Phase 3 different-floor handling.
     ///   - player:    Player's marked game-tile position.
     ///   - range:     Effective scan range (including any familiar bonuses).
     ///   - pulse:     The observed pulse to filter for.
     ///   - tolerance: Chebyshev radius of origin uncertainty (default `0` =
     ///                exact-tile match). A spot survives if it matches `pulse`
     ///                from any tile within this radius of `player`.
-    static func survivingIDs(from coords: [(id: String, x: Int, y: Int)],
+    static func survivingIDs(from coords: [(id: String, x: Int, y: Int, plane: Int)],
                               player: (x: Int, y: Int),
                               range: Int,
                               pulse: ScanPulse,

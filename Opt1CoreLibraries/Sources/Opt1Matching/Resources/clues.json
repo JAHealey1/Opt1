@@ -11246,7 +11246,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0939"
+    "id": "scan_0939",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11258,7 +11259,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0940"
+    "id": "scan_0940",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11270,7 +11272,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0941"
+    "id": "scan_0941",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11282,7 +11285,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0942"
+    "id": "scan_0942",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11294,7 +11298,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0943"
+    "id": "scan_0943",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11306,7 +11311,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0944"
+    "id": "scan_0944",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11318,7 +11324,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0945"
+    "id": "scan_0945",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11330,7 +11337,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0946"
+    "id": "scan_0946",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11342,7 +11350,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0947"
+    "id": "scan_0947",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11354,7 +11363,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0948"
+    "id": "scan_0948",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11366,7 +11376,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0949"
+    "id": "scan_0949",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11378,7 +11389,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0950"
+    "id": "scan_0950",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11390,7 +11402,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0951"
+    "id": "scan_0951",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11402,7 +11415,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0952"
+    "id": "scan_0952",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11414,7 +11428,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0953"
+    "id": "scan_0953",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11426,7 +11441,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0954"
+    "id": "scan_0954",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11438,7 +11454,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0955"
+    "id": "scan_0955",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11450,7 +11467,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0956"
+    "id": "scan_0956",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11462,7 +11480,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0957"
+    "id": "scan_0957",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11474,7 +11493,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0958"
+    "id": "scan_0958",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11486,7 +11506,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0959"
+    "id": "scan_0959",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11498,7 +11519,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0960"
+    "id": "scan_0960",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11510,7 +11532,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0961"
+    "id": "scan_0961",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11522,7 +11545,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0962"
+    "id": "scan_0962",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11534,7 +11558,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0963"
+    "id": "scan_0963",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11546,7 +11571,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0964"
+    "id": "scan_0964",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11558,7 +11584,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0965"
+    "id": "scan_0965",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11570,7 +11597,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0966"
+    "id": "scan_0966",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11582,7 +11610,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0967"
+    "id": "scan_0967",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11594,7 +11623,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0968"
+    "id": "scan_0968",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11606,7 +11636,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0969"
+    "id": "scan_0969",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11618,7 +11649,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0970"
+    "id": "scan_0970",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11630,7 +11662,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0971"
+    "id": "scan_0971",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11642,7 +11675,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0972"
+    "id": "scan_0972",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11654,7 +11688,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0973"
+    "id": "scan_0973",
+    "plane": 1
   },
   {
     "type": "scan",
@@ -11666,7 +11701,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0974"
+    "id": "scan_0974",
+    "plane": 1
   },
   {
     "type": "scan",
@@ -11678,7 +11714,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0975"
+    "id": "scan_0975",
+    "plane": 1
   },
   {
     "type": "scan",
@@ -11690,7 +11727,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0976"
+    "id": "scan_0976",
+    "plane": 1
   },
   {
     "type": "scan",
@@ -11702,7 +11740,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0977"
+    "id": "scan_0977",
+    "plane": 1
   },
   {
     "type": "scan",
@@ -11714,7 +11753,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0978"
+    "id": "scan_0978",
+    "plane": 1
   },
   {
     "type": "scan",
@@ -11726,7 +11766,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0979"
+    "id": "scan_0979",
+    "plane": 1
   },
   {
     "type": "scan",
@@ -11738,7 +11779,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0980"
+    "id": "scan_0980",
+    "plane": 1
   },
   {
     "type": "scan",
@@ -11750,7 +11792,8 @@
     "mapId": -1,
     "scanRange": "14",
     "imageRef": null,
-    "id": "scan_0981"
+    "id": "scan_0981",
+    "plane": 1
   },
   {
     "type": "scan",
@@ -11762,7 +11805,8 @@
     "mapId": 26,
     "scanRange": "16",
     "imageRef": null,
-    "id": "scan_0982"
+    "id": "scan_0982",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11774,7 +11818,8 @@
     "mapId": 26,
     "scanRange": "16",
     "imageRef": null,
-    "id": "scan_0983"
+    "id": "scan_0983",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11786,7 +11831,8 @@
     "mapId": 26,
     "scanRange": "16",
     "imageRef": null,
-    "id": "scan_0984"
+    "id": "scan_0984",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11798,7 +11844,8 @@
     "mapId": 26,
     "scanRange": "16",
     "imageRef": null,
-    "id": "scan_0985"
+    "id": "scan_0985",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11810,7 +11857,8 @@
     "mapId": 26,
     "scanRange": "16",
     "imageRef": null,
-    "id": "scan_0986"
+    "id": "scan_0986",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11822,7 +11870,8 @@
     "mapId": 26,
     "scanRange": "16",
     "imageRef": null,
-    "id": "scan_0987"
+    "id": "scan_0987",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11834,7 +11883,8 @@
     "mapId": 26,
     "scanRange": "16",
     "imageRef": null,
-    "id": "scan_0988"
+    "id": "scan_0988",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11846,7 +11896,8 @@
     "mapId": 26,
     "scanRange": "16",
     "imageRef": null,
-    "id": "scan_0989"
+    "id": "scan_0989",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11858,7 +11909,8 @@
     "mapId": 26,
     "scanRange": "16",
     "imageRef": null,
-    "id": "scan_0990"
+    "id": "scan_0990",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11870,7 +11922,8 @@
     "mapId": 26,
     "scanRange": "16",
     "imageRef": null,
-    "id": "scan_0991"
+    "id": "scan_0991",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11882,7 +11935,8 @@
     "mapId": 26,
     "scanRange": "16",
     "imageRef": null,
-    "id": "scan_0992"
+    "id": "scan_0992",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11894,7 +11948,8 @@
     "mapId": 26,
     "scanRange": "16",
     "imageRef": null,
-    "id": "scan_0993"
+    "id": "scan_0993",
+    "plane": 0
   },
   {
     "type": "scan",
@@ -11906,7 +11961,8 @@
     "mapId": 26,
     "scanRange": "16",
     "imageRef": null,
-    "id": "scan_0994"
+    "id": "scan_0994",
+    "plane": 1
   },
   {
     "type": "scan",
@@ -11918,7 +11974,8 @@
     "mapId": 26,
     "scanRange": "16",
     "imageRef": null,
-    "id": "scan_0995"
+    "id": "scan_0995",
+    "plane": 1
   },
   {
     "type": "scan",
@@ -11930,7 +11987,8 @@
     "mapId": 26,
     "scanRange": "16",
     "imageRef": null,
-    "id": "scan_0996"
+    "id": "scan_0996",
+    "plane": 1
   },
   {
     "type": "scan",
@@ -11942,7 +12000,8 @@
     "mapId": 26,
     "scanRange": "16",
     "imageRef": null,
-    "id": "scan_0997"
+    "id": "scan_0997",
+    "plane": 1
   },
   {
     "type": "scan",
@@ -11954,7 +12013,8 @@
     "mapId": 26,
     "scanRange": "16",
     "imageRef": null,
-    "id": "scan_0998"
+    "id": "scan_0998",
+    "plane": 1
   },
   {
     "type": "scan",
@@ -11966,7 +12026,8 @@
     "mapId": 26,
     "scanRange": "16",
     "imageRef": null,
-    "id": "scan_0999"
+    "id": "scan_0999",
+    "plane": 1
   },
   {
     "type": "scan",
@@ -11978,7 +12039,8 @@
     "mapId": 26,
     "scanRange": "16",
     "imageRef": null,
-    "id": "scan_1000"
+    "id": "scan_1000",
+    "plane": 1
   },
   {
     "type": "scan",
@@ -11990,7 +12052,8 @@
     "mapId": 26,
     "scanRange": "16",
     "imageRef": null,
-    "id": "scan_1001"
+    "id": "scan_1001",
+    "plane": 1
   },
   {
     "type": "scan",

@@ -1,3 +1,4 @@
+import Foundation
 import Testing
 @testable import Opt1Matching
 
@@ -278,5 +279,62 @@ struct ScanMatchingTests {
         )
         let missing = knownLocations.subtracting(loadedLocations)
         #expect(missing.isEmpty, "Missing scan regions in database: \(missing)")
+    }
+}
+
+// MARK: - Scan plane (ClueSolution.plane)
+
+@Suite("Scan clue plane")
+struct ScanPlaneTests {
+
+    @Test("Codable round-trip preserves explicit plane")
+    func codableRoundTripWithPlane() throws {
+        let original = ClueSolution(
+            id: "scan_test",
+            type: "scan",
+            clue: "This scroll will work in Testville. Orb scan range: 10 paces.",
+            solution: "Upper level, centre of town.",
+            location: "Testville",
+            coordinates: "3000,3000",
+            mapId: -1,
+            plane: 1,
+            scanRange: 10
+        )
+        let data = try JSONEncoder().encode(original)
+        let decoded = try JSONDecoder().decode(ClueSolution.self, from: data)
+        #expect(decoded.plane == 1)
+        #expect(decoded.id == original.id)
+    }
+
+    @Test("Codable decode omits plane as nil")
+    func codableDecodeMissingPlane() throws {
+        let json = """
+        {"id":"scan_surface","type":"scan","clue":"x","solution":"y"}
+        """.data(using: .utf8)!
+        let decoded = try JSONDecoder().decode(ClueSolution.self, from: json)
+        #expect(decoded.plane == nil)
+    }
+
+    @Test("Multi-plane scan regions have plane on every spot")
+    func multiPlaneRegionsFullyBackfilled() {
+        ClueDatabase.shared.load()
+        let scans = ClueDatabase.shared.clues.filter { $0.type == "scan" }
+        let byLocation = Dictionary(grouping: scans) { $0.location ?? "" }
+
+        for (location, entries) in byLocation {
+            let hasLevelPhrase = entries.contains {
+                let s = $0.solution
+                return s.hasPrefix("Lower level") || s.hasPrefix("Upper level")
+            }
+            let distinctPlanes = Set(entries.compactMap(\.plane))
+            let spansPlanes = distinctPlanes.count > 1
+            guard hasLevelPhrase || spansPlanes else { continue }
+
+            let missing = entries.filter { $0.plane == nil }.map(\.id)
+            #expect(
+                missing.isEmpty,
+                "Region '\(location)' spans planes but entries lack plane: \(missing)"
+            )
+        }
     }
 }
