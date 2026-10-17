@@ -150,6 +150,14 @@ enum ScanOptimiser {
     ///   - playerPos:       Player's last known position (from the most recent
     ///                      confirmed observation). When non-nil, travel cost is
     ///                      factored into scoring within the tolerance window.
+    ///   - assumptions:     Movement buffs the player is assumed to have. Only
+    ///                      `meerkats` is applied here (+5 effective range before
+    ///                      the first observation). `doubleSurge`, `doubleEscape`,
+    ///                      and `mobilePerk` are reserved for OPT1-6 Phase 1
+    ///                      travel-time estimation in `ScanTimeModel`.
+    ///   - isFirstObservation: When `true`, Meerkats (+5) may expand the effective
+    ///                      scan range; after the first observation the buff is
+    ///                      treated as consumed in-game.
     /// - Returns: The best recommendation, or `nil` when ≤1 candidate
     ///            survives (no further discrimination is useful).
     static func recommend(
@@ -159,20 +167,24 @@ enum ScanOptimiser {
         mapId: Int,
         plane: Int = 0,
         preferTeleports: Bool = false,
-        playerPos: (x: Int, y: Int)? = nil
+        playerPos: (x: Int, y: Int)? = nil,
+        assumptions: ScanAssumptions = .default,
+        isFirstObservation: Bool = false
     ) -> RecommendedScanStep? {
 
         let survivingCoords = allCoords.filter { surviving.contains($0.id) }
         guard survivingCoords.count >= 2, range > 0 else { return nil }
 
+        let effectiveRange = range + (assumptions.meerkats && isFirstObservation ? 5 : 0)
+
         TeleportCatalogue.shared.load()
 
-        // Bounding box of surviving spots, expanded by 2·range so we include
+        // Bounding box of surviving spots, expanded by 2·effectiveRange so we include
         // any position from which a meaningful (non-all-single) reading is
         // possible.
         let xs = survivingCoords.map(\.x)
         let ys = survivingCoords.map(\.y)
-        let margin = range * 2
+        let margin = effectiveRange * 2
         guard let xLow = xs.min(), let xHigh = xs.max(),
               let yLow = ys.min(), let yHigh = ys.max() else { return nil }
         let xMin = xLow  - margin
@@ -183,8 +195,8 @@ enum ScanOptimiser {
         let disabled = AppSettings.disabledScanTeleportIds
         let nearTeleports = TeleportCatalogue.shared
             .spots(forMapId: mapId, plane: plane)
-            .filter { $0.x >= xLow - range && $0.x <= xHigh + range
-                   && $0.y >= yLow - range && $0.y <= yHigh + range
+            .filter { $0.x >= xLow - effectiveRange && $0.x <= xHigh + effectiveRange
+                   && $0.y >= yLow - effectiveRange && $0.y <= yHigh + effectiveRange
                    && !disabled.contains($0.id) }
 
         // Build the candidate pool.
@@ -242,9 +254,9 @@ enum ScanOptimiser {
                     from: (c.x, c.y),
                     to:   (coord.x, coord.y)
                 )
-                if d <= range          { triple += 1 }
-                else if d <= range * 2 { dbl    += 1 }
-                else                   { single += 1 }
+                if d <= effectiveRange          { triple += 1 }
+                else if d <= effectiveRange * 2 { dbl    += 1 }
+                else                            { single += 1 }
             }
             let nonEmptyBuckets = (triple > 0 ? 1 : 0)
                                 + (dbl    > 0 ? 1 : 0)

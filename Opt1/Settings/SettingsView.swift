@@ -30,6 +30,10 @@ struct SettingsView: View {
     @AppStorage(AppSettings.Keys.showTeleports) private var showTeleports: Bool = true
     @AppStorage(AppSettings.Keys.slidePuzzleAutoDetect) private var slidePuzzleAutoDetect: Bool = true
     @AppStorage(AppSettings.Keys.scanNextSpotEnabled) private var scanNextSpotEnabled: Bool = false
+    @AppStorage(AppSettings.Keys.scanAssumeDoubleSurge) private var scanAssumeDoubleSurge: Bool = true
+    @AppStorage(AppSettings.Keys.scanAssumeDoubleEscape) private var scanAssumeDoubleEscape: Bool = true
+    @AppStorage(AppSettings.Keys.scanAssumeMeerkats) private var scanAssumeMeerkats: Bool = true
+    @AppStorage(AppSettings.Keys.scanAssumeMobilePerk) private var scanAssumeMobilePerk: Bool = true
     // Auto-triangulation toggle. The two saved points are read directly
     // from `AppSettings` (not via `@AppStorage`) since they are tuples.
     @AppStorage(AppSettings.Keys.autoTriEnabled) private var autoTriEnabled: Bool = false
@@ -347,6 +351,74 @@ struct SettingsView: View {
                     }
                 } footer: {
                     Text("These features are under active development and may change or be removed in a future release. If auto-detect keeps failing, double check the UI scale matches the value shown under Settings → Graphics → Interface Scaling in RuneScape.")
+                        .font(.caption)
+                        .foregroundStyle(OverlayTheme.textSecondary)
+                        .padding(.horizontal, 4)
+                }
+
+                // MARK: Scan optimiser assumptions
+                ThemedSection(header: "Scan Optimiser Assumptions") {
+                    VStack(alignment: .leading, spacing: 0) {
+                        HStack {
+                            VStack(alignment: .leading, spacing: 3) {
+                                Text("Double Surge")
+                                    .font(.body)
+                                Text("Account for Double Surge when estimating scan travel time.")
+                                    .font(.caption)
+                                    .foregroundStyle(OverlayTheme.textSecondary)
+                            }
+                            Spacer()
+                            Toggle("Double Surge", isOn: $scanAssumeDoubleSurge)
+                                .toggleStyle(GoldToggleStyle())
+                        }
+
+                        ThemedDivider()
+
+                        HStack {
+                            VStack(alignment: .leading, spacing: 3) {
+                                Text("Double Escape")
+                                    .font(.body)
+                                Text("Account for Double Escape when estimating scan travel time.")
+                                    .font(.caption)
+                                    .foregroundStyle(OverlayTheme.textSecondary)
+                            }
+                            Spacer()
+                            Toggle("Double Escape", isOn: $scanAssumeDoubleEscape)
+                                .toggleStyle(GoldToggleStyle())
+                        }
+
+                        ThemedDivider()
+
+                        HStack {
+                            VStack(alignment: .leading, spacing: 3) {
+                                Text("Meerkats")
+                                    .font(.body)
+                                Text("Treat the first scan as +5 range while Meerkats is available.")
+                                    .font(.caption)
+                                    .foregroundStyle(OverlayTheme.textSecondary)
+                            }
+                            Spacer()
+                            Toggle("Meerkats", isOn: $scanAssumeMeerkats)
+                                .toggleStyle(GoldToggleStyle())
+                        }
+
+                        ThemedDivider()
+
+                        HStack {
+                            VStack(alignment: .leading, spacing: 3) {
+                                Text("Mobile Perk")
+                                    .font(.body)
+                                Text("Account for the Mobile Perk when estimating scan travel time.")
+                                    .font(.caption)
+                                    .foregroundStyle(OverlayTheme.textSecondary)
+                            }
+                            Spacer()
+                            Toggle("Mobile Perk", isOn: $scanAssumeMobilePerk)
+                                .toggleStyle(GoldToggleStyle())
+                        }
+                    }
+                } footer: {
+                    Text("These describe permanent character buffs, not choices you make each clue.")
                         .font(.caption)
                         .foregroundStyle(OverlayTheme.textSecondary)
                         .padding(.horizontal, 4)

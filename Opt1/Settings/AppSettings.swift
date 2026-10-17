@@ -160,6 +160,11 @@ final class AppSettings {
         // scanNextSpotEnabled defaults to false (absent key → disabled).
         static let slidePuzzleAutoDetect = "slidePuzzleAutoDetectEnabled"
         static let scanNextSpotEnabled   = "scanNextSpotGuidanceEnabled"
+        // Scan optimiser buff assumptions default to true (absent key → enabled).
+        static let scanAssumeDoubleSurge  = "scanAssumeDoubleSurge"
+        static let scanAssumeDoubleEscape = "scanAssumeDoubleEscape"
+        static let scanAssumeMeerkats     = "scanAssumeMeerkats"
+        static let scanAssumeMobilePerk   = "scanAssumeMobilePerk"
         // Teleport IDs the user has opted out of seeing as scan recommendations.
         // Stored as a [String] array; each entry is TeleportSpot.id ("<groupId>.<spotId>").
         static let disabledScanTeleportIds = "disabledScanTeleportIds"
@@ -465,6 +470,39 @@ final class AppSettings {
     /// recommendation. Defaults to `false` (absent key → disabled).
     static var isScanNextSpotEnabled: Bool {
         UserDefaults.standard.bool(forKey: Keys.scanNextSpotEnabled)
+    }
+
+    /// Assumes Double Surge for scan travel-time modelling (OPT1-6). Absent key → enabled.
+    static var isScanAssumeDoubleSurgeEnabled: Bool {
+        guard UserDefaults.standard.object(forKey: Keys.scanAssumeDoubleSurge) != nil else {
+            return true
+        }
+        return UserDefaults.standard.bool(forKey: Keys.scanAssumeDoubleSurge)
+    }
+
+    /// Assumes Double Escape for scan travel-time modelling (OPT1-6). Absent key → enabled.
+    static var isScanAssumeDoubleEscapeEnabled: Bool {
+        guard UserDefaults.standard.object(forKey: Keys.scanAssumeDoubleEscape) != nil else {
+            return true
+        }
+        return UserDefaults.standard.bool(forKey: Keys.scanAssumeDoubleEscape)
+    }
+
+    /// Assumes Meerkats (+5 scan range before the first observation only; consumed in-game after).
+    /// Absent key → enabled.
+    static var isScanAssumeMeerkatsEnabled: Bool {
+        guard UserDefaults.standard.object(forKey: Keys.scanAssumeMeerkats) != nil else {
+            return true
+        }
+        return UserDefaults.standard.bool(forKey: Keys.scanAssumeMeerkats)
+    }
+
+    /// Assumes Mobile Perk for scan travel-time modelling (OPT1-6). Absent key → enabled.
+    static var isScanAssumeMobilePerkEnabled: Bool {
+        guard UserDefaults.standard.object(forKey: Keys.scanAssumeMobilePerk) != nil else {
+            return true
+        }
+        return UserDefaults.standard.bool(forKey: Keys.scanAssumeMobilePerk)
     }
 
     // MARK: - Disabled scan teleports

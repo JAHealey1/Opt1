@@ -12,6 +12,12 @@ import Opt1Matching
 /// Owned by `OverlayPresenter` for the lifetime of the scan overlay session,
 /// so re-detections of the same region (e.g. repeated Opt+1 presses) do not
 /// reset the accumulated observations.
+///
+/// ## Scan range
+/// `baseRange` is the normalised catalogue scan range (paces), ignoring any
+/// Meerkats +5 shown in OCR. The +5 buff is applied in exactly two places:
+/// `ScanOptimiser.recommend` when `assumptions.meerkats && isFirstObservation`,
+/// and the first entry in `recompute()` when filtering observations.
 @MainActor
 final class ScanFilterState: ObservableObject {
 
@@ -43,15 +49,18 @@ final class ScanFilterState: ObservableObject {
     /// Pre-parsed spot coordinates for Chebyshev distance math.
     let allCoords: [(id: String, x: Int, y: Int)]
 
-    var onClose: (() -> Void)? = nil
+    /// Catalogue base scan range in paces (OCR Meerkats +5 is not included).
+    let baseRange: Int
 
-    private var rangeInt: Int { Int(scanRange) ?? 0 }
+    var onClose: (() -> Void)? = nil
 
     /// Chebyshev radius (game tiles) of uncertainty in the marked scan origin.
     /// The origin is an approximate map tap rather than the player's exact game
     /// tile, so a spot is kept if it matches the observed pulse from any tile
     /// within this radius — preventing boundary spots from being wrongly cut.
     private let originTolerance = 1
+
+    private var userDefaultsObserver: NSObjectProtocol?
 
     // MARK: - Init
 
@@ -68,18 +77,42 @@ final class ScanFilterState: ObservableObject {
                   let y = Int(parts[1]) else { return nil }
             return (spot.id, x, y)
         }
+        if let catalogueRange = spots.first?.scanRange {
+            self.baseRange = catalogueRange
+        } else {
+            self.baseRange = Int(scanRange) ?? 0
+        }
         // Compute the initial recommendation from all spots (no observations yet).
         // preferTeleports: true — the player hasn't moved yet, so any teleport
         // into the region is a free first reading.
         if AppSettings.isScanNextSpotEnabled {
             let allIDs = Set(self.allCoords.map(\.id))
+            let assumptions = ScanAssumptions.fromSettings()
             self.recommendedStep = ScanOptimiser.recommend(
-                surviving:       allIDs,
-                allCoords:       self.allCoords,
-                range:           Int(scanRange) ?? 0,
-                mapId:           self.mapId,
-                preferTeleports: true
+                surviving:          allIDs,
+                allCoords:          self.allCoords,
+                range:              baseRange,
+                mapId:              self.mapId,
+                preferTeleports:    true,
+                assumptions:        assumptions,
+                isFirstObservation: true
             )
+        }
+
+        userDefaultsObserver = NotificationCenter.default.addObserver(
+            forName: UserDefaults.didChangeNotification,
+            object: nil,
+            queue: .main
+        ) { [weak self] _ in
+            Task { @MainActor in
+                self?.refreshRecommendation()
+            }
+        }
+    }
+
+    deinit {
+        if let userDefaultsObserver {
+            NotificationCenter.default.removeObserver(userDefaultsObserver)
         }
     }
 
@@ -129,7 +162,7 @@ final class ScanFilterState: ObservableObject {
     /// recording a new observation. Call this when user preferences change
     /// mid-session — e.g. after the user disables a teleport.
     func refreshRecommendation() {
-        updateRecommendation()
+        recompute()
     }
 
     // MARK: - Filter computation
@@ -140,12 +173,17 @@ final class ScanFilterState: ObservableObject {
             updateRecommendation()
             return
         }
+        let assumptions = ScanAssumptions.fromSettings()
         var surviving: Set<String>? = nil
-        for obs in observations {
+        for (index, obs) in observations.enumerated() {
+            var rangeForObservation = baseRange
+            if index == 0, assumptions.meerkats {
+                rangeForObservation += 5
+            }
             let ids = ScanPulseFilter.survivingIDs(
                 from: allCoords,
                 player: (obs.x, obs.y),
-                range: rangeInt,
+                range: rangeForObservation,
                 pulse: obs.pulse,
                 tolerance: originTolerance
             )
@@ -172,13 +210,16 @@ final class ScanFilterState: ObservableObject {
         // Use the most recent confirmed observation as a proxy for where the
         // player currently is, so the optimiser can prefer nearby candidates.
         let playerPos = observations.last.map { ($0.x, $0.y) }
+        let assumptions = ScanAssumptions.fromSettings()
         recommendedStep = ScanOptimiser.recommend(
-            surviving:       ids,
-            allCoords:       allCoords,
-            range:           rangeInt,
-            mapId:           mapId,
-            preferTeleports: observations.isEmpty,
-            playerPos:       playerPos
+            surviving:          ids,
+            allCoords:          allCoords,
+            range:              baseRange,
+            mapId:              mapId,
+            preferTeleports:    observations.isEmpty,
+            playerPos:          playerPos,
+            assumptions:        assumptions,
+            isFirstObservation: observations.isEmpty
         )
     }
 }

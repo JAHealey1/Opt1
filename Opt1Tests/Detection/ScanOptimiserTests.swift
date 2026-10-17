@@ -244,3 +244,110 @@ struct ScanOptimiserTests {
         #expect(distToPlayer < 40)
     }
 }
+
+// MARK: - ScanAssumptions Tests
+
+@Suite("ScanAssumptions", .serialized)
+struct ScanAssumptionsTests {
+
+    @Test("default assumes no movement buffs")
+    func defaultIsAllFalse() {
+        #expect(ScanAssumptions.default == ScanAssumptions(
+            doubleSurge: false,
+            doubleEscape: false,
+            meerkats: false,
+            mobilePerk: false
+        ))
+    }
+
+    @Test("meerkats +5 range on first observation changes the recommended tile")
+    func meerkatsChangesFirstObservationRecommendation() throws {
+        // Base range 10; B sits at Chebyshev 17 from the origin — in (base+5, base+10].
+        // Effective 10 vs 15 changes bucketing; effective 20 (double-applied +5) would differ again.
+        let spots: [(id: String, x: Int, y: Int)] = [("A", 0, 0), ("B", 17, 0)]
+        let surviving = Set(spots.map(\.id))
+        let baseRange = 10
+
+        let withoutMeerkats = try #require(ScanOptimiser.recommend(
+            surviving: surviving,
+            allCoords: spots,
+            range: baseRange,
+            mapId: 0,
+            preferTeleports: false,
+            assumptions: ScanAssumptions(doubleSurge: false, doubleEscape: false, meerkats: false, mobilePerk: false),
+            isFirstObservation: true
+        ))
+
+        let withMeerkats = try #require(ScanOptimiser.recommend(
+            surviving: surviving,
+            allCoords: spots,
+            range: baseRange,
+            mapId: 0,
+            preferTeleports: false,
+            assumptions: ScanAssumptions(doubleSurge: false, doubleEscape: false, meerkats: true, mobilePerk: false),
+            isFirstObservation: true
+        ))
+
+        #expect(withoutMeerkats.x != withMeerkats.x || withoutMeerkats.y != withMeerkats.y)
+
+        let effectiveRange = baseRange + 5
+        let rec = (x: withMeerkats.x, y: withMeerkats.y)
+        let annulusSpot = try #require(spots.first { spot in
+            let d = ScanPulseFilter.chebyshev(from: rec, to: (spot.x, spot.y))
+            return d > baseRange + 5 && d <= baseRange + 10
+        })
+        #expect(annulusSpot.id == "B")
+
+        var triple15 = 0, double15 = 0, single15 = 0
+        var triple20 = 0, double20 = 0, single20 = 0
+        for spot in spots {
+            let d = ScanPulseFilter.chebyshev(from: rec, to: (spot.x, spot.y))
+            if d <= effectiveRange              { triple15 += 1 }
+            else if d <= effectiveRange * 2      { double15 += 1 }
+            else                                 { single15 += 1 }
+            if d <= baseRange + 10              { triple20 += 1 }
+            else if d <= (baseRange + 10) * 2   { double20 += 1 }
+            else                                { single20 += 1 }
+        }
+        #expect(withMeerkats.expectedTriple == triple15)
+        #expect(withMeerkats.expectedDouble == double15)
+        #expect(withMeerkats.expectedSingle == single15)
+        #expect(triple15 != triple20 || double15 != double20 || single15 != single20)
+    }
+
+    @Test("meerkats does not change recommendation after the first observation")
+    func meerkatsIgnoredWhenNotFirstObservation() throws {
+        let spots: [(id: String, x: Int, y: Int)] = [
+            ("A", 0, 0),
+            ("B", 30, 0),
+            ("C", 60, 0),
+        ]
+        let surviving: Set<String> = ["A", "B"]
+        let playerPos = (x: 8, y: 0)
+
+        let withoutMeerkats = try #require(ScanOptimiser.recommend(
+            surviving: surviving,
+            allCoords: spots,
+            range: 10,
+            mapId: 0,
+            preferTeleports: false,
+            playerPos: playerPos,
+            assumptions: ScanAssumptions(doubleSurge: false, doubleEscape: false, meerkats: false, mobilePerk: false),
+            isFirstObservation: false
+        ))
+
+        let withMeerkats = try #require(ScanOptimiser.recommend(
+            surviving: surviving,
+            allCoords: spots,
+            range: 10,
+            mapId: 0,
+            preferTeleports: false,
+            playerPos: playerPos,
+            assumptions: ScanAssumptions(doubleSurge: false, doubleEscape: false, meerkats: true, mobilePerk: false),
+            isFirstObservation: false
+        ))
+
+        #expect(withoutMeerkats.x == withMeerkats.x)
+        #expect(withoutMeerkats.y == withMeerkats.y)
+    }
+}
