@@ -58,6 +58,22 @@ struct ScanListView: View {
         state.pendingPos == nil && state.recommendedStep != nil
     }
 
+    /// Surviving pins with brightness ramp when a recommendation is active.
+    private var rankedPins: [(x: Int, y: Int, brightness: Double)] {
+        let ordered = state.survivingOrdered
+        let n = ordered.count
+        guard n > 0 else { return [] }
+        return ordered.enumerated().map { index, spot in
+            let brightness: Double
+            if n == 1 {
+                brightness = 1.0
+            } else {
+                brightness = 1.0 - (Double(index) / Double(n - 1)) * 0.45
+            }
+            return (x: spot.x, y: spot.y, brightness: brightness)
+        }
+    }
+
     /// Spots eliminated by the filter — shown dimmed rather than removed.
     private var dimmedPins: [(x: Int, y: Int)] {
         guard filterActive else { return [] }
@@ -135,7 +151,7 @@ struct ScanListView: View {
                     gameX:     c.x,
                     gameY:     c.y,
                     mapId:     state.mapId,
-                    extraPins: activePins,
+                    extraPins: state.recommendedStep == nil ? activePins : [],
                     viewportHeight: .infinity,
                     hasTiles:  $hasTiles,
                     showPrimaryPin: false,
@@ -143,6 +159,7 @@ struct ScanListView: View {
                         state.setPendingPos((gx, gy))
                     },
                     dimmedPins:    dimmedPins,
+                    rankedPins: state.recommendedStep == nil ? [] : rankedPins,
                     playerPins:    playerPins,
                     recommendedPin: recommendedMapPin
                 )

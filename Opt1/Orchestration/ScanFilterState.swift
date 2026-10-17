@@ -29,6 +29,10 @@ final class ScanFilterState: ObservableObject {
     @Published var observations:    [Observation] = []
     @Published var pendingPos:       (x: Int, y: Int)? = nil
     @Published var survivingIDs:     Set<String> = []
+    /// Surviving dig spots in display order: by Chebyshev distance from
+    /// `recommendedStep` when a recommendation exists, otherwise stable
+    /// `allCoords` order filtered to the surviving set.
+    @Published var survivingOrdered: [(id: String, x: Int, y: Int)] = []
     /// The next recommended observation position, re-computed after every
     /// observation. `nil` when ≤1 candidate remains or no good split exists.
     @Published var recommendedStep:  RecommendedScanStep? = nil
@@ -81,6 +85,7 @@ final class ScanFilterState: ObservableObject {
                 preferTeleports: true
             )
         }
+        updateSurvivingOrdered()
     }
 
     // MARK: - Mutation
@@ -180,5 +185,32 @@ final class ScanFilterState: ObservableObject {
             preferTeleports: observations.isEmpty,
             playerPos:       playerPos
         )
+        updateSurvivingOrdered()
+    }
+
+    // MARK: - Surviving display order
+
+    private func updateSurvivingOrdered() {
+        let coords = survivingCoordsForOrdering()
+        if let step = recommendedStep {
+            let origin = (x: step.x, y: step.y)
+            survivingOrdered = coords.sorted { a, b in
+                let da = ScanPulseFilter.chebyshev(from: origin, to: (a.x, a.y))
+                let db = ScanPulseFilter.chebyshev(from: origin, to: (b.x, b.y))
+                if da != db { return da < db }
+                return a.id < b.id
+            }
+        } else {
+            survivingOrdered = coords
+        }
+    }
+
+    /// Spots treated as surviving for map ordering — matches `ScanListView`'s
+    /// `activePins` source (all coords before any filter, then `survivingIDs`).
+    private func survivingCoordsForOrdering() -> [(id: String, x: Int, y: Int)] {
+        if observations.isEmpty {
+            return allCoords
+        }
+        return allCoords.filter { survivingIDs.contains($0.id) }
     }
 }
