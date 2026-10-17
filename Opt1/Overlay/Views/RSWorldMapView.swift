@@ -58,6 +58,9 @@ struct RSWorldMapView: View {
     /// show spots eliminated by the current pulse filter without removing them
     /// from view entirely.
     var dimmedPins: [(x: Int, y: Int)] = []
+    /// Surviving scan pins drawn with per-pin brightness (0.55…1.0) between
+    /// `dimmedPins` and `extraPins`. Closest to the recommended step is brightest.
+    var rankedPins: [(x: Int, y: Int, brightness: Double)] = []
     /// Player-position markers drawn as green pins above all other pins.
     /// The scan overlay appends a pin for each confirmed observation and
     /// for the current pending position.
@@ -237,6 +240,18 @@ struct RSWorldMapView: View {
                     Self.drawPin(&ctx, at: pp, radius: Self.pinRadius,
                                  fill:   Color(red: 0.96, green: 0.27, blue: 0.18).opacity(0.22),
                                  stroke: Color(red: 0.20, green: 0.04, blue: 0.04).opacity(0.22))
+                }
+
+                // Ranked surviving pins (scan overlay — distance brightness gradient)
+                let defaultFill   = Color(red: 0.96, green: 0.27, blue: 0.18)
+                let defaultStroke = Color(red: 0.20, green: 0.04, blue: 0.04)
+                for pin in rankedPins.reversed() {
+                    let b  = CGFloat(min(max(pin.brightness, 0.55), 1.0))
+                    let pp = toScreen(Self.toMapPx(pin.x), Self.toMapPx(pin.y),
+                                      size: size, s: s, focal: fc)
+                    Self.drawPin(&ctx, at: pp, radius: Self.pinRadius,
+                                 fill:   defaultFill.opacity(b),
+                                 stroke: defaultStroke.opacity(b))
                 }
 
                 // Primary pin
@@ -422,6 +437,7 @@ struct RSWorldMapView: View {
             // Choose initial focal point and scale to fit all pins.
             // `boundsHints` extend the bounding box without rendering a pin.
             let renderPins = [(gameX, gameY)] + extraPins.map { ($0.x, $0.y) }
+                                             + rankedPins.map { ($0.x, $0.y) }
                                              + hideyHolePins.map { ($0.x, $0.y) }
             let allPins    = renderPins + boundsHints.map { ($0.x, $0.y) }
             let centX = renderPins.map(\.0).reduce(0, +) / renderPins.count
