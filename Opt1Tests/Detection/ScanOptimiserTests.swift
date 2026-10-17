@@ -247,7 +247,7 @@ struct ScanOptimiserTests {
 
 // MARK: - ScanAssumptions Tests
 
-@Suite("ScanAssumptions")
+@Suite("ScanAssumptions", .serialized)
 struct ScanAssumptionsTests {
 
     @Test("default assumes no movement buffs")

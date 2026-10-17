@@ -3,8 +3,8 @@ import Foundation
 @testable import Opt1
 import Opt1Matching
 
-@Suite("ScanFilterState")
-struct ScanFilterStateTests {
+@Suite("ScanAssumptions mid-scan", .serialized)
+struct ScanAssumptionsMidScanTests {
 
     @Test("second observation uses base range only for Meerkats filtering")
     @MainActor
