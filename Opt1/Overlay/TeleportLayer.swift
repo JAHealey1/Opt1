@@ -53,9 +53,12 @@ enum TeleportLayer {
     ///   - focal: effective focal point in map-pixel coordinates.
     ///   - toScreenFn: same projection helper used by tiles + pins.
     ///   - toMapPxFn: game-tile coordinate → map-pixel coordinate.
+    ///   - badgeText: label drawn on the sprite badge (custom keybind + in-game
+    ///     code), already clamped for the pill. Return nil to suppress the badge.
     static func draw(_ ctx: inout GraphicsContext,
                      spots: [TeleportSpot],
                      spriteLookup: (String) -> CGImage?,
+                     badgeText: (TeleportSpot) -> String?,
                      size: CGSize,
                      s: CGFloat,
                      focal: CGPoint,
@@ -111,7 +114,7 @@ enum TeleportLayer {
             // menu number). ClueTrainer paints these directly on the
             // sprite; matching that convention so users carrying muscle
             // memory from there read the same iconography on Opt1's map.
-            if drawCodes, let code = displayCode(for: spot.code) {
+            if drawCodes, let code = badgeText(spot) {
                 drawCodeBadge(&ctx, code: code, anchor: rect, spriteEdge: edge)
             }
         }
@@ -119,22 +122,32 @@ enum TeleportLayer {
 
     // MARK: Code badge
 
+    /// Badge label for a teleport spot: custom pre-steps plus the in-game
+    /// `code` from teleports.json, sanitised for the on-sprite pill.
+    static func badgeText(for spot: TeleportSpot, customSteps: [String]) -> String? {
+        badgeDisplay(for: keybindSequence(steps: customSteps, code: spot.code))
+    }
+
     /// Picks the substring shown on the sprite. ClueTrainer's data stores
     /// short keybinds verbatim ("A", "Opt+M", "1") and fairy ring codes as
     /// 3-letter clusters ("AIQ"). A handful of entries (e.g. Ork's Rift's
     /// "BIR DIP CLR ALP") cram several alternate codes into one string;
-    /// we render only the first to keep the badge legible.
-    private static func displayCode(for raw: String?) -> String? {
+    /// we render only the first to keep the badge legible. Joined custom
+    /// sequences (containing `" > "`) are kept intact so multi-step binds
+    /// remain readable.
+    static func badgeDisplay(for raw: String?) -> String? {
         guard let raw, !raw.isEmpty else { return nil }
-        let firstToken = raw.split(separator: " ").first.map(String.init) ?? raw
-        guard !firstToken.isEmpty else { return nil }
-        // Cap absolute width — Lodestone modifier chords like "Shift+F"
-        // (7 chars) must fit; fairy-ring first tokens stay ≤3 letters. Very
-        // long single tokens are still clipped so runty multi-code blobs
-        // do not overwhelm the badge.
         let maxChars = 10
-        return firstToken.count <= maxChars ? firstToken
-                                           : String(firstToken.prefix(maxChars))
+        let display: String
+        if raw.contains(" > ") {
+            display = raw
+        } else {
+            let firstToken = raw.split(separator: " ").first.map(String.init) ?? raw
+            guard !firstToken.isEmpty else { return nil }
+            display = firstToken
+        }
+        return display.count <= maxChars ? display
+                                         : String(display.prefix(maxChars))
     }
 
     private static func drawCodeBadge(_ ctx: inout GraphicsContext,

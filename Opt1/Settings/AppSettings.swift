@@ -175,6 +175,11 @@ final class AppSettings {
         // own individual in-game keybind (spellbooks, house teleports, etc.).
         // Keyed by TeleportSpot.id ("<groupId>.<spotId>").
         static let teleportSpotSteps  = "teleportSpotSteps"
+        /// Monotonic counter bumped whenever custom teleport keybind storage
+        /// changes. `RSWorldMapView` observes this via `@AppStorage` so the
+        /// map Canvas redraws after Settings edits (dictionaries are not
+        /// `@AppStorage`-native).
+        static let teleportKeybindsRevision = "teleportKeybindsRevision"
     }
 
     // MARK: - Per-spot keybind groups
@@ -550,6 +555,7 @@ final class AppSettings {
             map[groupId] = steps
         }
         teleportGroupSteps = map
+        bumpTeleportKeybindsRevision()
     }
 
     /// Removes the custom keybind steps for a teleport group.
@@ -557,6 +563,7 @@ final class AppSettings {
         var map = teleportGroupSteps
         map.removeValue(forKey: groupId)
         teleportGroupSteps = map
+        bumpTeleportKeybindsRevision()
     }
 
     // MARK: - Per-spot keybind steps
@@ -579,6 +586,7 @@ final class AppSettings {
             map[spotId] = steps
         }
         teleportSpotSteps = map
+        bumpTeleportKeybindsRevision()
     }
 
     /// Removes the custom keybind steps for an individual teleport spot.
@@ -586,6 +594,12 @@ final class AppSettings {
         var map = teleportSpotSteps
         map.removeValue(forKey: spotId)
         teleportSpotSteps = map
+        bumpTeleportKeybindsRevision()
+    }
+
+    private static func bumpTeleportKeybindsRevision() {
+        let key = Keys.teleportKeybindsRevision
+        UserDefaults.standard.set(UserDefaults.standard.integer(forKey: key) + 1, forKey: key)
     }
 
     /// Returns the correct custom pre-steps for a teleport spot, choosing

@@ -76,6 +76,8 @@ struct RSWorldMapView: View {
     /// User toggle — surfaced via `SettingsView`'s "Show teleport icons on
     /// map" switch and the `AppSettings.Keys.showTeleports` key. Default-on.
     @AppStorage(AppSettings.Keys.showTeleports) private var showTeleports: Bool = true
+    /// Read only to invalidate the map Canvas when custom teleport keybinds change in Settings.
+    @AppStorage(AppSettings.Keys.teleportKeybindsRevision) private var _teleportKeybindsRevision: Int = 0
 
     // Committed pan/zoom state
     @State private var focalPt: CGPoint = .zero
@@ -188,10 +190,17 @@ struct RSWorldMapView: View {
                 // beams/pins remain visually dominant when both layers
                 // overlap a single spot).
                 if showTeleports {
+                    let _ = _teleportKeybindsRevision
                     TeleportLayer.draw(
                         &ctx,
                         spots: TeleportCatalogue.shared.spots(forMapId: mapId),
                         spriteLookup: { TeleportSpriteCache.shared.image(named: $0) },
+                        badgeText: { spot in
+                            TeleportLayer.badgeText(
+                                for: spot,
+                                customSteps: AppSettings.resolvedSteps(for: spot)
+                            )
+                        },
                         size: size, s: s, focal: fc,
                         toScreenFn: toScreen,
                         toMapPxFn: Self.toMapPx
