@@ -245,7 +245,7 @@ struct RSWorldMapView: View {
                 // Ranked surviving pins (scan overlay — distance brightness gradient)
                 let defaultFill   = Color(red: 0.96, green: 0.27, blue: 0.18)
                 let defaultStroke = Color(red: 0.20, green: 0.04, blue: 0.04)
-                for pin in rankedPins {
+                for pin in rankedPins.reversed() {
                     let b  = CGFloat(min(max(pin.brightness, 0.55), 1.0))
                     let pp = toScreen(Self.toMapPx(pin.x), Self.toMapPx(pin.y),
                                       size: size, s: s, focal: fc)
