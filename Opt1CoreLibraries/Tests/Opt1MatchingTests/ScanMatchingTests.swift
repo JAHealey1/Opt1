@@ -287,6 +287,21 @@ struct ScanMatchingTests {
 @Suite("Scan clue plane")
 struct ScanPlaneTests {
 
+    /// Lower level + verified unprefixed Brimhaven spots (scan_0971, scan_0972).
+    private static let brimhavenExpectedPlanes: [String: Int] = {
+        var planes: [String: Int] = [:]
+        for n in 939...972 { planes[String(format: "scan_%04d", n)] = 0 }
+        for n in 973...981 { planes[String(format: "scan_%04d", n)] = 1 }
+        return planes
+    }()
+
+    private static let dorgeshExpectedPlanes: [String: Int] = {
+        var planes: [String: Int] = [:]
+        for n in 982...993 { planes[String(format: "scan_%04d", n)] = 0 }
+        for n in 994...1001 { planes[String(format: "scan_%04d", n)] = 1 }
+        return planes
+    }()
+
     @Test("Codable round-trip preserves explicit plane")
     func codableRoundTripWithPlane() throws {
         let original = ClueSolution(
@@ -336,5 +351,27 @@ struct ScanPlaneTests {
                 "Region '\(location)' spans planes but entries lack plane: \(missing)"
             )
         }
+    }
+
+    @Test("Backfilled Brimhaven and Dorgesh-Kaan spots match expected planes")
+    func backfilledRegionsMatchExpectedPlanes() {
+        ClueDatabase.shared.load()
+        let scans = ClueDatabase.shared.clues.filter { $0.type == "scan" }
+
+        func assertRegion(_ location: String, expected: [String: Int]) {
+            let entries = scans.filter { $0.location == location }
+            #expect(entries.count == expected.count, "Unexpected spot count for \(location)")
+            #expect(Set(entries.map(\.id)) == Set(expected.keys))
+            for entry in entries {
+                #expect(entry.plane != nil, "\(entry.id) should have plane")
+                #expect(
+                    entry.plane == expected[entry.id],
+                    "\(entry.id): expected plane \(expected[entry.id]!), got \(String(describing: entry.plane))"
+                )
+            }
+        }
+
+        assertRegion("Brimhaven Dungeon", expected: Self.brimhavenExpectedPlanes)
+        assertRegion("Dorgesh-Kaan", expected: Self.dorgeshExpectedPlanes)
     }
 }
