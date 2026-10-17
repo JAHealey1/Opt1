@@ -11,6 +11,7 @@
 		A300000000000000000000107 /* ScanPulseFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200000000000000000000FD /* ScanPulseFilter.swift */; };
 		A300000000000000000000108 /* ScanFilterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200000000000000000000FE /* ScanFilterState.swift */; };
 		A300000000000000000000109 /* ScanOptimiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200000000000000000000FF /* ScanOptimiser.swift */; };
+		A30000000000000000000116 /* ScanAssumptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000116 /* ScanAssumptions.swift */; };
 		A300000000000000000000A0 /* Opt1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000000000000000000000D /* Opt1App.swift */; };
 		A300000000000000000000A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000000000000000000000E /* AppDelegate.swift */; };
 		A300000000000000000000A2 /* ScreenCaptureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000000000000000000000F /* ScreenCaptureManager.swift */; };
@@ -209,6 +210,7 @@
 		A200000000000000000000FD /* ScanPulseFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanPulseFilter.swift; sourceTree = "<group>"; };
 		A200000000000000000000FE /* ScanFilterState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanFilterState.swift; sourceTree = "<group>"; };
 		A200000000000000000000FF /* ScanOptimiser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanOptimiser.swift; sourceTree = "<group>"; };
+		A20000000000000000000116 /* ScanAssumptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanAssumptions.swift; sourceTree = "<group>"; };
 		A20000000000000000000100 /* PermissionsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsState.swift; sourceTree = "<group>"; };
 		A20000000000000000000101 /* OnboardingPermissionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPermissionsView.swift; sourceTree = "<group>"; };
 		A20000000000000000000102 /* SliderAnchors */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SliderAnchors; sourceTree = "<group>"; };
@@ -382,6 +384,7 @@
 				A200000000000000000000FC /* ParchmentLocator.swift */,
 				A200000000000000000000FD /* ScanPulseFilter.swift */,
 				A200000000000000000000FF /* ScanOptimiser.swift */,
+				A20000000000000000000116 /* ScanAssumptions.swift */,
 				A200000000000000000000DA /* CompassTriangulation.swift */,
 				A200000000000000000000FA /* CompassDigSpots.swift */,
 				A20000000000000000000114 /* PolygonGeometry.swift */,
@@ -768,6 +771,7 @@
 				A300000000000000000000106 /* ParchmentLocator.swift in Sources */,
 				A300000000000000000000107 /* ScanPulseFilter.swift in Sources */,
 				A300000000000000000000109 /* ScanOptimiser.swift in Sources */,
+				A30000000000000000000116 /* ScanAssumptions.swift in Sources */,
 				A300000000000000000000D3 /* CompassTriangulation.swift in Sources */,
 				A300000000000000000000FA /* CompassDigSpots.swift in Sources */,
 				A30000000000000000000114 /* PolygonGeometry.swift in Sources */,

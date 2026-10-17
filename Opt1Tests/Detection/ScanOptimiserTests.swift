@@ -244,3 +244,57 @@ struct ScanOptimiserTests {
         #expect(distToPlayer < 40)
     }
 }
+
+// MARK: - ScanAssumptions Tests
+
+@Suite("ScanAssumptions")
+struct ScanAssumptionsTests {
+
+    @Test("default assumes no movement buffs")
+    func defaultIsAllFalse() {
+        #expect(ScanAssumptions.default == ScanAssumptions(
+            doubleSurge: false,
+            doubleEscape: false,
+            meerkats: false,
+            mobilePerk: false
+        ))
+    }
+
+    @Test("meerkats +5 range on first observation changes the recommended tile")
+    func meerkatsChangesFirstObservationRecommendation() throws {
+        // Two spots spaced so tile (13, 0) splits triple/single at range 10 but is
+        // uninformative (both double) without Meerkats; at effective range 15 it splits.
+        let spots: [(id: String, x: Int, y: Int)] = [("A", 0, 0), ("B", 25, 0)]
+        let surviving = Set(spots.map(\.id))
+        let base = (
+            surviving: surviving,
+            allCoords: spots,
+            range: 10,
+            mapId: 0,
+            preferTeleports: false,
+            isFirstObservation: true
+        )
+
+        let withoutMeerkats = try #require(ScanOptimiser.recommend(
+            surviving: base.surviving,
+            allCoords: base.allCoords,
+            range: base.range,
+            mapId: base.mapId,
+            preferTeleports: base.preferTeleports,
+            assumptions: ScanAssumptions(doubleSurge: false, doubleEscape: false, meerkats: false, mobilePerk: false),
+            isFirstObservation: base.isFirstObservation
+        ))
+
+        let withMeerkats = try #require(ScanOptimiser.recommend(
+            surviving: base.surviving,
+            allCoords: base.allCoords,
+            range: base.range,
+            mapId: base.mapId,
+            preferTeleports: base.preferTeleports,
+            assumptions: ScanAssumptions(doubleSurge: false, doubleEscape: false, meerkats: true, mobilePerk: false),
+            isFirstObservation: base.isFirstObservation
+        ))
+
+        #expect(withoutMeerkats.x != withMeerkats.x || withoutMeerkats.y != withMeerkats.y)
+    }
+}

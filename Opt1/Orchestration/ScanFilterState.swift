@@ -53,6 +53,8 @@ final class ScanFilterState: ObservableObject {
     /// within this radius — preventing boundary spots from being wrongly cut.
     private let originTolerance = 1
 
+    private var userDefaultsObserver: NSObjectProtocol?
+
     // MARK: - Init
 
     init(region: String, scanRange: String, spots: [ClueSolution]) {
@@ -73,13 +75,32 @@ final class ScanFilterState: ObservableObject {
         // into the region is a free first reading.
         if AppSettings.isScanNextSpotEnabled {
             let allIDs = Set(self.allCoords.map(\.id))
+            let assumptions = ScanAssumptions.fromSettings()
             self.recommendedStep = ScanOptimiser.recommend(
-                surviving:       allIDs,
-                allCoords:       self.allCoords,
-                range:           Int(scanRange) ?? 0,
-                mapId:           self.mapId,
-                preferTeleports: true
+                surviving:          allIDs,
+                allCoords:          self.allCoords,
+                range:              Int(scanRange) ?? 0,
+                mapId:              self.mapId,
+                preferTeleports:    true,
+                assumptions:        assumptions,
+                isFirstObservation: true
             )
+        }
+
+        userDefaultsObserver = NotificationCenter.default.addObserver(
+            forName: UserDefaults.didChangeNotification,
+            object: nil,
+            queue: .main
+        ) { [weak self] _ in
+            Task { @MainActor in
+                self?.refreshRecommendation()
+            }
+        }
+    }
+
+    deinit {
+        if let userDefaultsObserver {
+            NotificationCenter.default.removeObserver(userDefaultsObserver)
         }
     }
 
@@ -172,13 +193,16 @@ final class ScanFilterState: ObservableObject {
         // Use the most recent confirmed observation as a proxy for where the
         // player currently is, so the optimiser can prefer nearby candidates.
         let playerPos = observations.last.map { ($0.x, $0.y) }
+        let assumptions = ScanAssumptions.fromSettings()
         recommendedStep = ScanOptimiser.recommend(
-            surviving:       ids,
-            allCoords:       allCoords,
-            range:           rangeInt,
-            mapId:           mapId,
-            preferTeleports: observations.isEmpty,
-            playerPos:       playerPos
+            surviving:          ids,
+            allCoords:          allCoords,
+            range:              rangeInt,
+            mapId:              mapId,
+            preferTeleports:    observations.isEmpty,
+            playerPos:          playerPos,
+            assumptions:        assumptions,
+            isFirstObservation: observations.isEmpty
         )
     }
 }
