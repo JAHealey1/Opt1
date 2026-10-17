@@ -22,6 +22,7 @@ final class ScanFilterState: ObservableObject {
         let x: Int
         let y: Int
         let pulse: ScanPulse
+        let differentLevel: Bool
     }
 
     // MARK: - Published state
@@ -96,7 +97,7 @@ final class ScanFilterState: ObservableObject {
     /// If the user hasn't double-tapped a position, falls back to the current
     /// recommended step's position so they can confirm a pulse without needing
     /// to explicitly select the suggested tile first.
-    func confirmPulse(_ pulse: ScanPulse) {
+    func confirmPulse(_ pulse: ScanPulse, differentLevel: Bool = false) {
         let pos: (x: Int, y: Int)
         if let p = pendingPos {
             pos = p
@@ -105,7 +106,8 @@ final class ScanFilterState: ObservableObject {
         } else {
             return
         }
-        observations.append(Observation(x: pos.x, y: pos.y, pulse: pulse))
+        observations.append(Observation(x: pos.x, y: pos.y, pulse: pulse,
+                                        differentLevel: differentLevel))
         pendingPos = nil
         recompute()
     }
@@ -140,6 +142,8 @@ final class ScanFilterState: ObservableObject {
             updateRecommendation()
             return
         }
+        // TODO(OPT1-10): sourced from assumption settings
+        let playerPlane = 0
         var surviving: Set<String>? = nil
         for obs in observations {
             let ids = ScanPulseFilter.survivingIDs(
@@ -147,7 +151,9 @@ final class ScanFilterState: ObservableObject {
                 player: (obs.x, obs.y),
                 range: rangeInt,
                 pulse: obs.pulse,
-                tolerance: originTolerance
+                tolerance: originTolerance,
+                differentLevel: obs.differentLevel,
+                playerPlane: playerPlane
             )
             surviving = surviving == nil ? ids : surviving!.intersection(ids)
         }

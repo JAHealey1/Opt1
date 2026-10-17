@@ -26,8 +26,9 @@ enum ScanPulse: CaseIterable, Hashable {
 ///   - Double pulse: player is between R+1 and 2R tiles away.
 ///   - Single pulse: player is beyond 2R tiles away.
 ///
-/// "Different level" is excluded — it requires per-spot floor data not currently
-/// stored in `clues.json`.
+/// When `differentLevel` is false (default), only spots on `playerPlane` are
+/// considered; when true, only spots on other planes are kept. Plane filtering
+/// is intersected with the Chebyshev pulse band filter.
 struct ScanPulseFilter {
 
     // MARK: - Distance
@@ -91,23 +92,29 @@ struct ScanPulseFilter {
     /// `player` with the given `range`.
     ///
     /// - Parameters:
-    ///   - coords:    Pre-parsed spot coordinates as `(id, x, y, plane)` tuples.
-    ///                `plane` is unused today; reserved for Phase 3 different-floor handling.
-    ///   - player:    Player's marked game-tile position.
-    ///   - range:     Effective scan range (including any familiar bonuses).
-    ///   - pulse:     The observed pulse to filter for.
-    ///   - tolerance: Chebyshev radius of origin uncertainty (default `0` =
-    ///                exact-tile match). A spot survives if it matches `pulse`
-    ///                from any tile within this radius of `player`.
+    ///   - coords:         Pre-parsed spot coordinates as `(id, x, y, plane)` tuples.
+    ///   - player:           Player's marked game-tile position.
+    ///   - range:            Effective scan range (including any familiar bonuses).
+    ///   - pulse:            The observed pulse to filter for.
+    ///   - tolerance:        Chebyshev radius of origin uncertainty (default `0` =
+    ///                       exact-tile match). A spot survives if it matches `pulse`
+    ///                       from any tile within this radius of `player`.
+    ///   - differentLevel:   When false, keep spots on `playerPlane`; when true,
+    ///                       keep spots on any other plane.
+    ///   - playerPlane:      The player's current floor (default surface `0`).
     static func survivingIDs(from coords: [(id: String, x: Int, y: Int, plane: Int)],
                               player: (x: Int, y: Int),
                               range: Int,
                               pulse: ScanPulse,
-                              tolerance: Int = 0) -> Set<String> {
+                              tolerance: Int = 0,
+                              differentLevel: Bool = false,
+                              playerPlane: Int = 0) -> Set<String> {
         Set(coords
             .filter {
-                Self.possiblePulses(from: player, to: ($0.x, $0.y),
-                                    range: range, tolerance: tolerance)
+                let onPlayerFloor = $0.plane == playerPlane
+                guard differentLevel ? !onPlayerFloor : onPlayerFloor else { return false }
+                return Self.possiblePulses(from: player, to: ($0.x, $0.y),
+                                           range: range, tolerance: tolerance)
                     .contains(pulse)
             }
             .map(\.id)

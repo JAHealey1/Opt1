@@ -14,6 +14,7 @@ struct ScanListView: View {
     @ObservedObject var state: ScanFilterState
     @State private var hasTiles: Bool? = nil
     @State private var disabledTeleportIds: Set<String> = AppSettings.disabledScanTeleportIds
+    @State private var nextDifferentLevel: Bool = false
 
     // MARK: - Derived data
 
@@ -214,7 +215,9 @@ struct ScanListView: View {
                                         Circle()
                                             .fill(pulseColor(obs.pulse))
                                             .frame(width: 6, height: 6)
-                                        Text(obs.pulse.label)
+                                        Text(obs.differentLevel
+                                             ? "\(obs.pulse.label) ↕︎"
+                                             : obs.pulse.label)
                                             .font(.system(size: 9, weight: .semibold, design: .monospaced))
                                             .foregroundColor(pulseColor(obs.pulse).opacity(0.9))
                                     }
@@ -270,8 +273,35 @@ struct ScanListView: View {
                             .foregroundColor(.white.opacity(0.35))
                     }
 
+                    Button(action: { nextDifferentLevel.toggle() }) {
+                        Image(systemName: "arrow.up.arrow.down")
+                            .font(.system(size: 10, weight: .semibold))
+                            .foregroundColor(
+                                nextDifferentLevel
+                                    ? OverlayTheme.gold.opacity(0.95)
+                                    : .white.opacity(0.35)
+                            )
+                            .frame(width: 26, height: 22)
+                            .background(Capsule().fill(
+                                nextDifferentLevel
+                                    ? OverlayTheme.gold.opacity(0.18)
+                                    : Color.white.opacity(0.05)
+                            ))
+                            .overlay(Capsule().strokeBorder(
+                                nextDifferentLevel
+                                    ? OverlayTheme.gold.opacity(0.55)
+                                    : Color.white.opacity(0.12),
+                                lineWidth: 0.5
+                            ))
+                    }
+                    .buttonStyle(.plain)
+                    .help("Mark the next pulse as a different-floor scan")
+
                     ForEach(ScanPulse.allCases, id: \.self) { pulse in
-                        Button(action: { state.confirmPulse(pulse) }) {
+                        Button(action: {
+                            state.confirmPulse(pulse, differentLevel: nextDifferentLevel)
+                            nextDifferentLevel = false
+                        }) {
                             Text(pulse.label)
                                 .font(.system(size: 10, weight: .semibold, design: .monospaced))
                                 .foregroundColor(
