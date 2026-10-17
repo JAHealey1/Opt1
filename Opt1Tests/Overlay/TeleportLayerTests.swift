@@ -58,6 +58,37 @@ struct TeleportLayerTests {
         #expect(TeleportLayer.badgeText(for: s, customSteps: ["P"]) == "P > BIR")
     }
 
+    @Test("Per-spot spellbook group honours caller-provided steps")
+    func perSpotGroupStepsAtSeam() {
+        let s = spot(groupId: "normalspellbook", spotId: "varrock", code: "2")
+        let steps = ["P", "⌥5"]
+        #expect(TeleportLayer.badgeText(for: s, customSteps: steps) == "P > ⌥5 > 2")
+    }
+}
+
+@Suite("TeleportLayer keybind integration", .serialized)
+struct TeleportLayerKeybindIntegrationTests {
+
+    private let defaultsScope = TeleportKeybindTestDefaults.Scope()
+
+    private func spot(
+        groupId: String,
+        spotId: String,
+        code: String?
+    ) -> TeleportSpot {
+        TeleportSpot(
+            groupId: groupId,
+            groupName: "Test",
+            spotId: spotId,
+            name: "Test Spot",
+            icon: nil,
+            x: 0,
+            y: 0,
+            level: 0,
+            code: code
+        )
+    }
+
     @Test("Group keybind steps resolve into badge text")
     func groupStepsIntegration() {
         let s = spot(groupId: "lodestones", spotId: "alkharid", code: "M")
@@ -74,12 +105,5 @@ struct TeleportLayerTests {
         AppSettings.setSpotSteps(["P"], forSpotId: s.id)
         let steps = AppSettings.resolvedSteps(for: s)
         #expect(TeleportLayer.badgeText(for: s, customSteps: steps) == "P > 2")
-    }
-
-    @Test("Per-spot spellbook group honours caller-provided steps")
-    func perSpotGroupStepsAtSeam() {
-        let s = spot(groupId: "normalspellbook", spotId: "varrock", code: "2")
-        let steps = ["P", "⌥5"]
-        #expect(TeleportLayer.badgeText(for: s, customSteps: steps) == "P > ⌥5 > 2")
     }
 }

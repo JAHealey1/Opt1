@@ -109,6 +109,8 @@ struct HotkeyBinding: Equatable {
 final class AppSettings {
 
     static let shared = AppSettings()
+    /// UserDefaults backing store; tests may swap in an isolated suite.
+    static var defaults: UserDefaults = .standard
     private init() {}
 
     // MARK: - Keys
@@ -541,8 +543,8 @@ final class AppSettings {
     /// The known in-game `code` from teleports.json is appended at display time
     /// and is never stored here.
     static var teleportGroupSteps: [String: [String]] {
-        get { (UserDefaults.standard.object(forKey: Keys.teleportGroupSteps) as? [String: [String]]) ?? [:] }
-        set { UserDefaults.standard.set(newValue, forKey: Keys.teleportGroupSteps) }
+        get { (defaults.object(forKey: Keys.teleportGroupSteps) as? [String: [String]]) ?? [:] }
+        set { defaults.set(newValue, forKey: Keys.teleportGroupSteps) }
     }
 
     /// Saves an ordered list of keybind step labels for a teleport group.
@@ -572,8 +574,8 @@ final class AppSettings {
     /// Used for groups listed in `perSpotKeybindGroups` where each destination
     /// has its own individual in-game keybind.
     static var teleportSpotSteps: [String: [String]] {
-        get { (UserDefaults.standard.object(forKey: Keys.teleportSpotSteps) as? [String: [String]]) ?? [:] }
-        set { UserDefaults.standard.set(newValue, forKey: Keys.teleportSpotSteps) }
+        get { (defaults.object(forKey: Keys.teleportSpotSteps) as? [String: [String]]) ?? [:] }
+        set { defaults.set(newValue, forKey: Keys.teleportSpotSteps) }
     }
 
     /// Saves an ordered list of keybind step labels for an individual teleport spot.
@@ -599,7 +601,7 @@ final class AppSettings {
 
     private static func bumpTeleportKeybindsRevision() {
         let key = Keys.teleportKeybindsRevision
-        UserDefaults.standard.set(UserDefaults.standard.integer(forKey: key) + 1, forKey: key)
+        defaults.set(defaults.integer(forKey: key) + 1, forKey: key)
     }
 
     /// Returns the correct custom pre-steps for a teleport spot, choosing
