@@ -125,29 +125,29 @@ enum TeleportLayer {
     /// Badge label for a teleport spot: custom pre-steps plus the in-game
     /// `code` from teleports.json, sanitised for the on-sprite pill.
     static func badgeText(for spot: TeleportSpot, customSteps: [String]) -> String? {
-        badgeDisplay(for: keybindSequence(steps: customSteps, code: spot.code))
+        clampBadgeLength(
+            keybindSequence(steps: customSteps, code: normalizeCode(spot.code))
+        )
     }
 
-    /// Picks the substring shown on the sprite. ClueTrainer's data stores
-    /// short keybinds verbatim ("A", "Opt+M", "1") and fairy ring codes as
-    /// 3-letter clusters ("AIQ"). A handful of entries (e.g. Ork's Rift's
-    /// "BIR DIP CLR ALP") cram several alternate codes into one string;
-    /// we render only the first to keep the badge legible. Joined custom
-    /// sequences (containing `" > "`) are kept intact so multi-step binds
-    /// remain readable.
-    static func badgeDisplay(for raw: String?) -> String? {
+    /// Normalises the raw `code` field from teleports.json before it is
+    /// joined with custom steps. ClueTrainer stores short keybinds verbatim
+    /// and fairy ring codes as 3-letter clusters; a handful of entries cram
+    /// several alternate codes into one string — we keep only the first token.
+    static func normalizeCode(_ raw: String?) -> String? {
+        guard let raw, !raw.isEmpty else { return nil }
+        let firstToken = raw.split(separator: " ").first.map(String.init) ?? raw
+        guard !firstToken.isEmpty else { return nil }
+        let maxTokenChars = 10
+        return firstToken.count <= maxTokenChars ? firstToken
+                                                 : String(firstToken.prefix(maxTokenChars))
+    }
+
+    /// Caps the fully joined badge string so long custom sequences fit the pill.
+    static func clampBadgeLength(_ raw: String?) -> String? {
         guard let raw, !raw.isEmpty else { return nil }
         let maxChars = 10
-        let display: String
-        if raw.contains(" > ") {
-            display = raw
-        } else {
-            let firstToken = raw.split(separator: " ").first.map(String.init) ?? raw
-            guard !firstToken.isEmpty else { return nil }
-            display = firstToken
-        }
-        return display.count <= maxChars ? display
-                                         : String(display.prefix(maxChars))
+        return raw.count <= maxChars ? raw : String(raw.prefix(maxChars))
     }
 
     private static func drawCodeBadge(_ ctx: inout GraphicsContext,

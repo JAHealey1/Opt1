@@ -120,6 +120,7 @@
 		B300000000000000000000D0 /* SecondStepSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000D0 /* SecondStepSection.swift */; };
 		B300000000000000000000D1 /* ClueNoteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000D1 /* ClueNoteRow.swift */; };
 		B300000000000000000000D2 /* TeleportLayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000D2 /* TeleportLayerTests.swift */; };
+		B300000000000000000000D3 /* AppSettingsKeybindRevisionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200000000000000000000D3 /* AppSettingsKeybindRevisionTests.swift */; };
 		F21F8EAE2F944160005662AA /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = F21F8EAD2F944160005662AA /* AppIcon.icon */; };
 		F21F993F2F993BAB005662AA /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = F21F993E2F993BAB005662AA /* Sparkle */; };
 		P300000000000000000000A0 /* DetectionConfiguration+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = P200000000000000000000A0 /* DetectionConfiguration+App.swift */; };
@@ -267,6 +268,7 @@
 		B200000000000000000000D0 /* SecondStepSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondStepSection.swift; sourceTree = "<group>"; };
 		B200000000000000000000D1 /* ClueNoteRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClueNoteRow.swift; sourceTree = "<group>"; };
 		B200000000000000000000D2 /* TeleportLayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeleportLayerTests.swift; sourceTree = "<group>"; };
+		B200000000000000000000D3 /* AppSettingsKeybindRevisionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsKeybindRevisionTests.swift; sourceTree = "<group>"; };
 		F21F8C412F92B7B2005662AA /* Opt1.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Opt1.xctestplan; sourceTree = "<group>"; };
 		F21F8EAD2F944160005662AA /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
 		F300000000000000000000A0 /* Opt1.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Opt1.entitlements; sourceTree = "<group>"; };
@@ -580,8 +582,17 @@
 				B400000000000000000000A3 /* Detection */,
 				B400000000000000000000A4 /* Orchestration */,
 				B400000000000000000000A5 /* Overlay */,
+				B400000000000000000000A6 /* Settings */,
 			);
 			path = Opt1Tests;
+			sourceTree = "<group>";
+		};
+		B400000000000000000000A6 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B200000000000000000000D3 /* AppSettingsKeybindRevisionTests.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		B400000000000000000000A5 /* Overlay */ = {
@@ -848,6 +859,7 @@
 				B300000000000000000000BE /* PolygonGeometryTests.swift in Sources */,
 				B300000000000000000000BF /* ClueScrollPipelineTests.swift in Sources */,
 				B300000000000000000000D2 /* TeleportLayerTests.swift in Sources */,
+				B300000000000000000000D3 /* AppSettingsKeybindRevisionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -52,6 +52,30 @@ struct TeleportLayerTests {
         #expect(TeleportLayer.badgeText(for: s, customSteps: []) == "BIR")
     }
 
+    @Test("Custom steps join with normalized in-game code")
+    func customStepsWithMultiTokenCode() {
+        let s = spot(code: "BIR DIP CLR ALP")
+        #expect(TeleportLayer.badgeText(for: s, customSteps: ["P"]) == "P > BIR")
+    }
+
+    @Test("Group keybind steps resolve into badge text")
+    func groupStepsIntegration() {
+        let s = spot(groupId: "lodestones", spotId: "alkharid", code: "M")
+        defer { AppSettings.removeGroupSteps(forGroupId: s.groupId) }
+        AppSettings.setGroupSteps(["⌥5"], forGroupId: s.groupId)
+        let steps = AppSettings.resolvedSteps(for: s)
+        #expect(TeleportLayer.badgeText(for: s, customSteps: steps) == "⌥5 > M")
+    }
+
+    @Test("Per-spot keybind steps resolve into badge text")
+    func perSpotStepsIntegration() {
+        let s = spot(groupId: "normalspellbook", spotId: "varrock", code: "2")
+        defer { AppSettings.removeSpotSteps(forSpotId: s.id) }
+        AppSettings.setSpotSteps(["P"], forSpotId: s.id)
+        let steps = AppSettings.resolvedSteps(for: s)
+        #expect(TeleportLayer.badgeText(for: s, customSteps: steps) == "P > 2")
+    }
+
     @Test("Per-spot spellbook group honours caller-provided steps")
     func perSpotGroupStepsAtSeam() {
         let s = spot(groupId: "normalspellbook", spotId: "varrock", code: "2")
