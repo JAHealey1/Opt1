@@ -217,7 +217,7 @@
     "x": 3336,
     "y": 3378,
     "level": 0,
-    "code": "1"
+    "code": "1,1"
   },
   {
     "groupId": "archteleport",
@@ -228,7 +228,7 @@
     "x": 3254,
     "y": 3453,
     "level": 2,
-    "code": "0,1"
+    "code": "2,1"
   },
   {
     "groupId": "archteleport",
@@ -239,7 +239,7 @@
     "x": 2893,
     "y": 3417,
     "level": 0,
-    "code": "0,2"
+    "code": "2,2"
   },
   {
     "groupId": "archteleport",
@@ -250,7 +250,7 @@
     "x": 2550,
     "y": 2853,
     "level": 0,
-    "code": "0,3"
+    "code": "2,3"
   },
   {
     "groupId": "archteleport",
@@ -261,7 +261,7 @@
     "x": 2957,
     "y": 3510,
     "level": 0,
-    "code": "0,4"
+    "code": "2,4"
   },
   {
     "groupId": "archteleport",
@@ -272,7 +272,7 @@
     "x": 2921,
     "y": 9701,
     "level": 0,
-    "code": "0,5"
+    "code": "2,5"
   },
   {
     "groupId": "archteleport",
@@ -283,7 +283,7 @@
     "x": 2991,
     "y": 699,
     "level": 0,
-    "code": "0,6"
+    "code": "2,6"
   },
   {
     "groupId": "archteleport",
@@ -294,7 +294,7 @@
     "x": 5456,
     "y": 2344,
     "level": 0,
-    "code": "0,7"
+    "code": "2,7"
   },
   {
     "groupId": "archteleport",
@@ -305,7 +305,7 @@
     "x": 2963,
     "y": 3346,
     "level": 0,
-    "code": "0,8"
+    "code": "2,8"
   },
   {
     "groupId": "archteleport",
@@ -316,7 +316,7 @@
     "x": 3181,
     "y": 3417,
     "level": 0,
-    "code": "0,9"
+    "code": "2,9"
   },
   {
     "groupId": "archteleport",
@@ -327,7 +327,7 @@
     "x": 3342,
     "y": 3383,
     "level": 0,
-    "code": "0,0,1"
+    "code": "2,0,1"
   },
   {
     "groupId": "archteleport",
@@ -338,7 +338,7 @@
     "x": 3088,
     "y": 3254,
     "level": 0,
-    "code": "0,0,2"
+    "code": "2,0,2"
   },
   {
     "groupId": "archteleport",
@@ -349,7 +349,7 @@
     "x": 3213,
     "y": 2957,
     "level": 0,
-    "code": "0,0,3"
+    "code": "2,0,3"
   },
   {
     "groupId": "archteleport",
@@ -360,7 +360,7 @@
     "x": 3428,
     "y": 3699,
     "level": 0,
-    "code": "8"
+    "code": "1,8"
   },
   {
     "groupId": "archteleport",
@@ -371,7 +371,7 @@
     "x": 3697,
     "y": 3206,
     "level": 0,
-    "code": "4"
+    "code": "1,4"
   },
   {
     "groupId": "archteleport",
@@ -382,7 +382,7 @@
     "x": 3271,
     "y": 3504,
     "level": 0,
-    "code": "3"
+    "code": "1,3"
   },
   {
     "groupId": "archteleport",
@@ -393,7 +393,7 @@
     "x": 3345,
     "y": 3194,
     "level": 0,
-    "code": "2"
+    "code": "1,2"
   },
   {
     "groupId": "archteleport",
@@ -404,7 +404,7 @@
     "x": 4418,
     "y": 3443,
     "level": 0,
-    "code": "5"
+    "code": "1,5"
   },
   {
     "groupId": "archteleport",
@@ -415,7 +415,7 @@
     "x": 5457,
     "y": 2339,
     "level": 0,
-    "code": "0"
+    "code": "1,0"
   },
   {
     "groupId": "archteleport",
@@ -426,7 +426,7 @@
     "x": 1784,
     "y": 1296,
     "level": 0,
-    "code": "6"
+    "code": "1,6"
   },
   {
     "groupId": "archteleport",
@@ -437,7 +437,7 @@
     "x": 2680,
     "y": 3403,
     "level": 0,
-    "code": "7"
+    "code": "1,7"
   },
   {
     "groupId": "archteleport",
@@ -448,7 +448,7 @@
     "x": 2409,
     "y": 2824,
     "level": 0,
-    "code": "9"
+    "code": "1,9"
   },
   {
     "groupId": "arcsailing",
@@ -2249,8 +2249,8 @@
     "id": "lavaflowmine",
     "name": "Lava Flow Mine",
     "icon": "gote.png",
-    "x": 2177,
-    "y": 5663,
+    "x": 2938,
+    "y": 10199,
     "level": 0,
     "code": null
   },
@@ -4603,8 +4603,8 @@
     "id": "slayerdungeon",
     "name": "Fremennik Slayer Dungeon",
     "icon": "jewellry_ringofslaying.png",
-    "x": 2788,
-    "y": 3613,
+    "x": 2792,
+    "y": 3615,
     "level": 0,
     "code": "3"
   },
