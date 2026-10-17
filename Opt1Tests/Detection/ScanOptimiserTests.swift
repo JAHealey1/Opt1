@@ -134,11 +134,11 @@ struct BFSPathfinderTests {
 @Suite("ScanOptimiser")
 struct ScanOptimiserTests {
 
-    private let fourSpots: [(id: String, x: Int, y: Int)] = [
-        ("A",  0, 0),
-        ("B", 30, 0),
-        ("C", 60, 0),
-        ("D", 90, 0),
+    private let fourSpots: [(id: String, x: Int, y: Int, plane: Int)] = [
+        ("A",  0, 0, 0),
+        ("B", 30, 0, 0),
+        ("C", 60, 0, 0),
+        ("D", 90, 0, 0),
     ]
 
     // MARK: Nil-return edge cases
@@ -228,7 +228,7 @@ struct ScanOptimiserTests {
         // Two spots 80 tiles apart with playerPos near the left spot.
         // Any informative position near the left end should be recommended
         // over an equally-informative one near the right end.
-        let twoSpots: [(id: String, x: Int, y: Int)] = [("A", 0, 0), ("B", 80, 0)]
+        let twoSpots: [(id: String, x: Int, y: Int, plane: Int)] = [("A", 0, 0, 0), ("B", 80, 0, 0)]
         let playerPos = (x: 4, y: 0)
 
         let step = try #require(ScanOptimiser.recommend(

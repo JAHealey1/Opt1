@@ -11,6 +11,9 @@ public struct ClueSolution: Codable, Identifiable {
     public var location: String?   // Named location (e.g. "Varrock Palace")
     public var coordinates: String? // RS coordinates if applicable (e.g. "3213, 3424")
     public var mapId: Int?         // RS map ID for tile lookup: 28 = surface, -1 = underground/default, 695 = Arc
+    /// RuneScape plane index for scan dig spots in multi-storey regions.
+    /// `nil` means surface / plane 0. Otherwise 0 = ground floor, 1 = first storey up, etc.
+    public var plane: Int?
     public var imageRef: String?   // Base filename for bundled map clue images (MapImages/)
     public var travel: String?     // Travel suggestions, bullet-points joined with " • "
     public var confidence: Double? // Populated by FuzzyMatcher at query time
@@ -85,7 +88,7 @@ public struct ClueSolution: Codable, Identifiable {
     public init(
         id: String, type: String, difficulty: String? = nil,
         clue: String, solution: String, location: String? = nil,
-        coordinates: String? = nil, mapId: Int? = nil, imageRef: String? = nil,
+        coordinates: String? = nil, mapId: Int? = nil, plane: Int? = nil, imageRef: String? = nil,
         travel: String? = nil, confidence: Double? = nil,
         scanTextAliases: [String]? = nil, scanRange: Int? = nil,
         emoteItems: [String]? = nil, emoteSteps: [[String]]? = nil,
@@ -103,6 +106,7 @@ public struct ClueSolution: Codable, Identifiable {
         self.location = location
         self.coordinates = coordinates
         self.mapId = mapId
+        self.plane = plane
         self.imageRef = imageRef
         self.travel = travel
         self.confidence = confidence
@@ -124,7 +128,7 @@ public struct ClueSolution: Codable, Identifiable {
     }
 
     enum CodingKeys: String, CodingKey {
-        case id, type, difficulty, clue, solution, location, coordinates, mapId,
+        case id, type, difficulty, clue, solution, location, coordinates, mapId, plane,
              imageRef, travel, confidence, scanTextAliases, scanRange
         case emoteItems, emoteSteps, hideyHoleName, hideyHoleCoords, hideyHoleImageRef, hasFight
         case challengeQuestion, challengeAnswer, secondStep
@@ -143,6 +147,7 @@ public struct ClueSolution: Codable, Identifiable {
         location = try c.decodeIfPresent(String.self, forKey: .location)
         coordinates = try c.decodeIfPresent(String.self, forKey: .coordinates)
         mapId = try c.decodeIfPresent(Int.self, forKey: .mapId)
+        plane = try c.decodeIfPresent(Int.self, forKey: .plane)
         imageRef = try c.decodeIfPresent(String.self, forKey: .imageRef)
         travel = try c.decodeIfPresent(String.self, forKey: .travel)
         confidence = try c.decodeIfPresent(Double.self, forKey: .confidence)
@@ -185,6 +190,7 @@ public struct ClueSolution: Codable, Identifiable {
         try c.encodeIfPresent(location, forKey: .location)
         try c.encodeIfPresent(coordinates, forKey: .coordinates)
         try c.encodeIfPresent(mapId, forKey: .mapId)
+        try c.encodeIfPresent(plane, forKey: .plane)
         try c.encodeIfPresent(imageRef, forKey: .imageRef)
         try c.encodeIfPresent(travel, forKey: .travel)
         try c.encodeIfPresent(confidence, forKey: .confidence)

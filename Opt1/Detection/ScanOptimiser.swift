@@ -136,7 +136,7 @@ enum ScanOptimiser {
     ///   - surviving:       IDs of spots not yet eliminated by previous
     ///                      observations. Pass **all** spot IDs when no
     ///                      observations have been recorded yet.
-    ///   - allCoords:       Full (id, x, y) coordinate list for the scan region.
+    ///   - allCoords:       Full (id, x, y, plane) coordinate list for the scan region.
     ///   - range:           Scan range in game tiles (Chebyshev, as read from OCR).
     ///   - mapId:           World map ID used to filter `TeleportCatalogue`.
     ///   - plane:           Plane/floor (0 = surface).
@@ -154,7 +154,7 @@ enum ScanOptimiser {
     ///            survives (no further discrimination is useful).
     static func recommend(
         surviving: Set<String>,
-        allCoords: [(id: String, x: Int, y: Int)],
+        allCoords: [(id: String, x: Int, y: Int, plane: Int)],
         range: Int,
         mapId: Int,
         plane: Int = 0,
